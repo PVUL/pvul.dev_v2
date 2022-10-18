@@ -1,0 +1,35 @@
+{
+  "name": "scrollycoding-preview",
+  "version": "1.0.0",
+  "scripts": {
+    "local-backend": "npx netlify-cms-proxy-server",
+    "local-dev": "next dev",
+    "dev": "npm-run-all --parallel local-backend local-dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@code-hike/mini-browser": "0.3.0--canary.67.b6f3cda.0",
+    "@code-hike/mini-editor": "0.3.0--canary.67.b6f3cda.0",
+    "@code-hike/scrollycoding": "0.3.0--canary.67.2246098.0",
+    "@codesandbox/sandpack-react": "1.3.0",
+    "classnames": "2.2.6",
+    "gray-matter": "4.0.2",
+    "netlify-cms-app": "^2.15.72",
+    "netlify-cms-media-library-uploadcare": "^0.5.10",
+    "next": "12.2.5",
+    "next-mdx-remote": "3.0.8",
+    "prism-themes": "^1.5.0",
+    "prismjs": "^1.23.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  },
+  "license": "MIT"
+}

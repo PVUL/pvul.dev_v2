@@ -1,0 +1,60 @@
+.controls {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+.controls button {
+  height: 2em;
+  padding: 0 1em;
+  font-size: 1.1em;
+  margin-top: 0.8em;
+}
+
+.controls .text {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+.lesson {
+  /* --width: min(1000px, 100vw); */
+  margin: 0 auto;
+  /* width: var(--width); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1100px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lesson :global(.ch-editor-frame) {
+  min-height: 400px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+}
+
+.header button {
+  height: 2em;
+  padding: 0 1em;
+  font-size: 1.1em;
+  margin-top: 0.8em;
+  background: white;
+  border: 1px solid black;
+  margin: 8px;
+}
+
+.header button:hover {
+  cursor: pointer;
+}
