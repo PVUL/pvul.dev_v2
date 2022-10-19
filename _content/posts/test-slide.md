@@ -8,7 +8,7 @@ excerpt: asdf
 
 about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah. This is how to code it:
 
-<CodeSlide>
+<CodeSlides>
 
 <Slide>
 
@@ -42,7 +42,7 @@ now it just works
 
 </Slide>
 
-</CodeSlide>
+</CodeSlides>
 
 <br />
 

@@ -12,7 +12,7 @@ excerpt:
   tempor incididunt ut labore et dolore magna aliqua.
 ---
 
-<CodeSlide>
+<CodeSlides>
 
 <Slide>
 
@@ -73,4 +73,4 @@ export default function App() {
 
 </Slide>
 
-</CodeSlide>
+</CodeSlides>
