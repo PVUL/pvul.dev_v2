@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { MiniEditor } from '@code-hike/mini-editor'
 
@@ -6,16 +6,17 @@ import styles from './Lesson.module.scss'
 
 import Preview from './Preview'
 
-export default function Lesson({ steps, preset }) {
-  const [index, setIndex] = React.useState(0)
+export default function Lesson({ slides, preset, config }) {
+  const [index, setIndex] = useState(0)
+  const { noPreview } = config
 
   const prev = () => setIndex(Math.max(index - 1, 0))
-  const next = () => setIndex(Math.min(index + 1, steps.length - 1))
+  const next = () => setIndex(Math.min(index + 1, slides.length - 1))
 
   useKey(37, prev)
   useKey(39, next)
 
-  const step = steps[index]
+  const slide = slides[index]
   return (
     <div className={styles.lesson}>
       <header className={styles.header}>
@@ -24,35 +25,40 @@ export default function Lesson({ steps, preset }) {
         </button>
         <button
           onClick={next}
-          disabled={index === steps.length - 1}
+          disabled={index === slides.length - 1}
           type="button"
         >
           Next
         </button>
       </header>
+      <div className={styles.controls}>
+        <div className={styles.text}>{slide.preContent}</div>
+      </div>
       <main className={styles.main}>
         <MiniEditor
-          codeProps={step.codeProps}
+          codeProps={slide.codeProps}
           frameProps={{
             style: { flex: 1, height: 'auto', margin: 8 },
           }}
-          {...step.editorProps.contentProps}
+          {...slide.editorProps.contentProps}
         />
-        <Preview
-          preset={preset}
-          preview={step.previewProps}
-          codeFiles={step.editorProps.contentProps.files}
-        />
+        {!noPreview && (
+          <Preview
+            preset={preset}
+            preview={slide.previewProps}
+            codeFiles={slide.editorProps.contentProps.files}
+          />
+        )}
       </main>
       <div className={styles.controls}>
-        <div className={styles.text}>{step.content}</div>
+        <div className={styles.text}>{slide.postContent}</div>
       </div>
     </div>
   )
 }
 
 function useKey(keyCode, callback) {
-  React.useEffect(() => {
+  useEffect(() => {
     const handler = (e) => {
       if (e.keyCode === keyCode) {
         callback()

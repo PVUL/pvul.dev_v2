@@ -46,6 +46,7 @@ export default {
           name: 'coverImage',
           label: 'Cover Image',
           widget: 'image',
+          required: false,
         },
         {
           name: 'author',

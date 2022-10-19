@@ -7,13 +7,16 @@ category: lessons
 tags:
   - sample-tag
   - web3
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+excerpt:
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua.
 ---
 
-<CodeSlides>
+<CodeSlide>
 
 <Slide>
+
+Some text for step 1
 
 ```jsx
 import React from 'react'
@@ -34,9 +37,9 @@ export default function App() {
 
 </Slide>
 
-Some text for step 1
-
 <Slide>
+
+... and this is the text for step 2
 
 ```jsx focus=5:7
 import React from 'react'
@@ -52,8 +55,6 @@ export default function App() {
 
 </Slide>
 
-... and this is the text for step 2
-
 <Slide>
 
 ```jsx focus=5
@@ -68,8 +69,8 @@ export default function App() {
 }
 ```
 
-</Slide>
-
 ... step 3
 
-</CodeSlides>
+</Slide>
+
+</CodeSlide>
