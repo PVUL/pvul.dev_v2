@@ -8,7 +8,9 @@ import Preview from './Preview'
 
 export default function Lesson({ slides, preset, config }) {
   const [index, setIndex] = useState(0)
-  const { noPreview } = config
+  const slide = slides[index]
+
+  const showPreview = config.showPreview || slide.showPreview
 
   const prev = () => setIndex(Math.max(index - 1, 0))
   const next = () => setIndex(Math.min(index + 1, slides.length - 1))
@@ -16,7 +18,6 @@ export default function Lesson({ slides, preset, config }) {
   useKey(37, prev)
   useKey(39, next)
 
-  const slide = slides[index]
   return (
     <div className={styles.lesson}>
       <header className={styles.header}>
@@ -31,28 +32,34 @@ export default function Lesson({ slides, preset, config }) {
           Next
         </button>
       </header>
-      <div className={styles.controls}>
-        <div className={styles.text}>{slide.preContent}</div>
-      </div>
-      <main className={styles.main}>
-        <MiniEditor
-          codeProps={slide.codeProps}
-          frameProps={{
-            style: { flex: 1, height: 'auto', margin: 8 },
-          }}
-          {...slide.editorProps.contentProps}
-        />
-        {!noPreview && (
-          <Preview
-            preset={preset}
-            preview={slide.previewProps}
-            codeFiles={slide.editorProps.contentProps.files}
-          />
-        )}
-      </main>
-      <div className={styles.controls}>
-        <div className={styles.text}>{slide.postContent}</div>
-      </div>
+      {slide.hasCodeBlock ? (
+        <>
+          <div className={styles.controls}>
+            <div className={styles.text}>{slide.preContent}</div>
+          </div>
+          <main className={styles.main}>
+            <MiniEditor
+              codeProps={slide.codeProps}
+              frameProps={{
+                style: { flex: 1, height: 'auto', margin: 8 },
+              }}
+              {...slide.editorProps.contentProps}
+            />
+            {showPreview && (
+              <Preview
+                preset={preset}
+                preview={slide.previewProps}
+                codeFiles={slide.editorProps.contentProps.files}
+              />
+            )}
+          </main>
+          <div className={styles.controls}>
+            <div className={styles.text}>{slide.postContent}</div>
+          </div>
+        </>
+      ) : (
+        <div className={styles.text}>{slide.content}</div>
+      )}
     </div>
   )
 }

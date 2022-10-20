@@ -1,6 +1,6 @@
 ---
 title: test slide
-publishedAt: Tuesday, October 18, 2022 4:27 PM
+publishedAt: Monday, October 17, 2022 5:27 PM
 author: paul-yun
 category: lessons
 excerpt: asdf
@@ -8,27 +8,24 @@ excerpt: asdf
 
 about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah about stuff blah blah blah. This is how to code it:
 
-<CodeSlides>
+<Slides>
 
-<Slide>
+This is just stupid text.
+Welcome to my slide show
 
-See this example here:
-
-```jsx
+```jsx App.js preview
 export default function App() {
   return <h1>Hello World</h1>
 }
 ```
 
-If you see the above, you can see blah blah blah. Click next to continue.
+**paul** was here
 
-</Slide>
-
-<Slide>
+---
 
 Here is the result:
 
-```jsx focus=3
+```jsx App.js preview focus=3:5
 export default function App() {
   return (
     <h1 style={{ color: 'salmon' }}>
@@ -40,9 +37,7 @@ export default function App() {
 
 now it just works
 
-</Slide>
-
-</CodeSlides>
+</Slides>
 
 <br />
 

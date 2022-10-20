@@ -4,13 +4,14 @@ publishedAt: Monday, October 17, 2022 4:38 PM
 coverImage: https://ucarecdn.com/10263fbb-dcd7-43e6-be67-e2e90d9611b2/flower.png
 author: paul-yun
 category: lessons
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+excerpt:
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua.
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
 
-<CodeScroll>
+<CodeScroll preview>
 
 <StepHead>
 
