@@ -1,5 +1,5 @@
-import Alert from '../components/alert'
-import Meta from '../components/meta'
+import Alert from './alert'
+import Meta from './meta'
 
 export default function Layout({ preview, children }) {
   return (

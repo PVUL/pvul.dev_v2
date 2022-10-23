@@ -5,14 +5,15 @@
     "local-backend": "npx netlify-cms-proxy-server",
     "local-dev": "next dev",
     "dev": "npm-run-all --parallel local-backend local-dev",
+    "lint": "next lint",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@code-hike/mini-browser": "0.3.0-next.11",
-    "@code-hike/mini-editor": "0.3.0-next.11",
+    "@code-hike/mini-browser": "^0.3.0-next.11",
+    "@code-hike/mini-editor": "^0.3.0-next.11",
     "@code-hike/scrollycoding": "0.3.0-next.11",
-    "@codesandbox/sandpack-react": "1.15.1",
+    "@codesandbox/sandpack-react": "1.6.0",
     "classnames": "2.2.6",
     "gray-matter": "4.0.2",
     "netlify-cms-app": "^2.15.72",
@@ -26,10 +27,23 @@
     "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.3",
+    "@types/react": "^18.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.40.1",
     "autoprefixer": "^10.2.1",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.4",
-    "tailwindcss": "^2.0.2"
+    "prettier": "^2.7.1",
+    "tailwindcss": "^2.0.2",
+    "typescript": "^4.8.4"
   },
   "license": "MIT"
 }
