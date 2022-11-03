@@ -10,7 +10,7 @@ export default function Index({ posts }) {
     <>
       <Layout>
         <Head>
-          <title>Code Hike Scrollycoding Preview</title>
+          <title>Blog.</title>
         </Head>
         <Container>
           <Intro />

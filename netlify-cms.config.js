@@ -1,15 +1,15 @@
 export default {
   cms_manual_init: true,
   backend: {
-    name: 'git-gateway',
-    repo: 'pvul/pvul.dev',
+    name: 'github',
+    repo: 'pvul/blog',
     branch: 'main',
     squash_merges: true,
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'http://localhost:3000',
-  display_url: 'pvul.dev',
+  site_url: 'https://pvul-blog.netlify.app',
+  display_url: 'pvul-blog.netlify.app',
   media_library: {
     name: 'uploadcare',
     config: {
