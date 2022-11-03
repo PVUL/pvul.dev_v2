@@ -5,7 +5,7 @@ export default function PostList({ posts }) {
     <section>
       <div className="mb-32">
         {posts.map((post) => (
-          <PostPreview post={post} />
+          <PostPreview key={post.slug} post={post} />
         ))}
       </div>
     </section>

@@ -1,5 +1,6 @@
-import Avatar from '../components/avatar'
 import Link from 'next/link'
+
+import Avatar from './avatar'
 
 export default function PostPreview({ post }) {
   const { title, excerpt, author, slug, publishedAt, tags } = post
@@ -8,7 +9,7 @@ export default function PostPreview({ post }) {
     <div className="my-40">
       <h3 className="mb-3 text-3xl font-bold leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
+          {title}
         </Link>
       </h3>
       <div className="mb-4 text-lg">{publishedAt}</div>
@@ -19,7 +20,7 @@ export default function PostPreview({ post }) {
       {tags && (
         <ul>
           {tags.map((tag) => (
-            <li>{tag}</li>
+            <li key={tag.slug}>{tag}</li>
           ))}
         </ul>
       )}

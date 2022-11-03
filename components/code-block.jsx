@@ -1,5 +1,6 @@
-import Prism from 'prismjs'
 import React from 'react'
+
+import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx.min'
 
 const useLayoutEffect =

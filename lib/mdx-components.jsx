@@ -1,20 +1,17 @@
-import React from 'react'
-
 import {
-  Hike,
-  Focus,
   CodeSlot,
+  Focus,
+  Hike,
   PreviewSlot,
   StepHead,
   withFocusHandler,
 } from '@code-hike/scrollycoding'
 import { MDXRemote } from 'next-mdx-remote'
 
-import Lesson from './Lesson'
-
 import CodeBlock from '../components/code-block'
 import CustomLink from '../components/custom-link'
 import getSlidesFromChildren from './code-slides'
+import Lesson from './Lesson'
 
 const codeScrollClasses = {
   'ch-hike-step-content-unfocused': 'opacity-25 transition-opacity',
@@ -31,26 +28,21 @@ const preset = {
   customSetup: { dependencies },
 }
 
-// CodeHike ScrollyCoding component
-function CodeScroll(props) {
-  const { preview } = props
-  const editorProps = {
-    codeProps: { minColumns: 40 },
-    ...props.editorProps,
-  }
+const CodeScroll = (props) => {
+  const { preview, editorProps } = props
 
   return (
     <Hike
       classes={codeScrollClasses}
       preset={preset}
       {...props}
-      editorProps={editorProps}
+      editorProps={{ codeProps: { minColumns: 40 }, ...editorProps }}
       config={{ noPreview: !preview }}
     />
   )
 }
 
-function Slides(props) {
+const Slides = (props) => {
   const { children, preview } = props
   const slides = getSlidesFromChildren({ children })
 

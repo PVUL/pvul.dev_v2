@@ -1,4 +1,4 @@
-import path from 'path'
+import { join } from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { useRouter } from 'next/router'
@@ -24,22 +24,20 @@ export default function Post({ source, frontMatter, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {frontMatter.title} | Code Hike Scrollycoding Preview
-                </title>
-              </Head>
-              <PostHeader
-                title={frontMatter.title}
-                coverImage={frontMatter.coverImage}
-                publishedAt={frontMatter.publishedAt}
-                author={frontMatter.author}
-              />
-              <MDXRemote {...source} components={components} />
-            </article>
-          </>
+          <article className="mb-32">
+            <Head>
+              <title>
+                {frontMatter.title} | Code Hike Scrollycoding Preview
+              </title>
+            </Head>
+            <PostHeader
+              title={frontMatter.title}
+              coverImage={frontMatter.coverImage}
+              publishedAt={frontMatter.publishedAt}
+              author={frontMatter.author}
+            />
+            <MDXRemote {...source} components={components} />
+          </article>
         )}
       </Container>
     </Layout>
@@ -47,11 +45,10 @@ export default function Post({ source, frontMatter, preview }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.md`)
+  const postFilePath = join(POSTS_PATH, `${params.slug}.md`)
   const source = fs.readFileSync(postFilePath)
 
   const { content, data } = matter(source)
-  // get author
 
   const mdxSource = await serialize(content, {
     components,

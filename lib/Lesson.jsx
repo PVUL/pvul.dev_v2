@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react'
-
 import { MiniEditor } from '@code-hike/mini-editor'
 
 import styles from './Lesson.module.scss'
-
 import Preview from './Preview'
+
+function useKey(keyCode, callback) {
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.keyCode === keyCode) {
+        callback()
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => {
+      window.removeEventListener('keydown', handler)
+    }
+  })
+}
 
 export default function Lesson({ slides, preset, config }) {
   const [index, setIndex] = useState(0)
@@ -62,18 +74,4 @@ export default function Lesson({ slides, preset, config }) {
       )}
     </div>
   )
-}
-
-function useKey(keyCode, callback) {
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.keyCode === keyCode) {
-        callback()
-      }
-    }
-    window.addEventListener('keydown', handler)
-    return () => {
-      window.removeEventListener('keydown', handler)
-    }
-  })
 }

@@ -1,9 +1,9 @@
+import Head from 'next/head'
 import Container from '../components/container'
-import PostList from '../components/post-list'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
+import PostList from '../components/post-list'
 import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
 
 export default function Index({ posts }) {
   return (
