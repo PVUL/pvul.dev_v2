@@ -37,6 +37,20 @@ export default function App() {
 
 now it just works
 
+---
+
+Finally, let's make it green:
+
+```jsx App.js preview focus=3
+export default function App() {
+  return (
+    <h1 style={{ color: 'green' }}>
+      Hello World
+    </h1>
+  )
+}
+```
+
 </Slides>
 
 <br />
