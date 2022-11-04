@@ -10,15 +10,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "@code-hike/mini-browser": "^0.3.0-next.11",
-    "@code-hike/mini-editor": "^0.3.0-next.11",
-    "@code-hike/scrollycoding": "0.3.0-next.11",
-    "@codesandbox/sandpack-react": "1.6.0",
+    "@code-hike/mini-browser": "0.3.0--canary.67.b6f3cda.0",
+    "@code-hike/mini-editor": "0.3.0--canary.67.b6f3cda.0",
+    "@code-hike/scrollycoding": "0.3.0--canary.67.2246098.0",
+    "@codesandbox/sandpack-react": "^0.0.6",
     "classnames": "2.2.6",
     "gray-matter": "4.0.2",
     "netlify-cms-app": "^2.15.72",
     "netlify-cms-media-library-uploadcare": "^0.5.10",
-    "next": "12.2.5",
+    "next": "12.3.2",
     "next-mdx-remote": "3.0.8",
     "prism-themes": "^1.5.0",
     "prismjs": "^1.23.0",
@@ -44,6 +44,9 @@
     "prettier": "^2.7.1",
     "tailwindcss": "^2.0.2",
     "typescript": "^4.8.4"
+  },
+  "resolutions": {
+    "@codesandbox/sandpack-react": "^0.0.6"
   },
   "license": "MIT"
 }
