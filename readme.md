@@ -23,4 +23,5 @@ If you plan to have more than 1gb worth of content, try using headless CMS inste
     - pass in the slug of the file that has been created/changed
     - NOTE: netlify's site clearly states ISR does not work, so I don't have expectations that this will work, but I have a hunch that it could.
       - worst case- we could bring this to vercel, and get it working there
+        - we need to use vercel, so I'm working on this now
       - but we'd have to set up a github oauth server, which we could do using vercel actions
