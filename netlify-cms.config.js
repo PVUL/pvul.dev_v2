@@ -5,6 +5,7 @@ export default {
     repo: 'pvul/blog',
     branch: 'main',
     squash_merges: true,
+    base_url: 'https://netlify-cms.adrianub.vercel.app', // see https://github.com/ublabs/netlify-cms-oauth
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
