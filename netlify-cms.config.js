@@ -5,12 +5,13 @@ export default {
     repo: 'pvul/blog',
     branch: 'main',
     squash_merges: true,
-    base_url: 'https://netlify-cms-oauth.pvul.vercel.app/', // see https://github.com/ublabs/netlify-cms-oauth
+    base_url: 'https://pvul-blog.vercel.app',
+    auth_endpoint: 'api/auth',
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'https://pvul-blog.netlify.app',
-  display_url: 'pvul-blog.netlify.app',
+  site_url: 'https://pvul-blog.vercel.app',
+  display_url: 'pvul-blog.vercel.app',
   media_library: {
     name: 'uploadcare',
     config: {
