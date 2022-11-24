@@ -59,7 +59,7 @@ const getTag = (tagSlug: string) => {
 }
 
 export const getPostSource = async (slug: string) => {
-  const fullPath = join(postsDirectory, `${slug}.md`)
+  const fullPath = join(postsDirectory, `${slug}.mdx`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
@@ -76,9 +76,9 @@ export const getPost = (
   fields: string[] | undefined = undefined,
   nested = false
 ) => {
-  const realSlug = slug.replace(/\.md$/, '')
+  const realSlug = slug.replace(/\.mdx$/, '')
 
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+  const fullPath = join(postsDirectory, `${realSlug}.mdx`)
 
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
