@@ -71,6 +71,12 @@ export default {
           display_fields: ['title', 'slug'],
         },
         {
+          name: 'useDynamicRouting',
+          label: 'Dynamic Routing',
+          widget: 'boolean',
+          default: false,
+        },
+        {
           name: 'tags',
           label: 'Tags',
           widget: 'relation',
@@ -85,6 +91,7 @@ export default {
           name: 'excerpt',
           label: 'Excerpt',
           widget: 'text',
+          required: false,
         },
         {
           name: 'body',

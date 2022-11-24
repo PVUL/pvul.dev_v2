@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import { components } from '../../lib/mdx-components'
-// @ts-ignore
 import { getPosts, getPostSource } from '../api/posts'
 
 interface Props {

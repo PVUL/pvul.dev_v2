@@ -62,7 +62,6 @@ export const getPostSource = async (slug: string) => {
   const fullPath = join(postsDirectory, `${slug}.mdx`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
-
   const mdxSource = await serialize(content)
 
   return {
@@ -129,7 +128,6 @@ export const getPost = (
   return post
 }
 
-// focus on this function
 export function getPosts(fields: string[] | undefined = undefined) {
   if (!fs.existsSync(postsDirectory)) {
     return []
@@ -139,6 +137,7 @@ export function getPosts(fields: string[] | undefined = undefined) {
 
   return slugs
     .map((slug) => getPost(slug, fields, true))
+    .filter((post) => post.useDynamicRouting)
     .sort((a, b) => (a.published_at > b.published_at ? -1 : 1))
 }
 
