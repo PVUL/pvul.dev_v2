@@ -27,6 +27,8 @@ export default {
       label: 'Posts',
       label_singular: 'Post',
       folder: '_content/posts',
+      extension: 'mdx',
+      format: 'frontmatter',
       create: true,
       delete: false,
       preview_path: 'posts/{{slug}}',

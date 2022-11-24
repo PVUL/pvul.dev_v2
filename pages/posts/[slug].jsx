@@ -1,17 +1,17 @@
-import { join } from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
-import { useRouter } from 'next/router'
-import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { join } from 'path'
 
-import { getAuthorDetails, postFilePaths, POSTS_PATH } from '../../lib/api'
 import Container from '../../components/container'
 import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
+import PostHeader from '../../components/post-header'
 import PostTitle from '../../components/post-title'
+import { getAuthorDetails, postFilePaths, POSTS_PATH } from '../../lib/api'
 import { components } from '../../lib/mdx-components'
 
 export default function Post({ source, frontMatter, preview }) {
@@ -45,7 +45,7 @@ export default function Post({ source, frontMatter, preview }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = join(POSTS_PATH, `${params.slug}.md`)
+  const postFilePath = join(POSTS_PATH, `${params.slug}.mdx`)
   const source = fs.readFileSync(postFilePath)
 
   const { content, data } = matter(source)
