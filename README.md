@@ -1,20 +1,3 @@
-todo:
-
-- [x] in admin, i can add a new post
-- [x] in admin, i can group the posts by category
-- [x] file saves as `YYYY-MM-DD_name-of-post`
-- [x] file gets saved in category sub-directory under posts
-- [x] set default author to me
-- [x] migrate old post files (or delete) to be in line with new file name format
-- [x] all posts should be accessible at `/posts/post-title`
-  - [x] parse out `YYYY-MM-DD_` of filename
-  - [x] parse out category sub directory `/posts/category/post-title`
-- [x] remove dynamic routing, in favor of simple routing
-  - [x] remove from netlify cms configs
-- [x] remove duplicate code in reference to getting posts and paths
-
----
-
 # Blog
 
 This is a blog, but it is also an experimental teaching platform. The stack:
