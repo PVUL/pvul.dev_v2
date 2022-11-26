@@ -4,7 +4,7 @@ This is a blog, but it is also an experimental teaching platform. The stack:
 
 - NextJS (React UI framework)
 - Netlify CMS (for git-based admin editing, at `/admin`)
-- MDX filetypes as content stored locally in `_content` directory
+- `.md`/`.mdx` filetypes as content stored locally in `_content` directory
   - next-mdx-remote for rendering mdx
 - Codehike (early versions used for customizations)
   - great coding tutorial components, which work well with next-mdx-remote

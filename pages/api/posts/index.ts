@@ -1,28 +1,44 @@
 import fs from 'fs'
-import { join } from 'path'
-
 import matter from 'gray-matter'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
+import { join } from 'path'
 
-// import { getAuthorBySlug } from '../authors'
-// import { getCategoryBySlug } from '../categories'
-// import { getTagBySlug } from '../tags'
-
-// const md = require('markdown-it')()
+import { getAuthorDetails } from '../../../lib/api'
 
 export const postsDirectory = join(process.cwd(), '_content/posts')
 const authorsDirectory = join(process.cwd(), '_content/authors')
 const categoriesDirectory = join(process.cwd(), '_content/categories')
 const tagsDirectory = join(process.cwd(), '_content/tags')
 
-// maybe break out into authors api
-const getAuthor = (authorSlug: string) => {
-  // we can probably create a generic function that encapsulates the below
+/**
+ * Returns a list of posts sub-directories located at `_content/posts/`.
+ *
+ * @returns string[]
+ */
+const getPostsSubDirectories = () => fs.readdirSync(postsDirectory)
 
-  const fullPath = join(authorsDirectory, `${authorSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data } = matter(fileContents)
+/**
+ * Returns frontmatter data from a filepath.
+ *
+ * @param path
+ * @returns frontmatter
+ */
+const getFrontmatterFromPath = (path: string) => {
+  const fileContents = fs.readFileSync(path, 'utf-8')
+  return matter(fileContents)
+}
+
+/**
+ * Returns author info given an author slug.
+ *
+ * @param authorSlug
+ * @returns {}
+ */
+const getAuthor = (authorSlug: string) => {
+  const { data } = getFrontmatterFromPath(
+    join(authorsDirectory, `${authorSlug}.md`)
+  )
 
   return {
     name: data.title,
@@ -33,55 +49,101 @@ const getAuthor = (authorSlug: string) => {
   }
 }
 
-// maybe break out into categories api
+/**
+ * Returns category info given a category slug.
+ *
+ * @param categorySlug
+ * @returns {}
+ */
 const getCategory = (categorySlug: string) => {
-  const fullPath = join(categoriesDirectory, `${categorySlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data } = matter(fileContents)
+  const { data } = getFrontmatterFromPath(
+    join(categoriesDirectory, `${categorySlug}.md`)
+  )
 
   return {
     ...data,
-    // title: data.title,
+    title: data.title,
     slug: categorySlug,
   }
 }
 
+/**
+ * Returns tag info given a tag slug.
+ *
+ * @param tagSlug
+ * @returns {}
+ */
 const getTag = (tagSlug: string) => {
-  const fullPath = join(tagsDirectory, `${tagSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data } = matter(fileContents)
+  const { data } = getFrontmatterFromPath(join(tagsDirectory, `${tagSlug}.md`))
 
   return {
     ...data,
-    // title: data.title,
+    title: data.title,
     slug: tagSlug,
   }
 }
 
+/**
+ * Get post source, used on a post show page. Based on a slug, will
+ * look for a filename match in `_content/posts/` sub-directories.
+ *
+ * @param slug
+ * @returns {}
+ */
 export const getPostSource = async (slug: string) => {
-  const fullPath = join(postsDirectory, `${slug}.mdx`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const filePath = getPostsSubDirectories()
+    .reduce(
+      (files, sub) =>
+        files.concat(
+          ...fs
+            .readdirSync(join(postsDirectory, sub))
+            .map((file) => join(sub, file))
+        ),
+      [] as string[]
+    )
+    .find((file) => file.endsWith(`_${slug}.mdx`))
 
+  if (!filePath) return {}
+
+  const { data, content } = getFrontmatterFromPath(
+    join(postsDirectory, filePath)
+  )
   const mdxSource = await serialize(content)
 
   return {
     source: mdxSource,
-    frontmatter: data,
+    frontmatter: {
+      ...data,
+      author: getAuthorDetails(data.author),
+    },
   }
 }
 
+/**
+ * Get the post by filename, used by getPosts().
+ *
+ * Note: fileName format `category/YYYY-MM-DD_name-of-post.mdx`
+ *       slug format `name-of-post`
+ *       url path `/posts/name-of-post
+ *
+ * @param fileName
+ * @param fields
+ * @param nested
+ * @returns {}
+ */
 export const getPost = (
-  slug: string,
+  fileName: string,
   fields: string[] | undefined = undefined,
   nested = false
 ) => {
-  const realSlug = slug.replace(/\.mdx$/, '')
+  const slug = fileName
+    .split('_')
+    .pop()
+    ?.replace(/\.mdx$/, '')
 
-  const fullPath = join(postsDirectory, `${realSlug}.mdx`)
-
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const { data, content } = getFrontmatterFromPath(
+    join(postsDirectory, fileName)
+  )
 
   const category =
     nested &&
@@ -107,7 +169,7 @@ export const getPost = (
 
   const post: { [x: string]: any } = {
     ...data,
-    slug: realSlug,
+    slug,
     author,
     category,
     tags,
@@ -115,7 +177,7 @@ export const getPost = (
   }
 
   if (fields !== undefined && fields.length) {
-    const filteredPost: { [x: string]: any } = { slug: realSlug }
+    const filteredPost: { [x: string]: any } = { slug }
 
     fields.forEach((field) => {
       if (field !== slug && post[field]) {
@@ -129,19 +191,36 @@ export const getPost = (
   return post
 }
 
-// focus on this function
+/**
+ * Get posts. Looks in `_content/posts/` sub-directories for .mdx files.
+ *
+ * @param fields
+ * @returns post[]
+ */
 export function getPosts(fields: string[] | undefined = undefined) {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
 
-  const slugs = fs.readdirSync(postsDirectory)
+  const fileNames: string[] = []
+  getPostsSubDirectories().forEach((sub: string) => {
+    const subFiles = fs
+      .readdirSync(join(postsDirectory, sub))
+      .map((file) => join(sub, file))
+    fileNames.push(...subFiles)
+  })
 
-  return slugs
-    .map((slug) => getPost(slug, fields, true))
+  return fileNames
+    .map((fileName) => getPost(fileName, fields, true))
     .sort((a, b) => (a.published_at > b.published_at ? -1 : 1))
 }
 
+/**
+ * Next handler.
+ *
+ * @param req
+ * @param res
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
