@@ -1,20 +1,18 @@
-import fs from 'fs'
-import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { join } from 'path'
 
 import Container from '../../components/container'
 import Header from '../../components/header'
 import Layout from '../../components/layout'
 import PostHeader from '../../components/post-header'
 import PostTitle from '../../components/post-title'
-import { getAuthorDetails, postFilePaths, POSTS_PATH } from '../../lib/api'
 import { components } from '../../lib/mdx-components'
+import { getPosts, getPostSource } from '../api/posts'
 
-export default function Post({ source, frontMatter, preview }) {
+export default function Post(props) {
+  const { source, frontmatter, preview } = props
+
   const router = useRouter()
 
   return (
@@ -26,15 +24,13 @@ export default function Post({ source, frontMatter, preview }) {
         ) : (
           <article className="mb-32">
             <Head>
-              <title>
-                {frontMatter.title} | Code Hike Scrollycoding Preview
-              </title>
+              <title>{frontmatter.title}</title>
             </Head>
             <PostHeader
-              title={frontMatter.title}
-              coverImage={frontMatter.coverImage}
-              publishedAt={frontMatter.publishedAt}
-              author={frontMatter.author}
+              title={frontmatter.title}
+              coverImage={frontmatter.coverImage}
+              publishedAt={frontmatter.publishedAt}
+              author={frontmatter.author}
             />
             <MDXRemote {...source} components={components} />
           </article>
@@ -44,36 +40,30 @@ export default function Post({ source, frontMatter, preview }) {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
-  const postFilePath = join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
+export const getStaticProps = async (context) => {
+  const { params } = context
 
-  const { content, data } = matter(source)
-
-  const mdxSource = await serialize(content, {
-    components,
-  })
+  if (params?.slug) {
+    return {
+      props: await getPostSource(params.slug.toString()),
+    }
+  }
 
   return {
-    props: {
-      source: mdxSource,
-      frontMatter: {
-        ...data,
-        author: getAuthorDetails(data.author),
-      },
-    },
+    props: {},
   }
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
-    // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }))
+  const posts = getPosts()
 
   return {
-    paths,
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+        catgetory: post.category.slug,
+      },
+    })),
     fallback: false,
   }
 }

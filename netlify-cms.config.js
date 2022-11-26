@@ -27,8 +27,16 @@ export default {
       label: 'Posts',
       label_singular: 'Post',
       folder: '_content/posts',
+      path: '{{category}}/{{year}}-{{month}}-{{day}}_{{slug}}',
       extension: 'mdx',
       format: 'frontmatter',
+      sortable_fields: ['title', 'publishedAt'],
+      view_groups: [
+        {
+          label: 'Category /',
+          field: 'category',
+        },
+      ],
       create: true,
       delete: false,
       preview_path: 'posts/{{slug}}',
@@ -60,6 +68,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
+          default: 'paul-yun',
         },
         {
           name: 'category',
@@ -69,12 +78,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
-        },
-        {
-          name: 'useDynamicRouting',
-          label: 'Dynamic Routing',
-          widget: 'boolean',
-          default: false,
+          default: '_',
         },
         {
           name: 'tags',

@@ -3,7 +3,7 @@ import Container from '../components/container'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import PostList from '../components/post-list'
-import { getAllPosts } from '../lib/api'
+import { getPosts } from './api/posts'
 
 export default function Index({ posts }) {
   return (
@@ -22,15 +22,7 @@ export default function Index({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts([
-    'title',
-    'publishedAt',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-    'tags',
-  ])
+  const posts = getPosts()
 
   return {
     props: { posts },
