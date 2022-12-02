@@ -1,14 +1,3 @@
-TODO
-
-- [ ] add styles to main page
-  - [ ] as a visitor, i want to see a styled page when i visit localhost:3000 (pvul.dev)
-  - [ ] as a visitor, the site looks good on mobile
-  - [ ] contains links to my github, email (get in contact with me)
-- [ ] questions
-  - [ ] keep coverImage on PostHeader component?
-
----
-
 # Blog
 
 This is a blog, but it is also an experimental teaching platform. The stack:
@@ -18,8 +7,9 @@ This is a blog, but it is also an experimental teaching platform. The stack:
 - `.md`/`.mdx` filetypes as content stored locally in `_content` directory
   - next-mdx-remote for rendering mdx
 - Codehike (early versions used for customizations)
-  - great coding tutorial components, which work well with next-mdx-remote
+  - great coding tutorial components, which work well with `next-mdx-remote`
 - Uploadcare for media storage
+- TailwindCSS (and [cntl](https://github.com/michal-wrzosek/cntl))
 - Vercel serverless function used for github oauth - this allows the app to be served on Vercel rather than Netlify (due to netlify cms), technically it could be served anywhere, [see more](https://www.netlifycms.org/docs/external-oauth-clients/).
 
 This is a good set up for a small team- multiple content editors, custom components created by devs, and lightning quick performance as it is a Static Site Generator.
