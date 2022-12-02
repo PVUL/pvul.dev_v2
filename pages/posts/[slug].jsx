@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Container from '../../components/container'
-import Header from '../../components/header'
+// import Header from '../../components/header'
 import Layout from '../../components/layout'
 import PostHeader from '../../components/post-header'
 import PostTitle from '../../components/post-title'
@@ -11,14 +11,14 @@ import { components } from '../../lib/mdx-components'
 import { getPosts, getPostSource } from '../api/posts'
 
 export default function Post(props) {
-  const { source, frontmatter, preview } = props
+  const { source, frontmatter } = props
 
   const router = useRouter()
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
-        <Header />
+        {/* <Header /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -30,7 +30,6 @@ export default function Post(props) {
               title={frontmatter.title}
               coverImage={frontmatter.coverImage}
               publishedAt={frontmatter.publishedAt}
-              author={frontmatter.author}
             />
             <MDXRemote {...source} components={components} />
           </article>

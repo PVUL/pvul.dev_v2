@@ -1,3 +1,14 @@
+TODO
+
+- [ ] add styles to main page
+  - [ ] as a visitor, i want to see a styled page when i visit localhost:3000 (pvul.dev)
+  - [ ] as a visitor, the site looks good on mobile
+  - [ ] contains links to my github, email (get in contact with me)
+- [ ] questions
+  - [ ] keep coverImage on PostHeader component?
+
+---
+
 # Blog
 
 This is a blog, but it is also an experimental teaching platform. The stack:

@@ -6,7 +6,7 @@ export default function PostPreview({ post }) {
   const { title, excerpt, author, slug, publishedAt, tags } = post
 
   return (
-    <div className="my-40">
+    <div className="mt-24 mb-10">
       <h3 className="mb-3 text-3xl font-bold leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           {title}

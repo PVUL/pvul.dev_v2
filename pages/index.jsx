@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Container from '../components/container'
-import Intro from '../components/intro'
+// import Intro from '../components/intro'
 import Layout from '../components/layout'
 import PostList from '../components/post-list'
 import { getPosts } from './api/posts'
@@ -13,7 +13,7 @@ export default function Index({ posts }) {
           <title>Blog.</title>
         </Head>
         <Container>
-          <Intro />
+          {/* <Intro /> */}
           <PostList posts={posts} />
         </Container>
       </Layout>
