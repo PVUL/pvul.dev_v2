@@ -10,7 +10,7 @@ export default function Index({ posts }) {
     <>
       <Layout>
         <Head>
-          <title>Blog.</title>
+          <title>PVUL.dev</title>
         </Head>
         <Container>
           {/* <Intro /> */}
