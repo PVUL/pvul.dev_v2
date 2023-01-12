@@ -1,6 +1,11 @@
-# Blog
+# pvul.dev (v2)
 
-This is a blog, but it is also an experimental teaching platform. The stack:
+This my personal page for pvul.dev. It has a built-in blog and a git-based CMS accessible at `/admin` endpoint (netlify-cms).
+
+Built off of the [blog](https://github.com/pvul/blog) boilerplate.
+
+---
+
 
 - NextJS (React UI framework)
 - Netlify CMS (for git-based admin editing, at `/admin`)
