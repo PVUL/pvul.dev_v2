@@ -1,5 +1,5 @@
 {
-  "name": "scrollycoding-preview",
+  "name": "pvul.dev_v2",
   "version": "1.0.0",
   "scripts": {
     "local-backend": "npx netlify-cms-proxy-server",
