@@ -25,6 +25,7 @@ Frontend stack:
 - cslx (classnames)
 - react-hook-form (for forms)
 - react-hot-toast (for notifications)
+- yup (for schema validation)
 
 ---
 
