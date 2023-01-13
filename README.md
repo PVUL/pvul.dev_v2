@@ -18,6 +18,16 @@ If you plan to have more than 1gb worth of content, try using headless CMS inste
 
 ---
 
+Frontend stack:
+
+- Tailwindcss (with scss) framework
+- DaisyUI library
+- cslx (classnames)
+- react-hook-form (for forms)
+- react-hot-toast (for notifications)
+
+---
+
 References:
 
 - [mdx previews in netlify cms](https://zslabs.com/articles/mdx-previews-in-netlify-cms)

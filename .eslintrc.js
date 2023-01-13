@@ -92,4 +92,16 @@ module.exports = {
     'jsx-a11y/anchor-has-content': OFF,
     'jsx-a11y/anchor-is-valid': WARN,
   },
+
+  /**
+   * scss
+   */
+  'at-rule-no-unknown': [
+    true,
+    {
+      ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'],
+    },
+  ],
+  'declaration-block-trailing-semicolon': null,
+  'no-descending-specificity': null,
 }

@@ -1,8 +1,10 @@
 import Head from 'next/head'
+
 import Container from '../components/container'
 // import Intro from '../components/intro'
 import Layout from '../components/layout'
 import PostList from '../components/post-list'
+import { ContactForm } from '../components/new/ContactForm'
 import { getPosts } from './api/posts'
 
 export default function Index({ posts }) {
@@ -14,7 +16,8 @@ export default function Index({ posts }) {
         </Head>
         <Container>
           {/* <Intro /> */}
-          <PostList posts={posts} />
+          {/* <PostList posts={posts} /> */}
+          <ContactForm />
         </Container>
       </Layout>
     </>

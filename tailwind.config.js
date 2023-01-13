@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
@@ -34,5 +36,18 @@ module.exports = {
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
     },
+  },
+  plugins: [require('daisyui')],
+
+  // see https://daisyui.com/docs/config/
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: '',
+    darkTheme: 'dark',
   },
 }
