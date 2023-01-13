@@ -14,7 +14,10 @@
     "@code-hike/mini-editor": "0.3.0--canary.67.b6f3cda.0",
     "@code-hike/scrollycoding": "0.3.0--canary.67.2246098.0",
     "@codesandbox/sandpack-react": "^0.0.6",
+    "@hookform/resolvers": "^2.9.10",
     "classnames": "2.2.6",
+    "clsx": "^1.2.1",
+    "daisyui": "^2.46.1",
     "gray-matter": "4.0.2",
     "netlify-cms-app": "^2.15.72",
     "netlify-cms-media-library-uploadcare": "^0.5.10",
@@ -24,8 +27,12 @@
     "prismjs": "^1.23.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.41.5",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.7.1",
     "sass": "^1.55.0",
-    "simple-oauth2": "^5.0.0"
+    "simple-oauth2": "^5.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "^18.11.3",
@@ -44,7 +51,8 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.4",
     "prettier": "^2.7.1",
-    "tailwindcss": "^2.0.2",
+    "scss": "^0.2.4",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.8.4"
   },
   "resolutions": {

@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
 
-import { getAuthorDetails } from '../../../lib/api'
+// import { getAuthorDetails } from '../../../lib/api'
 
 export const postsDirectory = join(process.cwd(), '_content/posts')
 const authorsDirectory = join(process.cwd(), '_content/authors')
@@ -114,7 +114,7 @@ export const getPostSource = async (slug: string) => {
     source: mdxSource,
     frontmatter: {
       ...data,
-      author: getAuthorDetails(data.author),
+      author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
     },
   }
 }

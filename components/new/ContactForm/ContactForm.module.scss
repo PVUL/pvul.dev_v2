@@ -1,0 +1,19 @@
+.contactForm {
+  @apply block max-w-md p-8 bg-white rounded-lg shadow-xl mx-auto mt-48;
+
+  .formField {
+    @apply mb-6 form-control;
+  }
+
+  .textInput {
+    @apply input input-bordered w-full block focus:outline-none;
+  }
+
+  .textArea {
+    @apply textarea textarea-bordered block w-full focus:outline-none text-base;
+  }
+
+  .errorText {
+    @apply text-pink-400 label-text-alt;
+  }
+}
