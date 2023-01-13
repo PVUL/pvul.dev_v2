@@ -1799,11 +1799,6 @@ clsx@^1.2.1:
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
-cntl@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cntl/-/cntl-1.0.0.tgz#08d022ae1ec59f5112fc6aa428a1226e461b7606"
-  integrity sha512-Z42/BmPqeuE81Ar5OhgyRSgP4/paMSYPO41iFOhouACpWsZwfLTxrARBUqfbr+ftukF/I9zov6w8+VpOPLnamA==
-
 codemirror@^5.46.0:
   version "5.65.10"
   resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.65.10.tgz#4276a93b8534ce91f14b733ba9a1ac949666eac9"

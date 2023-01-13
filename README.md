@@ -9,7 +9,7 @@ This is a blog, but it is also an experimental teaching platform. The stack:
 - Codehike (early versions used for customizations)
   - great coding tutorial components, which work well with `next-mdx-remote`
 - Uploadcare for media storage
-- TailwindCSS (and [cntl](https://github.com/michal-wrzosek/cntl))
+- TailwindCSS
 - Vercel serverless function used for github oauth - this allows the app to be served on Vercel rather than Netlify (due to netlify cms), technically it could be served anywhere, [see more](https://www.netlifycms.org/docs/external-oauth-clients/).
 
 This is a good set up for a small team- multiple content editors, custom components created by devs, and lightning quick performance as it is a Static Site Generator.
