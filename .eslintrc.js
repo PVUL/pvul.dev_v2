@@ -34,7 +34,9 @@ module.exports = {
   ignorePatterns: ['node_modules'],
   overrides: [],
   rules: {
-    // import
+    /**
+     * import
+     */
     'import/extensions': [
       ERROR,
       'ignorePackages',
@@ -45,8 +47,11 @@ module.exports = {
         tsx: NEVER,
       },
     ],
+    'import/prefer-default-export': OFF,
 
-    // react
+    /**
+     * react
+     */
     'react/react-in-jsx-scope': OFF,
     'react/jsx-props-no-spreading': OFF,
     'react/prop-types': [
@@ -68,17 +73,35 @@ module.exports = {
     'react/jsx-no-useless-fragment': OFF,
     'react/jsx-curly-brace-presence': WARN,
 
-    // eslint
+    /**
+     * eslint
+     */
     'no-unsafe-optional-chaining': WARN,
     'arrow-body-style': OFF,
 
-    // @typescript-eslint
+    /**
+     * @typescript-eslint
+     */
     '@typescript-eslint/explicit-function-return-type': OFF,
     '@typescript-eslint/prefer-ts-expect-error': OFF,
     '@typescript-eslint/ban-ts-comment': OFF,
 
-    // jsx/a11y
+    /**
+     * jsx/a11y
+     */
     'jsx-a11y/anchor-has-content': OFF,
     'jsx-a11y/anchor-is-valid': WARN,
   },
+
+  /**
+   * scss
+   */
+  'at-rule-no-unknown': [
+    true,
+    {
+      ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'],
+    },
+  ],
+  'declaration-block-trailing-semicolon': null,
+  'no-descending-specificity': null,
 }

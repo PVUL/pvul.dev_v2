@@ -1,10 +1,12 @@
+/* eslint-disable global-require */
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  // purge: ['./components/**/*.js', './pages/**/*.js'],
+  // purge: ['./components/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -34,5 +36,18 @@ module.exports = {
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
     },
+  },
+  plugins: [require('daisyui')],
+
+  // see https://daisyui.com/docs/config/
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: '',
+    darkTheme: 'dark',
   },
 }
