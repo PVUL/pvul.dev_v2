@@ -19,7 +19,12 @@ export default function Index({ posts }) {
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
           <AboutMe />
-          <ContactForm />
+          <section className="my-24">
+            <h2 className="mb-6 text-3xl font-bold text-center">
+              Let's get in touch.
+            </h2>
+            <ContactForm />
+          </section>
         </Container>
       </Layout>
     </>

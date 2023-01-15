@@ -40,7 +40,7 @@ export const AboutMe = () => {
 
               <p className="mb-0 text-gray-500">
                 Outside of work, you can catch me cruising on my skateboard,
-                tinkering with widgets using my 3d printer, and becoming an
+                tinkering with widgets using my 3d printer, and becoming a
                 professional home chef.
               </p>
             </div>
