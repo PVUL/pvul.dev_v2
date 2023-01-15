@@ -1,0 +1,8 @@
+.aboutMe {
+  @apply bg-pink-100 py-24 px-28;
+
+  .image {
+    @apply rounded-3xl w-full shadow-2xl;
+    min-width: 300px;
+  }
+}
