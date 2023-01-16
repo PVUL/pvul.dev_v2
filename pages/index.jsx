@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import PostList from '../components/post-list'
 import { ContactForm } from '../components/new/ContactForm'
 import { getPosts } from './api/posts'
+import { AboutMe } from '../components/new/AboutMe'
 
 export default function Index({ posts }) {
   return (
@@ -17,7 +18,13 @@ export default function Index({ posts }) {
         <Container>
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
-          <ContactForm />
+          <AboutMe />
+          <section className="my-24">
+            <h2 className="mb-6 text-3xl font-bold text-center">
+              Let's get in touch.
+            </h2>
+            <ContactForm />
+          </section>
         </Container>
       </Layout>
     </>
