@@ -2,6 +2,19 @@ import { useState } from 'react'
 import { Modal } from '../../new/Modal'
 
 import styles from './MyWork.module.scss'
+import { Carousel } from '../../new/Carousel'
+
+const works1 = [
+  {
+    source: 'works/almanac-1.png',
+  },
+  {
+    source: 'works/almanac-2.png',
+  },
+  {
+    source: 'works/almanac-3.png',
+  },
+]
 
 export const MyWork = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,7 +22,7 @@ export const MyWork = () => {
   return (
     <section className={styles.myWork}>
       <h2 className={styles.header}>My Work</h2>
-      <div className="grid gap-6 lg:grid-cols-1 xl:gap-x-12">
+      <div className="grid gap-6 md:w-full lg:grid-cols-1 xl:gap-x-12">
         <div className={styles.card}>
           <div className="relative block bg-white rounded-lg">
             <div className={styles.imageContainer}>
@@ -18,7 +31,8 @@ export const MyWork = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
               >
-                <img
+                <Carousel images={works1} />
+                {/* <img
                   src="works/almanac-1.png"
                   className="w-full max-w-[600px]"
                 />
@@ -27,7 +41,7 @@ export const MyWork = () => {
                     className="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden transition duration-300 ease-in-out bg-fixed opacity-0 hover:opacity-100"
                     style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}
                   ></div>
-                </a>
+                </a> */}
               </div>
             </div>
             <div className={styles.textContainer}>

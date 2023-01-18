@@ -4,3 +4,7 @@ type MarkdownFileObject = {
   content?: string
   [x: string]: any
 }
+
+type CarouselImage = {
+  source: string
+}
