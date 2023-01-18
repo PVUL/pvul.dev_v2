@@ -1,0 +1,19 @@
+.myWork {
+  @apply flex flex-col items-center p-20;
+
+  .header {
+    @apply text-3xl font-bold mb-20;
+  }
+
+  .card {
+    @apply mb-16;
+  }
+
+  .imageContainer {
+    @apply flex justify-center;
+  }
+
+  .textContainer {
+    @apply flex justify-center;
+  }
+}

@@ -7,6 +7,7 @@ import PostList from '../components/post-list'
 import { ContactForm } from '../components/new/ContactForm'
 import { getPosts } from './api/posts'
 import { AboutMe } from '../components/new/AboutMe'
+import { MyWork } from '../components/sections/MyWork'
 
 export default function Index({ posts }) {
   return (
@@ -19,6 +20,7 @@ export default function Index({ posts }) {
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
           <AboutMe />
+          <MyWork />
           <section className="my-24">
             <h2 className="mb-6 text-3xl font-bold text-center">
               Let's get in touch.
