@@ -4,7 +4,7 @@ import Container from '../components/container'
 // import Intro from '../components/intro'
 import Layout from '../components/layout'
 import PostList from '../components/post-list'
-import { ContactForm } from '../components/new/ContactForm'
+import { Contact } from '../components/sections/Contact'
 import { getPosts } from './api/posts'
 import { AboutMe } from '../components/new/AboutMe'
 import { MyWork } from '../components/sections/MyWork'
@@ -21,12 +21,7 @@ export default function Index({ posts }) {
           {/* <PostList posts={posts} /> */}
           <AboutMe />
           <MyWork />
-          <section className="my-24">
-            <h2 className="mb-6 text-3xl font-bold text-center">
-              Let's get in touch.
-            </h2>
-            <ContactForm />
-          </section>
+          <Contact />
         </Container>
       </Layout>
     </>

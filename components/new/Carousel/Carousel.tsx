@@ -39,15 +39,15 @@ export const Carousel = ({ images }: Props) => {
         loop
       >
         {images.map((image) => (
-          <SwiperSlide>
-            <img src={image.source} alt="" />
+          <SwiperSlide key={image.alt}>
+            <img src={image.source} alt={image.alt} />
           </SwiperSlide>
         ))}
 
         <div
           className={clsx(styles.navPrev, {
-            ['opacity-40']: isHovering,
-            ['opacity-0']: !isHovering,
+            ['opacity-40 left-2']: isHovering,
+            ['opacity-0 -left-4']: !isHovering,
           })}
           ref={navPrevRef}
         >
@@ -55,8 +55,8 @@ export const Carousel = ({ images }: Props) => {
         </div>
         <div
           className={clsx(styles.navNext, {
-            ['opacity-40']: isHovering,
-            ['opacity-0']: !isHovering,
+            ['opacity-40 right-2']: isHovering,
+            ['opacity-0 -right-4']: !isHovering,
           })}
           ref={navNextRef}
         >

@@ -3,9 +3,12 @@
 
   .navPrev,
   .navNext {
-    @apply absolute translate-y-1/2 w-12 h-12 cursor-pointer bg-no-repeat bg-contain bg-center hover:opacity-100 hover:scale-110 ease-in-out transition-all duration-500 bg-black rounded-full shadow-lg;
+    @apply absolute translate-y-1/2 w-12 h-12 cursor-pointer bg-no-repeat bg-contain bg-center hover:opacity-100 ease-in-out transition-all duration-500 bg-gradient-to-r from-black to-gray-600 rounded-full shadow-lg;
     z-index: 1;
     top: calc(50% - 2.5em);
+    &:hover {
+      scale: (1.1);
+    }
   }
 
   .icon {
@@ -15,14 +18,12 @@
   }
 
   .navPrev {
-    @apply left-2;
     .icon {
       margin-left: 10px;
     }
   }
 
   .navNext {
-    @apply right-2;
     .icon {
       margin-left: 13px;
     }

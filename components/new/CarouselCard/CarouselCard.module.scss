@@ -1,0 +1,11 @@
+.carouselCard {
+  @apply [&:not(:last-child)]:mb-20;
+
+  .imageContainer {
+    @apply flex justify-center;
+  }
+
+  .textContainer {
+    @apply flex justify-center;
+  }
+}
