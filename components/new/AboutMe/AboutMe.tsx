@@ -39,18 +39,18 @@ export const AboutMe = () => {
                 Hi I’m Paul. I bring ideas to life through web and product
                 design.
               </h2>
-              <p className="pb-2 mb-6 text-gray-500 lg:pb-0">
+              <p className="pb-2 mb-6 text-gray-800 lg:pb-0">
                 I’ve spent the last 15+ years working across different areas of
                 design- web and app development, industrial design, packaging
                 and graphic design.
               </p>
 
-              <p className="mb-6 text-gray-500">
+              <p className="mb-6 text-gray-800">
                 I care deeply about helping my clients with their creative needs
                 and I treat every project as if it’s my own, with love and care.
               </p>
 
-              <p className="mb-0 text-gray-500">
+              <p className="mb-0 text-gray-800">
                 Outside of work, you can catch me cruising on my skateboard,
                 tinkering with widgets using my 3d printer, and becoming a
                 professional home chef.

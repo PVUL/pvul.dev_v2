@@ -28,6 +28,7 @@ export const MyWork = () => {
               title={work.title}
               description={work.description}
               images={work.images}
+              technologies={work.technologies}
             />
           ))}
         </div>

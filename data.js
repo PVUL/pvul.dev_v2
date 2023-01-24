@@ -4,8 +4,11 @@
 export const works = [
   {
     title: 'Almanac',
+    link: 'https://almanac.io',
     description:
-      'Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam. Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam. Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam.',
+      'Almanac is a document sharing platform for teams. While working on this project, it was important to me to have a consistent style across all parts of the customer experience. I created the home page, registration, profiles, and library components- such as navbar, article cards, and avatars. Optimized all pages for SEO.',
+    technologies:
+      'React, Typescript, Rails, Ant Design, Heroku, Cloudinary, Algolia, Figma',
     images: [
       {
         alt: 'almanac-1',
@@ -23,8 +26,10 @@ export const works = [
   },
   {
     title: 'Wayfair',
+    link: '',
     description:
-      'Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam. Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam. Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam.',
+      'Wayfair Registry is a wedding registry platform for Wayfair. While working on this project, the most important thing was make features that would convert into higher conversion rates, which were measured through A-B testing. Created the homepage, brand pages, gift tracking, and a registry referral program. Improved page performance by 50% by optimizing images above-the-fold. Also, created documentation for other team members.',
+    technologies: 'React, PHP, MSSQL, Redis, GraphQL, Invision',
     images: [
       {
         alt: 'wayfair-1',

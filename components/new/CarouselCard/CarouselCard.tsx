@@ -8,9 +8,15 @@ interface Props {
   images: CarouselImage[]
   title: string
   description: string
+  technologies: string
 }
 
-export const CarouselCard = ({ images, title, description }: Props) => {
+export const CarouselCard = ({
+  images,
+  title,
+  description,
+  technologies,
+}: Props) => {
   return (
     <motion.div
       initial="hidden"
@@ -43,6 +49,9 @@ export const CarouselCard = ({ images, title, description }: Props) => {
           <div className="max-w-sm px-2 pt-10 sm:max-w-lg md:max-w-xl lg:max-w-3xl 2xl:max-w-5xl">
             <h5 className="mb-3 text-lg font-bold">{title}</h5>
             <p className="pb-2 mb-4">{description}</p>
+            <p className="pb-2 mb-4 italic text-gray-500">
+              Technologies: {technologies}
+            </p>
           </div>
         </div>
       </div>
