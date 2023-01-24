@@ -6,9 +6,9 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className="transition-colors hover:bg-black hover:text-white">
-        <Link href="/">PVUL.dev</Link>
+        <Link href="/">PAUL YUN</Link>
       </div>
-      <ul className="hidden cursor-default md:block">
+      <ul className="hidden cursor-default xl:block">
         <li>software engineer</li>
         <li>mechanical engineer</li>
         <li>creative technologist</li>

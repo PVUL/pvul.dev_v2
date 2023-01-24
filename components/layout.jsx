@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <section className="flex flex-col min-h-screen overflow-x-hidden">
       <Meta />
       <Header />
-      <main className="md:ml-64">{children}</main>
+      <main className="xl:ml-64">{children}</main>
     </section>
   )
 }

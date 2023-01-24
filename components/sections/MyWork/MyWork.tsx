@@ -15,10 +15,10 @@ export const MyWork = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 'some' }}
     >
       <section className={styles.myWork}>
-        <motion.h2 variants={textVariant(0.4)} className={styles.header}>
+        <motion.h2 variants={textVariant(0.5)} className={styles.header}>
           My Work
         </motion.h2>
         <div className="grid gap-6 md:w-full lg:grid-cols-1 xl:gap-x-12">

@@ -15,19 +15,19 @@ export const CarouselCard = ({ images, title, description }: Props) => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      variants={sectionVariant(0.7)}
+      viewport={{ once: true, amount: 'some' }}
+      variants={sectionVariant(0.6)}
+      className={styles.carouselCard}
     >
-      <div className={styles.carouselCard}>
-        <div className="relative block bg-white rounded-lg">
-          <div className={styles.imageContainer}>
-            <div
-              className="relative -mt-4 overflow-hidden bg-no-repeat bg-cover rounded-lg shadow-lg"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-            >
-              <Carousel images={images} />
-              {/* <img
+      <div className="relative block bg-white rounded-lg">
+        <div className={styles.imageContainer}>
+          <div
+            className="relative -mt-4 overflow-hidden bg-no-repeat bg-cover rounded-lg shadow-lg"
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light"
+          >
+            <Carousel images={images} />
+            {/* <img
           src="works/almanac-1.png"
           className="w-full max-w-[600px]"
         />
@@ -37,13 +37,12 @@ export const CarouselCard = ({ images, title, description }: Props) => {
             style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}
           ></div>
         </a> */}
-            </div>
           </div>
-          <div className={styles.textContainer}>
-            <div className="pt-10 px-2 max-w-[600px]">
-              <h5 className="mb-3 text-lg font-bold">{title}</h5>
-              <p className="pb-2 mb-4">{description}</p>
-            </div>
+        </div>
+        <div className={styles.textContainer}>
+          <div className="max-w-sm px-2 pt-10 sm:max-w-lg md:max-w-xl lg:max-w-3xl 2xl:max-w-5xl">
+            <h5 className="mb-3 text-lg font-bold">{title}</h5>
+            <p className="pb-2 mb-4">{description}</p>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ Built off of the [blog](https://github.com/pvul/blog) boilerplate.
 
 ---
 
-
 - NextJS (React UI framework)
 - Netlify CMS (for git-based admin editing, at `/admin`)
 - `.md`/`.mdx` filetypes as content stored locally in `_content` directory
@@ -31,6 +30,17 @@ Frontend stack:
 - react-hook-form (for forms)
 - react-hot-toast (for notifications)
 - yup (for schema validation)
+- framer-motion (for animations)
+
+---
+
+## Style Guide + TailwindCSS Basics
+
+Screen size widths to focus on (in priority):
+
+1. Mobile (639px and down) - breakpoint prefix: `<none specified>`
+2. Tablet (640px to 1023px) - breakpoint prefix: `sm` (preferred), `md`
+3. Desktop (1024px and up) - breakpoint prefex: `lg` (preferred), `xl`, `2xl`
 
 ---
 
