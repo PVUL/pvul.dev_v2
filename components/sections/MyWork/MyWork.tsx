@@ -16,7 +16,7 @@ export const MyWork = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 'some' }}
-      id="my-work"
+      id="work"
     >
       <section className={styles.myWork}>
         <motion.h2 variants={textVariant(0.2)} className={styles.header}>

@@ -28,7 +28,7 @@ export const works = [
     title: 'Wayfair',
     link: '',
     description:
-      'Wayfair Registry is a wedding registry platform for Wayfair. While working on this project, the most important thing was make features that would convert into higher conversion rates, which were measured through A-B testing. Created the homepage, brand pages, gift tracking, and a registry referral program. Improved page performance by 50% by optimizing images above-the-fold. Also, created documentation for other team members.',
+      'Wayfair Registry is a wedding registry platform for Wayfair. While working on this project, the most important thing was make features that would convert towards higher conversion rates, which were measured through A-B testing. Created the homepage, brand pages, gift tracking, and a registry referral program. Improved page performance by 50% by optimizing images above-the-fold. Also, created documentation for other team members.',
     technologies: 'React, PHP, MSSQL, Redis, GraphQL, Invision',
     images: [
       {

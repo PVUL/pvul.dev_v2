@@ -10,7 +10,7 @@ export const NavBar = () => {
       </div>
       <ul className="hidden text-center cursor-default xl:block">
         <li>
-          <Link href="/#my-work">WORK</Link>
+          <Link href="/#work">WORK</Link>
         </li>
         <li>
           <Link href="/about">ABOUT</Link>
