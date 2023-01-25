@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import PostList from '../components/post-list'
 import { Contact } from '../components/sections/Contact'
 import { getPosts } from './api/posts'
+import { Hero } from '../components/new/Hero'
 import { AboutMe } from '../components/new/AboutMe'
 import { MyWork } from '../components/sections/MyWork'
 import { MySkills } from '../components/sections/MySkills'
@@ -21,6 +22,7 @@ export default function Index({ posts }) {
         <Container>
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
+          <Hero />
           <AboutMe />
           {/* <MySkills /> */}
           <MyWork />

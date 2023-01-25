@@ -1,5 +1,5 @@
 .gradientBackground {
-  @apply absolute z-0 w-full opacity-70;
+  @apply absolute z-0 w-screen opacity-70 xl:w-[calc(100vw-16rem)];
 
   .color1 {
     position: absolute;

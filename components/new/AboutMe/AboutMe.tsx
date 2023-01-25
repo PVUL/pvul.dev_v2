@@ -44,7 +44,9 @@ export const AboutMe = () => {
               <p className="pb-2 mb-6 text-gray-800 lg:pb-0">
                 I’ve spent the last 15+ years working across different areas of
                 design- web and app development, industrial design, packaging
-                and graphic design.
+                and graphic design. I've worked with startups to big tech,
+                fashion to manufacturing industries, and B2B to retail
+                environments.
               </p>
 
               <p className="mb-6 text-gray-800">

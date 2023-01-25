@@ -1,0 +1,15 @@
+.hero {
+  @apply mt-[41px] xl:mt-0 xl:mr-0;
+
+  .banner {
+    @apply h-screen;
+  }
+
+  div[data-testid='layer-0'] {
+    @apply filter brightness-75;
+  }
+
+  .text {
+    @apply text-white text-2xl;
+  }
+}
