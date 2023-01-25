@@ -21,7 +21,7 @@ export const MyWork = () => {
         <motion.h2 variants={textVariant(0.5)} className={styles.header}>
           My Work
         </motion.h2>
-        <div className="grid gap-6 md:w-full lg:grid-cols-1 xl:gap-x-12">
+        <div className="flex flex-col items-center gap-6 md:w-full lg:grid-cols-1 xl:gap-x-12">
           {works.map((work) => (
             <CarouselCard
               key={work.title}

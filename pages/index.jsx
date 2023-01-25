@@ -8,6 +8,8 @@ import { Contact } from '../components/sections/Contact'
 import { getPosts } from './api/posts'
 import { AboutMe } from '../components/new/AboutMe'
 import { MyWork } from '../components/sections/MyWork'
+import { MySkills } from '../components/sections/MySkills'
+import { GradientBackground } from '../components/new/GradientBackground'
 
 export default function Index({ posts }) {
   return (
@@ -20,6 +22,7 @@ export default function Index({ posts }) {
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
           <AboutMe />
+          {/* <MySkills /> */}
           <MyWork />
           <Contact />
         </Container>

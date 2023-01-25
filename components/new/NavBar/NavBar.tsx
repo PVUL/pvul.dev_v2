@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
-import styles from './Header.module.scss'
+import styles from './NavBar.module.scss'
 
-export const Header = () => {
+export const NavBar = () => {
   return (
-    <header className={styles.header}>
+    <header className={styles.navBar}>
       <div className="transition-colors hover:bg-black hover:text-white">
         <Link href="/">PAUL YUN</Link>
       </div>
