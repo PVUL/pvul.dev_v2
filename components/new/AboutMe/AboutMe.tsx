@@ -52,6 +52,7 @@ export const AboutMe = () => {
               <p className="mb-6 text-gray-800">
                 I care deeply about helping my clients with their creative needs
                 and I treat every project as if it’s my own, with love and care.
+                I am currently taking on new clients.
               </p>
 
               <p className="mb-0 text-gray-800">
