@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import toast, { Toaster as ReactHotToaster } from 'react-hot-toast'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import toast, { Toaster as ReactHotToaster } from 'react-hot-toast'
+
 import { Toaster } from '../Toaster'
 
 import styles from './ContactForm.module.scss'

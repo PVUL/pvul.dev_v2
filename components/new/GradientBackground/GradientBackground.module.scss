@@ -31,4 +31,19 @@
     top: -30%;
     height: 400px;
   }
+
+  &.variation1 {
+    .color1 {
+      background: #accbe1;
+      height: 300px;
+    }
+    .color2 {
+      background: #7cc6fe;
+      height: 300px;
+    }
+    .color3 {
+      background: #2dc7ff;
+      height: 300px;
+    }
+  }
 }

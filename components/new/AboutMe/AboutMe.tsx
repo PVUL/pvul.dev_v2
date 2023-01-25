@@ -16,8 +16,8 @@ export const AboutMe = () => {
       className={styles.aboutMe}
     >
       <GradientBackground />
-      <div className="flex justify-center mx-auto text-center xl:px-29 lg:text-left">
-        <div className="flex flex-col items-center max-w-5xl lg:flex-row md:px-28">
+      <div className="flex justify-center mx-auto text-center lg:text-left">
+        <div className="flex flex-col items-center max-w-5xl lg:max-w-6xl lg:flex-row md:px-28">
           <motion.div
             variants={sectionVariant(0.3)}
             className="justify-end max-w-xs"
@@ -31,7 +31,7 @@ export const AboutMe = () => {
           </motion.div>
           <div className="mb-12 lg:mb-0">
             <div
-              className="block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5"
+              className="block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg lg:max-w-6xl sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5"
               style={{
                 background: 'rgba(255, 255, 255, .35)',
                 backdropFilter: 'blur(30px)',
@@ -44,14 +44,15 @@ export const AboutMe = () => {
               <p className="pb-2 mb-6 text-gray-800 lg:pb-0">
                 I’ve spent the last 15+ years working across different areas of
                 design- web and app development, industrial design, packaging
-                and graphic design. I've worked with startups to big tech,
-                fashion to manufacturing industries, and B2B to retail
-                environments.
+                and graphic design. I've worked with startups to big tech
+                companies, fashion to manufacturing industries, and B2B to
+                retail environments.
               </p>
 
               <p className="mb-6 text-gray-800">
                 I care deeply about helping my clients with their creative needs
                 and I treat every project as if it’s my own, with love and care.
+                I am currently taking on new clients.
               </p>
 
               <p className="mb-0 text-gray-800">

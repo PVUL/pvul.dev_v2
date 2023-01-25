@@ -2,7 +2,7 @@
   @apply mt-[41px] xl:mt-0 xl:mr-0;
 
   .banner {
-    @apply h-screen;
+    @apply h-[calc(100vh+4rem)];
   }
 
   div[data-testid='layer-0'] {

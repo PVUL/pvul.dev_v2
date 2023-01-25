@@ -1,3 +1,11 @@
 .navBar {
   @apply fixed flex flex-row justify-between w-screen bg-white border-b border-black border-solid items-center px-7 py-2 xl:flex-col xl:h-screen xl:left-0 xl:top-0 xl:border-solid xl:border-black xl:border-b-0 xl:border-r xl:w-64 z-10;
+
+  .menuLinks {
+    @apply flex flex-row text-center cursor-default xl:flex-col;
+  }
+
+  .menuLink {
+    @apply ml-6 xl:ml-0 hover:bg-black hover:text-white transition-colors;
+  }
 }
