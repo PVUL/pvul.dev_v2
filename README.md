@@ -31,6 +31,7 @@ Frontend stack:
 - react-hot-toast (for notifications)
 - yup (for schema validation)
 - framer-motion (for animations)
+- react-scroll-parallax (for parallax)
 
 ---
 

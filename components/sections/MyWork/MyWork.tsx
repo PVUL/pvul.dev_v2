@@ -15,10 +15,11 @@ export const MyWork = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 'some' }}
+      viewport={{ once: false, amount: 'some' }}
+      id="my-work"
     >
       <section className={styles.myWork}>
-        <motion.h2 variants={textVariant(0.5)} className={styles.header}>
+        <motion.h2 variants={textVariant(0.2)} className={styles.header}>
           My Work
         </motion.h2>
         <div className="flex flex-col items-center gap-6 md:w-full lg:grid-cols-1 xl:gap-x-12">
