@@ -4,9 +4,13 @@ import Container from '../components/container'
 // import Intro from '../components/intro'
 import Layout from '../components/layout'
 import PostList from '../components/post-list'
-import { ContactForm } from '../components/new/ContactForm'
+import { Contact } from '../components/sections/Contact'
 import { getPosts } from './api/posts'
+import { Hero } from '../components/new/Hero'
 import { AboutMe } from '../components/new/AboutMe'
+import { MyWork } from '../components/sections/MyWork'
+import { MySkills } from '../components/sections/MySkills'
+import { GradientBackground } from '../components/new/GradientBackground'
 
 export default function Index({ posts }) {
   return (
@@ -18,13 +22,11 @@ export default function Index({ posts }) {
         <Container>
           {/* <Intro /> */}
           {/* <PostList posts={posts} /> */}
+          <Hero />
           <AboutMe />
-          <section className="my-24">
-            <h2 className="mb-6 text-3xl font-bold text-center">
-              Let's get in touch.
-            </h2>
-            <ContactForm />
-          </section>
+          {/* <MySkills /> */}
+          <MyWork />
+          <Contact />
         </Container>
       </Layout>
     </>

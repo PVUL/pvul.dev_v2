@@ -1,0 +1,6 @@
+.modal {
+}
+
+.modalBox {
+  @apply modal-box mx-auto flex items-center justify-center bg-white shadow-lg w-full transition-opacity duration-300 ease-in-out  max-w-[1100px] h-auto  rounded-2xl overflow-y-hidden p-0;
+}

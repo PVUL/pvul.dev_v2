@@ -1,25 +1,39 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+
+import { sectionVariant } from '../../../utils/motion'
 import styles from './AboutMe.module.scss'
 import imageSrc from '../../../public/paul-yun.png'
+import { GradientBackground } from '../GradientBackground'
 
 export const AboutMe = () => {
   return (
-    <div className={styles.aboutMe}>
-      <div className="container flex justify-center mx-auto text-center xl:px-29 lg:text-left">
-        <div className="flex flex-col items-center max-w-5xl xs:flex-col sm:pt-10 lg:flex-row">
-          <div className="justify-end">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 'some' }}
+      variants={sectionVariant(0.2)}
+      className={styles.aboutMe}
+    >
+      <GradientBackground />
+      <div className="flex justify-center mx-auto text-center xl:px-29 lg:text-left">
+        <div className="flex flex-col items-center max-w-5xl lg:flex-row md:px-28">
+          <motion.div
+            variants={sectionVariant(0.3)}
+            className="justify-end max-w-xs"
+          >
             <img
               src="paul-yun.png"
               height={400}
               width={400}
               className={styles.image}
             ></img>
-          </div>
+          </motion.div>
           <div className="mb-12 lg:mb-0">
             <div
-              className="block max-w-5xl px-6 py-12 rounded-lg shadow-lg md:px-12 lg:-ml-10"
+              className="block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5"
               style={{
-                background: 'hsla(0, 0%, 100%, 0.55)',
+                background: 'rgba(255, 255, 255, .35)',
                 backdropFilter: 'blur(30px)',
               }}
             >
@@ -27,18 +41,20 @@ export const AboutMe = () => {
                 Hi I’m Paul. I bring ideas to life through web and product
                 design.
               </h2>
-              <p className="pb-2 mb-6 text-gray-500 lg:pb-0">
+              <p className="pb-2 mb-6 text-gray-800 lg:pb-0">
                 I’ve spent the last 15+ years working across different areas of
                 design- web and app development, industrial design, packaging
-                and graphic design.
+                and graphic design. I've worked with startups to big tech,
+                fashion to manufacturing industries, and B2B to retail
+                environments.
               </p>
 
-              <p className="mb-6 text-gray-500">
+              <p className="mb-6 text-gray-800">
                 I care deeply about helping my clients with their creative needs
                 and I treat every project as if it’s my own, with love and care.
               </p>
 
-              <p className="mb-0 text-gray-500">
+              <p className="mb-0 text-gray-800">
                 Outside of work, you can catch me cruising on my skateboard,
                 tinkering with widgets using my 3d printer, and becoming a
                 professional home chef.
@@ -47,6 +63,6 @@ export const AboutMe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
