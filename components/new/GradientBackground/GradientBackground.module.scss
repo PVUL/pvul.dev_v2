@@ -23,7 +23,7 @@
   }
   .color3 {
     position: absolute;
-    background: #b04561;
+    background: #df7373;
     filter: blur(240px);
     bottom: 69%;
     left: 70%;
@@ -44,6 +44,23 @@
     .color3 {
       background: #2dc7ff;
       height: 300px;
+    }
+  }
+
+  &.variation2 {
+    .color1 {
+      background: #fae3e3;
+      left: -50%;
+      height: 500px;
+    }
+    .color2 {
+      background: #cfa5b4;
+      left: 60%;
+      height: 200px;
+    }
+    .color3 {
+      background: #f7d4bc;
+      height: 400px;
     }
   }
 }

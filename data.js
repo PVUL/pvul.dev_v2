@@ -50,6 +50,7 @@ export const works = [
 export const services = [
   {
     title: 'Web Design',
+    description: 'Building a digital presence that is perfectly suited to you.',
     technologies: [
       'NextJS',
       'React',
@@ -67,6 +68,7 @@ export const services = [
   },
   {
     title: 'App Development',
+    description: 'Developing a full-featured idea in the digital landscape.',
     technologies: [
       'NodeJS',
       'Ruby on Rails',
@@ -84,6 +86,8 @@ export const services = [
   },
   {
     title: 'Product Design',
+    description:
+      'Creating a physical product from conceptualization to mass-production.',
     technologies: [
       'Solidworks',
       '3d Modeling',

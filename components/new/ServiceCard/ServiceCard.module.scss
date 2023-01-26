@@ -2,7 +2,7 @@
   @apply max-w-sm w-[70vw] md:w-[40vw] flex flex-col items-center mt-8 m-4;
 
   .circle {
-    @apply rounded-full h-24 w-24 bg-gray-200 flex justify-center items-center z-10;
+    @apply rounded-full h-24 w-24 flex justify-center items-center z-10 border-solid border-2 border-gray-500 bg-white shadow-sm;
   }
 
   .icon {
@@ -14,15 +14,25 @@
   }
 
   .card {
-    @apply bg-green-100 w-full -mt-8 rounded-lg pt-10 flex flex-col items-center pb-12 overflow-hidden;
+    @apply w-full -mt-8 rounded-lg pt-10 flex flex-col items-center pb-12 overflow-hidden shadow-lg bg-white;
   }
 
   .cardTitle {
-    @apply text-2xl mb-4;
+    @apply text-2xl mb-4 font-light;
+  }
+
+  .cardDescription {
+    @apply w-72 text-center italic;
+  }
+
+  .divider {
+    @apply my-8;
+    width: 1.5rem;
+    border-top: 2px solid #868683;
   }
 
   .list {
-    @apply columns-2;
+    @apply columns-2 font-medium;
 
     li::before {
       content: '•';

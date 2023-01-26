@@ -4,6 +4,7 @@ import { Heading } from '../../new/Heading'
 import { ServiceCard } from '../../new/ServiceCard'
 import { services } from '../../../data'
 import styles from './MyServices.module.scss'
+import { GradientBackground } from '../../new/GradientBackground'
 
 export const MyServices = () => {
   return (
@@ -14,21 +15,22 @@ export const MyServices = () => {
       id="services"
       className={styles.myServices}
     >
+      <GradientBackground variation={2} />
       <Heading text="What I Do" />
       <motion.p
-        variants={textVariant(0.25)}
-        className="py-8 w-[70vw] max-w-3xl"
+        variants={textVariant(0.2)}
+        className="py-8 w-[70vw] max-w-3xl text-lg"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Senectus et netus et
-        malesuada. Nunc congue nisi vitae suscipit tellus mauris a diam. Nec dui
-        nunc mattis enim ut tellus.
+        Whether your creative needs are digital or physical, I take a holistic
+        approach for either. I listen to your needs. I conceptualize. I propose
+        ideas. I put in the work. And, I deliver. I'm dedicated to delivering
+        high quality work only.
       </motion.p>
-      <div className={styles.main}>
+      <motion.div variants={sectionVariant(0.3)} className={styles.main}>
         {services.map((service) => (
           <ServiceCard key={service.alt} service={service} />
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   )
 }
