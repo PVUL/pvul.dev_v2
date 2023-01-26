@@ -1,3 +1,5 @@
+@import 'styles/mixins';
+
 .serviceCard {
   @apply max-w-sm w-[70vw] md:w-[40vw] flex flex-col items-center mt-8 m-4;
 
@@ -7,6 +9,7 @@
 
   .icon {
     @apply w-auto h-[56px];
+    @include no-select;
   }
 
   .icon[src*='app-development'] {
