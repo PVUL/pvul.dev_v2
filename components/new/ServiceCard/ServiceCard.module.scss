@@ -1,0 +1,32 @@
+.serviceCard {
+  @apply max-w-sm w-[70vw] md:w-[40vw] flex flex-col items-center mt-8 m-4;
+
+  .circle {
+    @apply rounded-full h-24 w-24 bg-gray-200 flex justify-center items-center z-10;
+  }
+
+  .icon {
+    @apply w-auto h-[56px];
+  }
+
+  .icon[src*='app-development'] {
+    @apply h-[50px];
+  }
+
+  .card {
+    @apply bg-green-100 w-full -mt-8 rounded-lg pt-10 flex flex-col items-center pb-12 overflow-hidden;
+  }
+
+  .cardTitle {
+    @apply text-2xl mb-4;
+  }
+
+  .list {
+    @apply columns-2;
+
+    li::before {
+      content: '•';
+      margin-right: 2px;
+    }
+  }
+}

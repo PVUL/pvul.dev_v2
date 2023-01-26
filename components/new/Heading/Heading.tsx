@@ -7,7 +7,7 @@ interface Props {
   delay?: number
 }
 
-export const Heading = ({ text, delay = 0.5 }: Props) => (
+export const Heading = ({ text, delay = 0.2 }: Props) => (
   <motion.h2 variants={textVariant(delay)} className={styles.heading}>
     {text}
   </motion.h2>

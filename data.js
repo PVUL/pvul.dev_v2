@@ -46,3 +46,57 @@ export const works = [
     ],
   },
 ]
+
+export const services = [
+  {
+    title: 'Web Design',
+    technologies: [
+      'NextJS',
+      'React',
+      'Typescript',
+      'Javascript',
+      'SASS',
+      'Figma',
+      'Invision',
+      'TailwindCSS',
+      'Bootstrap',
+      'SEO',
+    ],
+    icon: 'icons/web-design.png',
+    alt: 'web-design',
+  },
+  {
+    title: 'App Development',
+    technologies: [
+      'NodeJS',
+      'Ruby on Rails',
+      'PHP',
+      'Python',
+      'SQL Server',
+      'PostgreSQL',
+      'AWS/GCP',
+      'Vercel/Netlify',
+      'Docker',
+      'Unity',
+    ],
+    icon: 'icons/app-development.png',
+    alt: 'app-development',
+  },
+  {
+    title: 'Product Design',
+    technologies: [
+      'Solidworks',
+      '3d Modeling',
+      'Photoshop',
+      'Illustrator',
+      'Rendering',
+      'Logo/Packaging',
+      '3d Printing',
+      'Prototyping',
+      'Laser Cutting',
+      'Sourcing',
+    ],
+    icon: 'icons/product-design.png',
+    alt: 'product-design',
+  },
+]
