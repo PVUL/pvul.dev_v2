@@ -22,9 +22,9 @@ export const MyServices = () => {
         className="py-8 w-[70vw] max-w-3xl text-lg"
       >
         Whether your creative needs are digital or physical, I take a holistic
-        approach for either. I listen to your needs. I conceptualize. I propose
-        ideas. I put in the work. And, I deliver. I'm dedicated to delivering
-        high quality work only.
+        approach for either- I listen to your needs, I conceptualize, propose
+        ideas, put in the work, and I deliver. I'm dedicated to delivering high
+        quality work only.
       </motion.p>
       <motion.div variants={sectionVariant(0.3)} className={styles.main}>
         {services.map((service) => (

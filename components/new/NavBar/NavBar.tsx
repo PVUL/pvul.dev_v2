@@ -1,5 +1,8 @@
 import Link from 'next/link'
-
+import {
+  RiGithubFill as GithubIcon,
+  RiLinkedinBoxFill as LinkedinIcon,
+} from 'react-icons/ri'
 import styles from './NavBar.module.scss'
 
 export const NavBar = () => {
@@ -19,9 +22,23 @@ export const NavBar = () => {
           <Link href="#contact">CONTACT</Link>
         </li>
       </ul>
-      <div className="hidden transition-colors hover:bg-black hover:text-white xl:block">
-        <Link href="https://github.com/pvul">GITHUB</Link>{' '}
-        <Link href="https://github.com/pvul">LINKEDIN</Link>
+      <div className="hidden xl:flex">
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://github.com/pvul"
+          className="transition-opacity hover:opacity-75"
+        >
+          <GithubIcon className={styles.icon} />
+        </a>
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://linkedin.com/in/yunpaul"
+          className="transition-opacity hover:opacity-75"
+        >
+          <LinkedinIcon className={styles.icon} />
+        </a>
       </div>
     </header>
   )

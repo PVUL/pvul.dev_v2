@@ -9,6 +9,11 @@
   }
 
   .menuLink {
-    @apply ml-6 xl:ml-0 hover:bg-black hover:text-white transition-colors;
+    @apply ml-4 xl:ml-0 hover:bg-black hover:text-white transition-colors;
+  }
+
+  .icon {
+    @apply text-gray-500;
+    font-size: 1.3em;
   }
 }
