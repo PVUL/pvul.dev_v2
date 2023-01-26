@@ -1,5 +1,8 @@
+@import 'styles/mixins';
+
 .hero {
   @apply mt-[41px] xl:mt-0 xl:mr-0;
+  @include no-select;
 
   .banner {
     @apply h-[calc(100vh+4rem)];
