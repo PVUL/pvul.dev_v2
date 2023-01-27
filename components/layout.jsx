@@ -1,4 +1,5 @@
 import Meta from './meta'
+import { Footer } from './new/Footer'
 import { NavBar } from './new/NavBar'
 
 export default function Layout({ children }) {
@@ -7,6 +8,7 @@ export default function Layout({ children }) {
       <Meta />
       <NavBar />
       <main className="xl:ml-64">{children}</main>
+      <Footer />
     </section>
   )
 }

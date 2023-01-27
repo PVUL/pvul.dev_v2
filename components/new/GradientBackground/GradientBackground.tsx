@@ -9,6 +9,7 @@ export const GradientBackground = ({ variation = 0 }: Props) => (
   <div
     className={clsx(styles.gradientBackground, {
       [styles.variation1]: variation === 1,
+      [styles.variation2]: variation === 2,
     })}
   >
     <div className={styles.color1} />

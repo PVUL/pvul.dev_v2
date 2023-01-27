@@ -20,7 +20,7 @@ export const Hero = () => (
       >
         <motion.div
           variants={textVariant(0.15)}
-          className="absolute inset-0 flex flex-col justify-center p-32 text-right"
+          className="absolute inset-0 flex flex-col justify-center p-8 text-right sm:p-32"
         >
           <h1 className="mb-8 font-thin leading-none text-white text-7xl">
             I design to make people's dreams come true.

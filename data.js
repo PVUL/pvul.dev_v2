@@ -46,3 +46,61 @@ export const works = [
     ],
   },
 ]
+
+export const services = [
+  {
+    title: 'Web Design',
+    description: 'Building a digital presence that is perfectly suited to you.',
+    technologies: [
+      'NextJS',
+      'React',
+      'Typescript',
+      'Javascript',
+      'SASS',
+      'Figma',
+      'Invision',
+      'TailwindCSS',
+      'Bootstrap',
+      'SEO',
+    ],
+    icon: 'icons/web-design.png',
+    alt: 'web-design',
+  },
+  {
+    title: 'App Development',
+    description: 'Developing a full-featured idea in the digital landscape.',
+    technologies: [
+      'NodeJS',
+      'Ruby on Rails',
+      'PHP',
+      'Python',
+      'SQL Server',
+      'PostgreSQL',
+      'AWS/GCP',
+      'Vercel/Netlify',
+      'Docker',
+      'Unity',
+    ],
+    icon: 'icons/app-development.png',
+    alt: 'app-development',
+  },
+  {
+    title: 'Product Design',
+    description:
+      'Creating a physical product from conceptualization to mass-production.',
+    technologies: [
+      'Solidworks',
+      '3d Modeling',
+      'Photoshop',
+      'Illustrator',
+      'Rendering',
+      'Logo/Packaging',
+      '3d Printing',
+      'Prototyping',
+      'Laser Cutting',
+      'Sourcing',
+    ],
+    icon: 'icons/product-design.png',
+    alt: 'product-design',
+  },
+]

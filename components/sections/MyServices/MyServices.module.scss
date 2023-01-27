@@ -1,0 +1,7 @@
+.myServices {
+  @apply w-full flex flex-col items-center pt-48 pb-8;
+
+  .main {
+    @apply w-full flex flex-col flex-wrap justify-center md:flex-row;
+  }
+}
