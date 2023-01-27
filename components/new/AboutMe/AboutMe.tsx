@@ -15,7 +15,7 @@ export const AboutMe = () => {
       variants={sectionVariant(0.2)}
       className={styles.aboutMe}
     >
-      <GradientBackground />
+      {/* <GradientBackground /> */}
       <div className="flex justify-center mx-auto text-center lg:text-left">
         <div className="flex flex-col items-center max-w-5xl lg:max-w-6xl lg:flex-row md:px-28">
           <motion.div
@@ -31,7 +31,7 @@ export const AboutMe = () => {
           </motion.div>
           <div className="mb-12 lg:mb-0">
             <div
-              className="block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg lg:max-w-6xl sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5"
+              className={styles.card}
               style={{
                 background: 'rgba(255, 255, 255, .35)',
                 backdropFilter: 'blur(30px)',

@@ -12,7 +12,7 @@ export const Contact = () => {
       className="flex flex-col justify-center h-screen mb-4"
       id="contact"
     >
-      <GradientBackground variation={1} />
+      {/* <GradientBackground variation={1} /> */}
       <motion.div variants={textVariant(0.2)} className="mb-6 text-center">
         <h2 className="mb-2 text-xl font-light">
           Want to build something amazing?

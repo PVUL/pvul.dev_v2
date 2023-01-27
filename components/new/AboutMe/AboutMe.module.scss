@@ -8,4 +8,9 @@
     @include no-select;
     min-width: 300px;
   }
+
+  .card {
+    @apply block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg lg:max-w-6xl sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5;
+    @include shadow;
+  }
 }
