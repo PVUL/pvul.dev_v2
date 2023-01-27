@@ -9,7 +9,7 @@ export const NavBar = () => {
   return (
     <div className="flex flex-col drawer-content">
       <header className={styles.navBar}>
-        <div className="transition-colors hover:bg-black hover:text-white">
+        <div>
           <Link href="/">PAUL YUN</Link>
         </div>
 
