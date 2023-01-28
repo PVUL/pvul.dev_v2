@@ -58,8 +58,7 @@ export const ContactForm = () => {
     toast.custom((t) => <Toaster t={t} message={message} />, {
       id: 'successfulContact',
       position: 'top-right',
-      duration: 106000,
-      // duration: 6000,
+      duration: 6000,
     })
   }
 
