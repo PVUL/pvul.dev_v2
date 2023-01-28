@@ -35,7 +35,7 @@ export const ContactForm = () => {
   const { register, reset, handleSubmit, formState } = useForm<Inputs>({
     resolver: yupResolver(schema),
   })
-  const { errors, isSubmitted } = formState
+  const { errors, isSubmitted, isSubmitting } = formState
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -113,7 +113,7 @@ export const ContactForm = () => {
         <input
           disabled={!!errors.email || !!errors.name || !!errors.message}
           type="submit"
-          value="send"
+          value={isSubmitting ? 'sending...' : 'send'}
           className="mt-2 btn btn-block"
         />
       </form>

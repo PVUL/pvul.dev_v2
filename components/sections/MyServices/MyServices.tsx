@@ -15,7 +15,7 @@ export const MyServices = () => {
       id="services"
       className={styles.myServices}
     >
-      <GradientBackground variation={2} />
+      {/* <GradientBackground variation={2} /> */}
       <Heading text="What I Do" />
       <motion.p
         variants={textVariant(0.2)}

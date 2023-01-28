@@ -1,5 +1,10 @@
+@import 'styles/mixins';
+
 .contactForm {
-  @apply block sm:max-w-md p-8 bg-white sm:rounded-lg shadow-xl mx-auto;
+  @apply block sm:max-w-md p-8 bg-white sm:rounded-xl sm:shadow-xl mx-auto;
+  @include for-screen(sm) {
+    @include shadow;
+  }
 
   .formField {
     @apply mb-6 form-control;
