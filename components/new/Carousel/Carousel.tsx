@@ -38,6 +38,7 @@ export const Carousel = ({ images }: Props) => {
         slidesPerView={1}
         loop
         className="rounded-lg"
+        lazy
       >
         {images.map((image) => (
           <SwiperSlide key={image.alt}>
