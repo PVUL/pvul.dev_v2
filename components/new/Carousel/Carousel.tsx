@@ -37,6 +37,7 @@ export const Carousel = ({ images }: Props) => {
         speed={600}
         slidesPerView={1}
         loop
+        className="rounded-lg"
       >
         {images.map((image) => (
           <SwiperSlide key={image.alt}>

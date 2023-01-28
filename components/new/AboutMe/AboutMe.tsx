@@ -30,13 +30,7 @@ export const AboutMe = () => {
             ></img>
           </motion.div>
           <div className="mb-12 lg:mb-0">
-            <div
-              className={styles.card}
-              style={{
-                background: 'rgba(255, 255, 255, .35)',
-                backdropFilter: 'blur(30px)',
-              }}
-            >
+            <div className={styles.card}>
               <h2 className="mb-6 text-3xl font-bold">
                 Hi I’m Paul. I bring ideas to life through web and product
                 design.

@@ -1,3 +1,31 @@
+/**********************************
+BREAKPOINTS - based on TailwindCSS
+**********************************/
+
+/*
+ * $size values used for-screen() mixin.
+ */
+$sizes: (
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  2xl: 1526,
+);
+
+/*
+ * use:
+ *
+ * @include for-screen(md) {
+ *   ...stuff...
+ * }
+ */
+@mixin for-screen($size: sm) {
+  @media (min-width: map-get($sizes, $size) + px) {
+    @content;
+  }
+}
+
 @mixin no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

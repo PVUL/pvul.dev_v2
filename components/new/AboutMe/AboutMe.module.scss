@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .aboutMe {
-  @apply bg-white pt-32 lg:pt-0 h-[calc(100vh+1rem)] flex justify-center min-h-[1140px] lg:min-h-0;
+  @apply bg-white pt-32 lg:pt-0 h-[calc(100vh+1rem)] flex justify-center min-h-[1140px] lg:min-h-0 mb-20 sm:mb-0;
 
   .image {
     @apply rounded-xl w-full shadow-2xl;
@@ -11,6 +11,8 @@
 
   .card {
     @apply block max-w-5xl px-12 pt-12 pb-16 -mt-5 shadow-lg lg:max-w-6xl sm:pb-12 md:rounded-xl md:px-16 lg:-ml-5;
-    @include shadow;
+    @include for-screen(sm) {
+      @include shadow;
+    }
   }
 }
