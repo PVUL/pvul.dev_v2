@@ -24,7 +24,11 @@ export const Footer = () => (
         <LinkedinIcon className={styles.icon} />
       </a>
     </div>
-    <p className={styles.text}>Made with {'<3'} by Paul Yun.</p>
-    <p className={styles.text}>©2023.</p>
+    <img className={styles.logo} src="pvul-logo.png" alt="logo" />
+    <p className={styles.text}>
+      Made with {'<3'} <br />
+      by Paul Yun
+    </p>
+    <p className={styles.text}>©2023</p>
   </div>
 )

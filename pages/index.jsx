@@ -16,7 +16,7 @@ export default function Index({ posts }) {
     <>
       <Layout>
         <Head>
-          <title>PVUL.dev</title>
+          <title>Paul Yun</title>
         </Head>
         <Container>
           {/* <Intro /> */}
