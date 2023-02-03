@@ -15,7 +15,7 @@ export const Values = () => {
       <h2 className={styles.header}>Values</h2>
       <p>Treat people with respect</p>
       <p>Spread positivity</p>
-      <p>Appreciates feedback</p>
+      <p>Growth mindset</p>
       <p>Clear honest, communication</p>
       <p>High quality work</p>
     </motion.div>
