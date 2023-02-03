@@ -24,6 +24,7 @@ export const AboutMe = () => {
               height={500}
               width={500}
               className={styles.image}
+              priority
             ></Image>
           </motion.div>
           <div className="mb-12 lg:mb-0">
