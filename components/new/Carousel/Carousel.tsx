@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Navigation, EffectFade } from 'swiper'
@@ -42,7 +43,12 @@ export const Carousel = ({ images }: Props) => {
       >
         {images.map((image) => (
           <SwiperSlide key={image.alt}>
-            <img src={image.source} alt={image.alt} />
+            <Image
+              src={image.source}
+              alt={image.alt}
+              width={1140}
+              height={840}
+            />
           </SwiperSlide>
         ))}
 

@@ -6,7 +6,6 @@
   .image {
     @apply rounded-xl w-full shadow-2xl;
     @include no-select;
-    min-width: 300px;
   }
 
   .card {

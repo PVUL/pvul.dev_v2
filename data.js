@@ -12,15 +12,15 @@ export const works = [
     images: [
       {
         alt: 'almanac-1',
-        source: 'works/almanac-1.png',
+        source: '/works/almanac-1.png',
       },
       {
         alt: 'almanac-2',
-        source: 'works/almanac-2.png',
+        source: '/works/almanac-2.png',
       },
       {
         alt: 'almanac-3',
-        source: 'works/almanac-3.png',
+        source: '/works/almanac-3.png',
       },
     ],
   },
@@ -33,15 +33,15 @@ export const works = [
     images: [
       {
         alt: 'wayfair-1',
-        source: 'works/wayfair-1.png',
+        source: '/works/wayfair-1.png',
       },
       {
         alt: 'wayfair-2',
-        source: 'works/wayfair-2.png',
+        source: '/works/wayfair-2.png',
       },
       {
         alt: 'wayfair-3',
-        source: 'works/wayfair-3.png',
+        source: '/works/wayfair-3.png',
       },
     ],
   },

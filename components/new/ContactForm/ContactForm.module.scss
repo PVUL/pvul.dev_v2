@@ -7,18 +7,26 @@
   }
 
   .formField {
-    @apply mb-6 form-control;
+    @apply mb-6;
+  }
+
+  .label {
+    @apply flex justify-between p-1 pb-2 text-sm;
   }
 
   .textInput {
-    @apply input input-bordered w-full block focus:outline-none;
+    @apply w-full block focus:outline-none border rounded-sm p-3 px-4 border-gray-300;
   }
 
   .textArea {
-    @apply textarea textarea-bordered block w-full focus:outline-none text-base;
+    @apply block w-full focus:outline-none text-base border rounded-sm p-2 px-4 border-gray-300;
   }
 
   .errorText {
-    @apply text-pink-400 label-text-alt;
+    @apply text-pink-400;
+  }
+
+  .button {
+    @apply mt-2 w-full bg-black p-4 text-white rounded-sm uppercase text-sm;
   }
 }

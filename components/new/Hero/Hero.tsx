@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ParallaxBanner } from 'react-scroll-parallax'
 
-import { sectionVariant, textVariant } from '../../../utils/motion'
+import { sectionVariant } from '../../../utils/motion'
 import styles from './Hero.module.scss'
 
 export const Hero = () => (
