@@ -30,6 +30,7 @@ export const NavBar = () => {
             target="_blank"
             href="https://github.com/pvul"
             className="transition-opacity hover:opacity-75"
+            aria-label="github"
           >
             <GithubIcon className={styles.icon} />
           </a>
@@ -38,6 +39,7 @@ export const NavBar = () => {
             target="_blank"
             href="https://linkedin.com/in/yunpaul"
             className="transition-opacity hover:opacity-75"
+            aria-label="linkedin"
           >
             <LinkedinIcon className={styles.icon} />
           </a>

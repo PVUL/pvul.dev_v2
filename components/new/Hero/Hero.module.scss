@@ -5,7 +5,7 @@
   @include no-select;
 
   .banner {
-    @apply h-[calc(100vh+4rem)];
+    @apply h-[calc(100vh+2rem)];
   }
 
   div[data-testid='layer-0'] {
