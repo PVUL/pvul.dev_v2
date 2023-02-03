@@ -66,8 +66,8 @@ export const ContactForm = () => {
     <div className={styles.contactForm}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formField}>
-          <label className="label">
-            <span className="label-text">Name</span>
+          <label className={styles.label}>
+            <span>Name</span>
             {isSubmitted && errors.name && (
               <span className={styles.errorText}>{errors.name.message}</span>
             )}
@@ -81,8 +81,8 @@ export const ContactForm = () => {
           />
         </div>
         <div className={styles.formField}>
-          <label className="label">
-            <span className="label-text">Email</span>
+          <label className={styles.label}>
+            <span>Email</span>
             {isSubmitted && errors.email && (
               <span className={styles.errorText}>{errors.email.message}</span>
             )}
@@ -95,8 +95,8 @@ export const ContactForm = () => {
           />
         </div>
         <div className={styles.formField}>
-          <label className="label">
-            <span className="label-text">Message</span>
+          <label className={styles.label}>
+            <span>Message</span>
             {isSubmitted && errors.message && (
               <span className={styles.errorText}>{errors.message.message}</span>
             )}
@@ -114,7 +114,7 @@ export const ContactForm = () => {
           disabled={!!errors.email || !!errors.name || !!errors.message}
           type="submit"
           value={isSubmitting ? 'sending...' : 'send'}
-          className="mt-2 btn btn-block"
+          className={styles.button}
         />
       </form>
       <ReactHotToaster />
