@@ -3,8 +3,6 @@ import Image from 'next/image'
 
 import { sectionVariant } from '../../../utils/motion'
 import styles from './AboutMe.module.scss'
-import imageSrc from '../../../public/paul-yun.png'
-import { GradientBackground } from '../GradientBackground'
 
 export const AboutMe = () => {
   return (
@@ -15,7 +13,6 @@ export const AboutMe = () => {
       variants={sectionVariant(0.2)}
       className={styles.aboutMe}
     >
-      {/* <GradientBackground /> */}
       <div className="flex justify-center mx-auto text-center lg:text-left">
         <div className="flex flex-col items-center max-w-5xl lg:max-w-6xl lg:flex-row md:px-28">
           <motion.div
