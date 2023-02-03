@@ -22,12 +22,12 @@ export const AboutMe = () => {
             variants={sectionVariant(0.3)}
             className="justify-end max-w-xs"
           >
-            <img
-              src="paul-yun.png"
-              height={400}
-              width={400}
+            <Image
+              src="/paul-yun.png"
+              height={500}
+              width={500}
               className={styles.image}
-            ></img>
+            ></Image>
           </motion.div>
           <div className="mb-12 lg:mb-0">
             <div className={styles.card}>
