@@ -3,6 +3,7 @@ import { sectionVariant } from '../../../utils/motion'
 import { TextBlock } from '../../new/TextBlock'
 
 import styles from './Values.module.scss'
+import Link from 'next/link'
 
 export const Values = () => {
   return (
@@ -13,7 +14,14 @@ export const Values = () => {
       variants={sectionVariant(0.3)}
       className={styles.values}
     >
-      <h2 className={styles.header}>Values</h2>
+      <h2 className={styles.header}>My Values</h2>
+      <p className={styles.description}>
+        I do my best work when I work with clients who understand where I'm
+        coming from and align with my core values. <br />
+        <br />
+        If this resonates with you, I would love to{' '}
+        <Link href="#contact">hear from you</Link>!
+      </p>
       <div className={styles.blocks}>
         <TextBlock
           title="Treat People Right"
