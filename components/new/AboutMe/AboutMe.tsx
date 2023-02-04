@@ -27,7 +27,7 @@ export const AboutMe = () => {
               priority
             ></Image>
           </motion.div>
-          <div className="mb-12 lg:mb-0">
+          <div className="lg:mb-0">
             <div className={styles.card}>
               <h2 className="mb-6 text-3xl font-bold">
                 Hi I’m Paul. I bring ideas to life through web and product

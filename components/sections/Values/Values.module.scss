@@ -1,7 +1,11 @@
 .values {
-  @apply text-center my-8 mb-16;
+  @apply text-center mt-12 sm:mt-0 mb-16 px-4 md:px-12 lg:px-48 2xl:px-80;
 
   .header {
-    @apply text-4xl font-semibold mb-4;
+    @apply text-4xl font-semibold mb-10;
+  }
+
+  .blocks {
+    @apply flex flex-wrap justify-center;
   }
 }
