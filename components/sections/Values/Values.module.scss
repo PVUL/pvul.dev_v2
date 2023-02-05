@@ -1,0 +1,19 @@
+.values {
+  @apply text-center mt-28 sm:mt-0 mb-32 px-4 md:px-12 lg:px-48 2xl:px-80;
+
+  .header {
+    @apply text-4xl font-semibold mb-6;
+  }
+
+  .description {
+    @apply px-8 md:px-28;
+
+    a {
+      @apply underline;
+    }
+  }
+
+  .blocks {
+    @apply flex flex-wrap justify-center mt-12;
+  }
+}

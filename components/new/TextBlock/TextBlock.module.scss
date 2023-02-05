@@ -1,0 +1,11 @@
+.textBlock {
+  @apply sm:mr-4 w-full sm:w-52 bg-gray-100 p-6 rounded-md mb-4 flex flex-col justify-between;
+
+  .title {
+    @apply mb-4 font-semibold text-lg;
+  }
+
+  .body {
+    @apply text-sm;
+  }
+}

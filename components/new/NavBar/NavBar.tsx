@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {
   RiGithubFill as GithubIcon,
   RiLinkedinBoxFill as LinkedinIcon,
+  RiTwitterFill as TwitterIcon,
 } from 'react-icons/ri'
 import styles from './NavBar.module.scss'
 
@@ -33,6 +34,15 @@ export const NavBar = () => {
             aria-label="github"
           >
             <GithubIcon className={styles.icon} />
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://twitter.com/__pvul"
+            className="transition-opacity hover:opacity-75"
+            aria-label="github"
+          >
+            <TwitterIcon className={styles.icon} />
           </a>
           <a
             rel="noopener noreferrer"

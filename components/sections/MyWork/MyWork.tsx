@@ -1,16 +1,11 @@
-// import { useState } from 'react'
-
-// import { Modal } from '../../new/Modal'
 import { motion } from 'framer-motion'
 
-import { sectionVariant, textVariant } from '../../../utils/motion'
+import { textVariant } from '../../../utils/motion'
 import { CarouselCard } from '../../new/CarouselCard'
 import { works } from '../../../data'
 import styles from './MyWork.module.scss'
 
 export const MyWork = () => {
-  // const [isOpen, setIsOpen] = useState(false)
-
   return (
     <motion.div
       initial="hidden"
@@ -27,15 +22,13 @@ export const MyWork = () => {
             <CarouselCard
               key={work.title}
               title={work.title}
+              category={work.category}
               description={work.description}
               images={work.images}
               technologies={work.technologies}
             />
           ))}
         </div>
-        {/* <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <img src="works/almanac-1.png" className="w-full" />
-      </Modal> */}
       </section>
     </motion.div>
   )
