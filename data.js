@@ -5,6 +5,7 @@ export const works = [
   {
     title: 'Almanac',
     link: 'https://almanac.io',
+    category: 'App Development',
     description:
       'Almanac is a document sharing platform for teams. While working on this project, it was important to me to have a consistent style across all parts of the customer experience. I created the home page, registration, profiles, and library components- such as navbar, article cards, and avatars. Optimized all pages for SEO.',
     technologies:
@@ -27,8 +28,9 @@ export const works = [
   {
     title: 'Wayfair',
     link: '',
+    category: 'App Development',
     description:
-      'Wayfair Registry is a wedding registry platform for Wayfair. While working on this project, the most important thing was make features that would convert towards higher conversion rates, which were measured through A-B testing. Created the homepage, brand pages, gift tracking, and a registry referral program. Improved page performance by 50% by optimizing images above-the-fold. Also, created documentation for other team members.',
+      'Wayfair Registry is a wedding registry platform for Wayfair. While working on this project, the most important thing was to make features that would convert towards higher conversion rates, which were measured through A-B testing. Created the homepage, brand pages, gift tracking, and a registry referral program. Improved page performance by 50% by optimizing images above-the-fold. Also, created documentation for other team members.',
     technologies:
       'React, Javascript, PHP, SASS, SQL Server, Redis, GraphQL, Invision',
     images: [
@@ -49,8 +51,9 @@ export const works = [
   {
     title: 'Giyea',
     link: 'https://giyea.com',
+    category: 'Graphic Design',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Iaculis at erat pellentesque adipiscing commodo elit at. Egestas quis ipsum suspendisse ultrices gravida. Mi proin sed libero enim sed faucibus turpis. At lectus urna duis convallis convallis tellus id interdum velit. Sed vulputate odio ut enim blandit volutpat. Est ante in nibh mauris cursus mattis molestie. Pellentesque nec nam aliquam sem et tortor consequat id porta. Ut tristique et egestas quis ipsum suspendisse ultrices gravida. Vitae et leo duis ut diam. Nec ultrices dui sapien eget mi proin. At lectus urna duis convallis convallis tellus. Viverra nam libero justo laoreet.',
+      "Giyea is a high-end women's fashion brand that embodies sophistication and timelessness. We wanted to create a simple logo that is balanced against negative space, and spoke to the essence of the brand. It was important that the original logo could translate across different medias.",
     technologies: 'Illustrator',
     images: [
       {
@@ -70,10 +73,11 @@ export const works = [
   {
     title: 'Pavlok',
     link: '',
+    category: 'Packaging & Graphic Design',
     description:
-      'Urna neque viverra justo nec. Placerat vestibulum lectus mauris ultrices. Egestas sed tempus urna et. Lacus viverra vitae congue eu consequat ac felis. Tortor aliquam nulla facilisi cras fermentum. Integer feugiat scelerisque varius morbi enim nunc faucibus. In cursus turpis massa tincidunt. Tincidunt dui ut ornare lectus sit amet. Adipiscing elit ut aliquam purus sit amet luctus. Scelerisque viverra mauris in aliquam sem. Pulvinar mattis nunc sed blandit libero volutpat. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut lectus arcu bibendum at varius vel pharetra. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Ultrices vitae auctor eu augue ut lectus arcu. Felis donec et odio pellentesque diam volutpat commodo.',
+      "Pavlok is an aversion therapy device that shocks you into breaking bad habits. It was important to show off the unique product through it's retail packaging with it's trademark colorway. Other factors that we kept in mind throughout the design process were cost and ease of assembly.",
     technologies:
-      'Solidworks, Keyshot, Photoshop, Illustrator, Indesign, 3d printing',
+      'Solidworks, Keyshot, Photoshop, Illustrator, InDesign, 3d printing',
     images: [
       {
         alt: 'pavlok-1',
@@ -86,10 +90,11 @@ export const works = [
     ],
   },
   {
-    title: 'Aila',
+    title: 'Aila Technologies',
     link: '',
+    category: 'Product Design',
     description:
-      'Urna neque viverra justo nec. Placerat vestibulum lectus mauris ultrices. Egestas sed tempus urna et. Lacus viverra vitae congue eu consequat ac felis. Tortor aliquam nulla facilisi cras fermentum. Integer feugiat scelerisque varius morbi enim nunc faucibus. In cursus turpis massa tincidunt. Tincidunt dui ut ornare lectus sit amet. Adipiscing elit ut aliquam purus sit amet luctus. Scelerisque viverra mauris in aliquam sem. Pulvinar mattis nunc sed blandit libero volutpat. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut lectus arcu bibendum at varius vel pharetra. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Ultrices vitae auctor eu augue ut lectus arcu. Felis donec et odio pellentesque diam volutpat commodo.',
+      'Aila makes tablet kiosks systems which are used at retail locations such as Target, WeWork, and PacSun. While designing the tablet scanner enclosure, it was important that the design language was intuitive so that customers would know how to interact with the device without instructions.',
     technologies:
       'Solidworks, Keyshot, Photoshop, Illustrator, 3d printing, Laser Cutting',
     images: [
@@ -106,8 +111,9 @@ export const works = [
   {
     title: 'Escargot',
     link: '',
+    category: 'Product & Packaging Design',
     description:
-      'Urna neque viverra justo nec. Placerat vestibulum lectus mauris ultrices. Egestas sed tempus urna et. Lacus viverra vitae congue eu consequat ac felis. Tortor aliquam nulla facilisi cras fermentum. Integer feugiat scelerisque varius morbi enim nunc faucibus. In cursus turpis massa tincidunt. Tincidunt dui ut ornare lectus sit amet. Adipiscing elit ut aliquam purus sit amet luctus. Scelerisque viverra mauris in aliquam sem. Pulvinar mattis nunc sed blandit libero volutpat. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut lectus arcu bibendum at varius vel pharetra. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Ultrices vitae auctor eu augue ut lectus arcu. Felis donec et odio pellentesque diam volutpat commodo.',
+      "Escargot is a mobile device accessories brand focused on minimalism and practical design. While working on their product, Spixi, I wanted to create something that people would enjoy using everyday, as well as appreciate it's beauty in an otherwise mundane product category.",
     technologies: 'Solidworks, Keyshot, Photoshop, Illustrator, 3d printing',
     images: [
       {
@@ -127,8 +133,9 @@ export const works = [
   {
     title: 'Ergotech',
     link: '',
+    category: 'Product Design',
     description:
-      'Urna neque viverra justo nec. Placerat vestibulum lectus mauris ultrices. Egestas sed tempus urna et. Lacus viverra vitae congue eu consequat ac felis. Tortor aliquam nulla facilisi cras fermentum. Integer feugiat scelerisque varius morbi enim nunc faucibus. In cursus turpis massa tincidunt. Tincidunt dui ut ornare lectus sit amet. Adipiscing elit ut aliquam purus sit amet luctus. Scelerisque viverra mauris in aliquam sem. Pulvinar mattis nunc sed blandit libero volutpat. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut lectus arcu bibendum at varius vel pharetra. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Ultrices vitae auctor eu augue ut lectus arcu. Felis donec et odio pellentesque diam volutpat commodo.',
+      'Ergotech is a monitor and tablet mounting solutions brand. While I was designing their first tablet stand, VersaStand, it was important to me to create something elegant, functional, and portable. I was proud that <a href="https://www.cnet.com/reviews/ergotech-versastand-for-ipad-review/" target="_blank" rel="noopener noreferrer">CNET</a> rated the design highly.',
     technologies: 'Solidworks, Keyshot, Photoshop, Illustrator',
     images: [
       {

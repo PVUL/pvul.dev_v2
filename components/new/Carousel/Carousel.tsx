@@ -38,7 +38,6 @@ export const Carousel = ({ images }: Props) => {
         speed={600}
         slidesPerView={1}
         loop
-        className="rounded-lg"
         lazy
       >
         {images.map((image) => (

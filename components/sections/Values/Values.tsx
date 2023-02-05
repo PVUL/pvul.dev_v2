@@ -41,7 +41,7 @@ export const Values = () => {
         />
         <TextBlock
           title="High Quality Work"
-          body="I treat all projects as if they're my own, and I am dedicated to delivering the best quality of work only."
+          body="I treat all projects as if they're my own, and I am dedicated to delivering the best quality of work."
         />
       </div>
     </motion.div>
