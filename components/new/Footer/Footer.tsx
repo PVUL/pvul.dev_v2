@@ -1,6 +1,7 @@
 import {
   RiGithubFill as GithubIcon,
   RiLinkedinBoxFill as LinkedinIcon,
+  RiTwitterFill as TwitterIcon,
 } from 'react-icons/ri'
 import styles from './Footer.module.scss'
 
@@ -15,6 +16,15 @@ export const Footer = () => (
         aria-label="github"
       >
         <GithubIcon className={styles.icon} />
+      </a>
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href="https://twitter.com/__pvul"
+        className="transition-opacity hover:opacity-75"
+        aria-label="github"
+      >
+        <TwitterIcon className={styles.icon} />
       </a>
       <a
         rel="noopener noreferrer"
