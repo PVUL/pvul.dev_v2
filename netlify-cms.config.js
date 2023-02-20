@@ -5,13 +5,13 @@ export default {
     repo: 'pvul/blog',
     branch: 'main',
     squash_merges: true,
-    base_url: 'https://pvul-blog.vercel.app',
+    base_url: 'https://pvul.dev',
     auth_endpoint: 'api/auth',
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'https://pvul-blog.vercel.app',
-  display_url: 'pvul-blog.vercel.app',
+  site_url: 'https://pvul.dev',
+  display_url: 'pvul.dev',
   media_library: {
     name: 'uploadcare',
     config: {
