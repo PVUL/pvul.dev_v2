@@ -15,13 +15,6 @@ export const Values = () => {
       className={styles.values}
     >
       <h2 className={styles.header}>My Values</h2>
-      <p className={styles.description}>
-        I do my best work when I work with clients who understand where I'm
-        coming from and align with my core values. <br />
-        <br />
-        If this resonates with you, I would love to{' '}
-        <Link href="#contact">hear from you</Link>!
-      </p>
       <div className={styles.blocks}>
         <TextBlock
           title="Treat People Right"
@@ -44,6 +37,12 @@ export const Values = () => {
           body="I treat all projects as if their my own, and I am dedicated to delivering the best quality of work."
         />
       </div>
+      <p className={styles.description}>
+        I do my best work when I work with clients who understand where I'm
+        coming from and align with my core values. <br />
+        <br />
+        If this resonates with you, I would love to hear from you!
+      </p>
     </motion.div>
   )
 }
