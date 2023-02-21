@@ -6,6 +6,14 @@ Built off of the [blog](https://github.com/pvul/blog) boilerplate.
 
 ---
 
+## currently working on
+
+branch: `add-drawer`
+current issue: can't get framer motion to work with drawer
+solution (to be implemented): look at https://www.framer.com/motion/examples - motion.nav
+
+---
+
 - NextJS (React UI framework)
 - Netlify CMS (for git-based admin editing, at `/admin`)
 - `.md`/`.mdx` filetypes as content stored locally in `_content` directory

@@ -8,7 +8,7 @@ export const HamburgerButton = ({ isOpen, setIsOpen }: Props) => {
 
   return (
     <button
-      className="flex flex-col items-center justify-center w-12 h-12 border-2 border-black rounded group"
+      className="flex flex-col items-center justify-center w-12 h-12 group"
       onClick={() => setIsOpen(!isOpen)}
     >
       <div

@@ -53,8 +53,8 @@ export const NavBar = () => {
           </a>
         </div>
       </header>
-      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-        <ul>
+      <Drawer isOpen={isOpen} setIsOpen={setIsOpen} />
+      {/* <ul>
           <li className={styles.menuLink}>
             <Link href="/#work">WORK</Link>
           </li>
@@ -65,7 +65,7 @@ export const NavBar = () => {
             <Link href="#contact">CONTACT</Link>
           </li>
         </ul>
-      </Drawer>
+      </Drawer> */}
     </div>
   )
 }

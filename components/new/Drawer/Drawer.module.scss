@@ -1,11 +1,19 @@
 .drawer {
-  @apply fixed overflow-hidden z-10 bg-gray-900 bg-opacity-0 inset-0 transform ease-in-out;
+  @apply bg-black text-blue-100 w-screen min-h-screen z-20 fixed inset-y-0 space-y-6 py-2 px-7 left-0 transform -translate-y-full transition duration-1000 ease-in-out opacity-0;
 
-  .isOpen {
-    @apply transition-opacity opacity-100 duration-500 translate-x-0;
+  &.isOpen {
+    @apply translate-y-0 opacity-100;
   }
 
-  .isNotOpen {
-    @apply transition-all delay-500 opacity-0 translate-x-full;
+  .hamburger {
+    @apply flex justify-end;
+  }
+
+  .menuLinks {
+    @apply flex flex-col items-center text-7xl p-8 justify-center h-[calc(100vh-7rem)];
+  }
+
+  .menuLink {
+    @apply hover:cursor-pointer text-white;
   }
 }

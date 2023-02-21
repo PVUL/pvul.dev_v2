@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
+
 import { sectionVariant, textVariant } from '../../../utils/motion'
 import { Heading } from '../../new/Heading'
 import { ServiceCard } from '../../new/ServiceCard'
 import { services } from '../../../data'
 import styles from './MyServices.module.scss'
-import { GradientBackground } from '../../new/GradientBackground'
 
 export const MyServices = () => {
   return (
