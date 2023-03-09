@@ -23,7 +23,7 @@ export const NavBar = () => {
         <ul className={styles.menuLinks}>
           <HamburgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </ul>
-        <div className="hidden xl:flex">
+        <div className="hidden">
           <a
             rel="noopener noreferrer"
             target="_blank"

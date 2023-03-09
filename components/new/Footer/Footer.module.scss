@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .footer {
-  @apply flex items-center flex-col pb-2 xl:ml-64;
+  @apply flex items-center flex-col pb-2;
 
   .socials {
     @apply flex justify-center;

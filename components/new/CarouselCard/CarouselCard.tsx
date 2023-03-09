@@ -23,8 +23,8 @@ export const CarouselCard = ({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 'some' }}
-      variants={sectionVariant(0.25)}
+      viewport={{ once: true, amount: 'some' }}
+      variants={sectionVariant(0.15)}
       className={styles.carouselCard}
     >
       <div className="relative block bg-white">

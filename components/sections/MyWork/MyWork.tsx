@@ -10,7 +10,7 @@ export const MyWork = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 'some' }}
+      viewport={{ once: true, amount: 'some' }}
       id="work"
     >
       <section className={styles.myWork}>
