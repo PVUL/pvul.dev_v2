@@ -16,9 +16,12 @@ export const NavBar = () => {
   return (
     <div className="flex flex-col">
       <header className={styles.navBar}>
-        <div>
-          <Link href="/">PAUL YUN</Link>
-        </div>
+        <Link href="/">
+          <div className={styles.logo}>
+            <span className={styles.logoPrimary}>PAUL YUN</span>
+            <span className={styles.logoSecondary}>Portfolio</span>
+          </div>
+        </Link>
 
         <ul className={styles.menuLinks}>
           <HamburgerButton isOpen={isOpen} setIsOpen={setIsOpen} />

@@ -4,6 +4,18 @@
   @apply fixed flex flex-row justify-between w-screen bg-white items-center px-4 sm:px-7 py-2 z-30 shadow-lg;
   @include no-select;
 
+  .logo {
+    @apply cursor-pointer;
+  }
+
+  .logoPrimary {
+    @apply text-lg font-semibold;
+  }
+
+  .logoSecondary {
+    @apply text-lg font-light ml-1.5;
+  }
+
   .menuLinks {
     @apply flex flex-row text-center cursor-default xl:flex-col;
   }

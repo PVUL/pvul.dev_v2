@@ -3,10 +3,37 @@ import {
   RiLinkedinBoxFill as LinkedinIcon,
   RiTwitterFill as TwitterIcon,
 } from 'react-icons/ri'
+import Link from 'next/link'
+
 import styles from './Footer.module.scss'
 
 export const Footer = () => (
   <div className={styles.footer}>
+    <div className={styles.logo}>
+      <span className={styles.logoPrimary}>PAUL YUN</span>
+      <span className={styles.logoSecondary}>Portfolio</span>
+    </div>
+    <ul className={styles.links}>
+      <li>
+        <Link href="/#work">WORK</Link>
+      </li>
+      <li>
+        <Link href="/about">ABOUT</Link>
+      </li>
+      <li>
+        <Link href="/#work">BLOG</Link>
+      </li>
+      <li>
+        <Link href="#contact">CONTACT</Link>
+      </li>
+    </ul>
+    <p className={styles.quote}>
+      A meaningful life is not being rich, being popular, being highly educated
+      or being perfect. It is about being real, being humble, being able to
+      share ourselves and touch the lives of others. It is only then that we
+      could have a full, happy, and contented life.
+    </p>
+
     <div className={styles.socials}>
       <a
         rel="noopener noreferrer"
@@ -36,10 +63,10 @@ export const Footer = () => (
         <LinkedinIcon className={styles.icon} />
       </a>
     </div>
-    <img className={styles.logo} src="pvul-logo.png" alt="logo" />
+
     <p className={styles.text}>
-      Made with {'<3'} <br />
-      by Paul Yun
+      Made with {'<3'} by Paul Yun
+      <br />
     </p>
     <p className={styles.text}>©2023</p>
   </div>

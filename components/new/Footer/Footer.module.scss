@@ -1,23 +1,42 @@
 @import 'styles/mixins';
 
 .footer {
-  @apply flex items-center flex-col pb-2;
-
-  .socials {
-    @apply flex justify-center;
-  }
-
-  .icon {
-    @apply text-gray-500;
-    font-size: 1.3em;
-  }
+  @apply flex items-center flex-col p-16 bg-gradient-to-t from-gray-900 to-black text-gray-200;
 
   .logo {
-    @apply w-20 mt-5 mb-1 opacity-80;
+    @apply mb-8;
     @include no-select;
   }
 
+  .logoPrimary {
+    @apply text-lg font-semibold;
+  }
+
+  .logoSecondary {
+    @apply text-lg font-light ml-1.5;
+  }
+
+  .quote {
+    @apply mb-8 max-w-2xl text-center italic opacity-90;
+  }
+
+  .links {
+    @apply flex max-w-2xl w-full mb-8 justify-evenly;
+
+    & li {
+      @apply hover:opacity-75 transition-opacity ease-in-out duration-300;
+    }
+  }
+
+  .socials {
+    @apply flex mb-8 w-24 justify-between;
+  }
+
+  .icon {
+    font-size: 1.3em;
+  }
+
   .text {
-    @apply text-xs mt-1 text-gray-700 text-center;
+    @apply text-xs text-center mb-1;
   }
 }

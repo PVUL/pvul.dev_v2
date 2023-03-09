@@ -23,7 +23,7 @@ export const CarouselCard = ({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 'some' }}
+      viewport={{ once: false, amount: 'some' }}
       variants={sectionVariant(0.15)}
       className={styles.carouselCard}
     >
