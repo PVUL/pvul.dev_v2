@@ -4,6 +4,11 @@ import clsx from 'clsx'
 
 import styles from './Drawer.module.scss'
 import { HamburgerButton } from '../HamburgerButton'
+import {
+  clearAllBodyScrollLocks,
+  disableBodyScroll,
+  enableBodyScroll,
+} from 'body-scroll-lock'
 
 interface Props {
   isOpen: boolean
@@ -12,6 +17,16 @@ interface Props {
 
 export const Drawer = ({ isOpen, setIsOpen }: Props) => {
   const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    isOpen
+      ? disableBodyScroll(ref as unknown as HTMLElement)
+      : enableBodyScroll(ref as unknown as HTMLElement)
+
+    return () => {
+      clearAllBodyScrollLocks()
+    }
+  }, [isOpen])
 
   // close when clicked outside of drawer (needs work)
   // useEffect(() => {

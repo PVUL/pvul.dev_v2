@@ -15,21 +15,13 @@ export const HamburgerButton = ({ isOpen, setIsOpen }: Props) => {
     >
       <div
         className={`${genericHamburgerLine} ${
-          isOpen
-            ? 'rotate-45 translate-y-1.5 opacity-50 group-hover:opacity-100'
-            : 'opacity-50 group-hover:opacity-100'
+          isOpen ? 'rotate-45 translate-y-1.5' : ''
         }`}
       />
+      <div className={`${genericHamburgerLine} ${isOpen ? 'opacity-0' : ''}`} />
       <div
         className={`${genericHamburgerLine} ${
-          isOpen ? 'opacity-0' : 'opacity-50 group-hover:opacity-100'
-        }`}
-      />
-      <div
-        className={`${genericHamburgerLine} ${
-          isOpen
-            ? '-rotate-45 -translate-y-1.5 opacity-50 group-hover:opacity-100'
-            : 'opacity-50 group-hover:opacity-100'
+          isOpen ? '-rotate-45 -translate-y-1.5' : ''
         }`}
       />
     </button>
