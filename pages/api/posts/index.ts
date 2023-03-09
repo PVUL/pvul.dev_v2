@@ -159,7 +159,7 @@ export const getPost = (
       ? getAuthor(data.author)
       : data.author
 
-  const tags: MarkdownFileObject[] = []
+  const tags: MarkdownFileBase[] = []
 
   if (nested && data.tags && data.tags.length > 0) {
     data.tags.forEach((tag: string) => tags.push(getTag(tag)))
