@@ -41,8 +41,8 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
 
   // close drawer on escape key press
   useEffect(() => {
-    const close = (e) => {
-      if (e.keyCode === 27) {
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'escape') {
         setIsOpen(false)
       }
     }
