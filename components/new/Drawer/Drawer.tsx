@@ -69,11 +69,11 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
             <span onClick={() => setIsOpen(false)}>ABOUT</span>
           </Link>
         </li>
-        <li className={styles.menuLink}>
+        {/* <li className={styles.menuLink}>
           <Link href="/blog">
             <span onClick={() => setIsOpen(false)}>BLOG</span>
           </Link>
-        </li>
+        </li> */}
         <li className={styles.menuLink}>
           <Link href="#contact">
             <span onClick={() => setIsOpen(false)}>CONTACT</span>

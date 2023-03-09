@@ -1,5 +1,5 @@
 type MarkdownFileBase = {
-  title?: string
+  title: string
   slug?: string
   content?: string
   [x: string]: any
