@@ -1,0 +1,35 @@
+.blog {
+  @apply mt-12 p-16 flex flex-col items-center;
+
+  .heading {
+    @apply text-6xl font-semibold mb-8;
+  }
+
+  .postPreview {
+    @apply p-12 bg-gray-100 mb-8 hover:cursor-pointer max-w-md flex flex-col items-center rounded-lg;
+  }
+
+  .topRow {
+    @apply flex w-full justify-between;
+  }
+
+  .category {
+    @apply text-sm;
+  }
+
+  .date {
+    @apply text-sm;
+  }
+
+  .title {
+    @apply text-xl font-bold;
+  }
+
+  .excerpt {
+    @apply mt-4;
+  }
+
+  .image {
+    @apply rounded-md p-6;
+  }
+}

@@ -7,7 +7,7 @@ export default function Layout({ children }) {
     <section className="flex flex-col min-h-screen overflow-x-hidden">
       <Meta />
       <NavBar />
-      <main className="xl:ml-64">{children}</main>
+      <main>{children}</main>
       <Footer />
     </section>
   )

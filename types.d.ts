@@ -1,8 +1,27 @@
-type MarkdownFileObject = {
-  title?: string
+type MarkdownFileBase = {
+  title: string
   slug?: string
   content?: string
   [x: string]: any
+}
+
+interface PostObjectBase extends MarkdownFileBase {
+  author: string
+  publishedAt: string
+  excerpt: string
+  coverImage: string
+}
+
+interface AuthorObjectBase extends MarkdownFileBase {
+  image: string
+  twitter: string
+  shortBio: string
+}
+
+interface NestedPostObject extends PostObjectBase {
+  author: AuthorObjectBase
+  category: MarkdownFileBase
+  tags?: MarkdownFileBase[]
 }
 
 type CarouselImage = {

@@ -1,31 +1,32 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import {
   RiGithubFill as GithubIcon,
   RiLinkedinBoxFill as LinkedinIcon,
   RiTwitterFill as TwitterIcon,
 } from 'react-icons/ri'
+
+import { Drawer } from '../Drawer'
+import { HamburgerButton } from '../HamburgerButton'
 import styles from './NavBar.module.scss'
 
 export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <div className="flex flex-col drawer-content">
+    <div className="flex flex-col">
       <header className={styles.navBar}>
-        <div>
-          <Link href="/">PAUL YUN</Link>
-        </div>
+        <Link href="/">
+          <div className={styles.logo}>
+            <span className={styles.logoPrimary}>PAUL YUN</span>
+            <span className={styles.logoSecondary}>Portfolio</span>
+          </div>
+        </Link>
 
         <ul className={styles.menuLinks}>
-          <li className={styles.menuLink}>
-            <Link href="/#work">WORK</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link href="/about">ABOUT</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link href="#contact">CONTACT</Link>
-          </li>
+          <HamburgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </ul>
-        <div className="hidden xl:flex">
+        <div className="hidden">
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -55,6 +56,19 @@ export const NavBar = () => {
           </a>
         </div>
       </header>
+      <Drawer isOpen={isOpen} setIsOpen={setIsOpen} />
+      {/* <ul>
+          <li className={styles.menuLink}>
+            <Link href="/#work">WORK</Link>
+          </li>
+          <li className={styles.menuLink}>
+            <Link href="/about">ABOUT</Link>
+          </li>
+          <li className={styles.menuLink}>
+            <Link href="#contact">CONTACT</Link>
+          </li>
+        </ul>
+      </Drawer> */}
     </div>
   )
 }

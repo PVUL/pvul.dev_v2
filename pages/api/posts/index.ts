@@ -83,9 +83,16 @@ const getTag = (tagSlug: string) => {
   }
 }
 
+// @note will have to watch our for duplicate title name collisions.
+// luckily, i'm the only one posting, so this shouldn't be an issue.
+
 /**
  * Get post source, used on a post show page. Based on a slug, will
  * look for a filename match in `_content/posts/` sub-directories.
+ *
+ * example:
+ * slug = 'test-slide'
+ *
  *
  * @param slug
  * @returns {}
@@ -159,7 +166,7 @@ export const getPost = (
       ? getAuthor(data.author)
       : data.author
 
-  const tags: MarkdownFileObject[] = []
+  const tags: MarkdownFileBase[] = []
 
   if (nested && data.tags && data.tags.length > 0) {
     data.tags.forEach((tag: string) => tags.push(getTag(tag)))
@@ -209,6 +216,10 @@ export function getPosts(fields: string[] | undefined = undefined) {
       .map((file) => join(sub, file))
     fileNames.push(...subFiles)
   })
+
+  // note issue- it's doing getting post by subdirectory, so when sorting
+  // it only sorts within category, then adds to return array
+  // that's why end result is not fully sorted
 
   return fileNames
     .map((fileName) => getPost(fileName, fields, true))
