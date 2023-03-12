@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from './Blog.module.scss'
+import { useState } from 'react'
 
 interface Props {
   posts: NestedPostObject[]
@@ -7,13 +8,24 @@ interface Props {
 
 // to do- need to handle catagory types of '_'
 // which is the same as 'general'
-
 export const Blog = ({ posts }: Props) => {
+  const intialNumberOfPostsToShow = 5
+  const numberOfPostsToShowPerLoad = 5
+  const [displayPosts, setDisplayPosts] = useState(
+    posts.slice(0, intialNumberOfPostsToShow)
+  )
+  const totalNumberOfPosts = posts.length
+  const loadMore = () => {
+    setDisplayPosts(
+      posts.slice(0, displayPosts.length + numberOfPostsToShowPerLoad)
+    )
+  }
+
   return (
     <div className={styles.blog}>
       <h1 className={styles.heading}>Blog Posts</h1>
-      <ul>
-        {posts.map((post) => {
+      <ul className={styles.posts}>
+        {displayPosts.map((post) => {
           const postCategory =
             post.category.title === '_' ? '' : post.category.title
           const postDate = new Date(post.publishedAt).toLocaleDateString()
@@ -26,8 +38,8 @@ export const Blog = ({ posts }: Props) => {
           const postLink = `/posts/${postName}`
 
           return (
-            <Link href={postLink}>
-              <li className={styles.postPreview} key={post.title}>
+            <Link href={postLink} key={post.title}>
+              <li className={styles.postPreview}>
                 <div className={styles.topRow}>
                   <div className={styles.category}>{postCategory}</div>
                   <div className={styles.date}>{postDate}</div>
@@ -44,6 +56,19 @@ export const Blog = ({ posts }: Props) => {
           )
         })}
       </ul>
+
+      {/* display end of posts message */}
+      {displayPosts.length === totalNumberOfPosts && (
+        <div>- end of posts -</div>
+      )}
+
+      <button
+        className={styles.loadMore}
+        onClick={loadMore}
+        disabled={displayPosts.length === totalNumberOfPosts}
+      >
+        load more
+      </button>
     </div>
   )
 }
