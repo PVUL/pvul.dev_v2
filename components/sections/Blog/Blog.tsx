@@ -23,14 +23,28 @@ export const Blog = ({ posts }: Props) => {
 
   return (
     <div className={styles.blog}>
-      <h1 className={styles.heading}>Blog Posts</h1>
+      <h1 className={styles.heading}>Mind the Paul.</h1>
+      <p className={styles.subheading}>
+        Welcome to my blog. I usually write topics about coding, art, and the
+        pursuit of happiness.
+      </p>
       <ul className={styles.posts}>
-        {displayPosts.map((post) => {
+        {displayPosts.map((post, i) => {
           const postCategory =
             post.category.title === '_' ? '' : post.category.title
-          const postDate = new Date(post.publishedAt).toLocaleDateString()
+          const splitDate = new Date(post.publishedAt)
+            .toLocaleDateString(
+              'en-US',
+              // date format: `m/d/yy`
+              { year: '2-digit', month: 'numeric', day: 'numeric' }
+            )
+            .split('/')
+          const postDate = `${splitDate[0]} ${splitDate[1]} '${splitDate[2]}`
+
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
-          const imageDims = '300x300'
+
+          const isFirstPost = i === 0
+          const imageDims = isFirstPost ? '1400x700' : '500x250'
           const postImage = `${post.coverImage}-/scale_crop/${imageDims}/smart/`
 
           // this should probably move into it's own function
@@ -40,34 +54,33 @@ export const Blog = ({ posts }: Props) => {
           return (
             <Link href={postLink} key={post.title}>
               <li className={styles.postPreview}>
-                <div className={styles.topRow}>
-                  <div className={styles.category}>{postCategory}</div>
+                <div className={styles.imageContainer}>
                   <div className={styles.date}>{postDate}</div>
+                  <img
+                    src={postImage}
+                    alt={post.title}
+                    className={styles.image}
+                  />
                 </div>
-                <img
-                  src={postImage}
-                  alt={post.title}
-                  className={styles.image}
-                />
-                <div className={styles.title}>{post.title}</div>
-                <p className={styles.excerpt}>{post.excerpt}</p>
+                <div className={styles.body}>
+                  <div className={styles.category}>{postCategory}</div>
+                  <div className={styles.title}>{post.title}</div>
+                  <p className={styles.excerpt}>{post.excerpt}</p>
+                </div>
               </li>
             </Link>
           )
         })}
       </ul>
 
-      {/* display end of posts message */}
-      {displayPosts.length === totalNumberOfPosts && (
-        <div>- end of posts -</div>
-      )}
-
       <button
         className={styles.loadMore}
         onClick={loadMore}
         disabled={displayPosts.length === totalNumberOfPosts}
       >
-        load more
+        {displayPosts.length < totalNumberOfPosts
+          ? 'load more'
+          : '｡･:*:･ﾟFin ｡･:*:･ﾟ'}
       </button>
     </div>
   )

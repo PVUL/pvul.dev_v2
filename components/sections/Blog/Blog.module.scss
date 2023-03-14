@@ -1,12 +1,16 @@
 .blog {
-  @apply mt-12 p-16 flex flex-col items-center;
+  @apply mt-20 px-8 sm:px-32 lg:px-40 xl:px-72 py-16 flex flex-col items-center;
 
   .heading {
     @apply text-6xl font-semibold mb-8;
   }
 
+  .subheading {
+    @apply text-xl mb-8;
+  }
+
   .posts {
-    @apply grid grid-cols-2 gap-x-4;
+    @apply grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-6 gap-y-10 mb-20;
 
     & :first-child {
       grid-column: 1/-1;
@@ -14,34 +18,56 @@
   }
 
   .postPreview {
-    @apply p-12 bg-gray-100 mb-8 hover:cursor-pointer flex flex-col items-center rounded-lg;
+    @apply hover:cursor-pointer flex flex-col max-w-md shadow-lg rounded-lg;
+
+    // first post preview
+    &:first-child {
+      @apply md:max-w-full;
+
+      .date {
+        @apply 2xl:text-lg 2xl:pr-14 2xl:pb-6;
+      }
+
+      .title {
+        @apply md:text-3xl 2xl:text-4xl;
+      }
+
+      .excerpt {
+        @apply md:text-lg 2xl:text-xl;
+      }
+    }
   }
 
-  .topRow {
-    @apply flex w-full justify-between;
-  }
-
-  .category {
-    @apply text-sm;
-  }
-
-  .date {
-    @apply text-sm;
-  }
-
-  .title {
-    @apply text-xl font-bold;
-  }
-
-  .excerpt {
-    @apply mt-4;
+  .imageContainer {
+    @apply relative max-h-[500px] overflow-hidden;
   }
 
   .image {
-    @apply rounded-md p-6;
+    @apply rounded-t-lg object-cover;
+  }
+
+  .body {
+    @apply flex flex-col p-4 pb-6;
+  }
+
+  .category {
+    @apply text-xs min-h-[1rem] uppercase text-gray-400 italic font-medium;
+  }
+
+  .date {
+    @apply text-sm text-right bottom-0 text-orange-300 font-semibold absolute w-full pr-7 pb-3 opacity-90;
+  }
+
+  .title {
+    @apply text-xl font-bold mb-2;
+  }
+
+  .excerpt {
+    // 4.5rem equivalent to 3 lines of excerpt text
+    @apply line-clamp-3 min-h-[4.5rem];
   }
 
   .loadMore {
-    @apply py-3 px-7 bg-black text-white rounded-md disabled:bg-gray-300 hover:opacity-60 duration-300 transition-opacity ease-in-out disabled:hover:opacity-100 mt-8;
+    @apply py-3 px-7 bg-black text-white rounded-md disabled:bg-gray-200  disabled:text-gray-400 hover:opacity-60 duration-300 transition-opacity ease-in-out disabled:hover:opacity-100;
   }
 }
