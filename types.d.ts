@@ -2,7 +2,7 @@ type MarkdownFileBase = {
   title: string
   slug?: string
   content?: string
-  [x: string]: any
+  [x: string]: any // can I remove this?
 }
 
 interface PostObjectBase extends MarkdownFileBase {

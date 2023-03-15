@@ -1,0 +1,7 @@
+.post {
+  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 mt-12;
+
+  .body {
+    @apply p-2 sm:p-0;
+  }
+}

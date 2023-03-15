@@ -1,0 +1,13 @@
+.postHeader {
+  .image {
+    @apply object-cover rounded-none sm:rounded-t-2xl;
+  }
+
+  .title {
+    @apply mb-12 text-6xl font-bold leading-tight tracking-tighter md:text-7xl md:leading-none text-left p-2 sm:p-0;
+  }
+
+  .date {
+    @apply mb-6 italic text-gray-400 p-2 sm:p-0;
+  }
+}

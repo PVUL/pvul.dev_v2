@@ -1,38 +1,36 @@
-import { MDXRemote } from 'next-mdx-remote'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Container from '../../components/container'
-// import Header from '../../components/header'
 import Layout from '../../components/layout'
-import PostHeader from '../../components/post-header'
+import { Post } from '../../components/sections/Post'
 import PostTitle from '../../components/post-title'
 import { components } from '../../lib/mdx-components'
 import { getPosts, getPostSource } from '../api/posts'
 
-export default function Post(props) {
-  const { source, frontmatter } = props
-
+export default function PostPage(props) {
+  const {
+    source: { compiledSource },
+    frontmatter,
+  } = props
   const router = useRouter()
 
   return (
     <Layout>
       <Container>
-        {/* <Header /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <article className="mb-32">
+          <>
             <Head>
               <title>{frontmatter.title}</title>
             </Head>
-            <PostHeader
-              title={frontmatter.title}
-              coverImage={frontmatter.coverImage}
-              publishedAt={frontmatter.publishedAt}
+            <Post
+              frontmatter={frontmatter}
+              compiledSource={compiledSource}
+              components={components}
             />
-            <MDXRemote {...source} components={components} />
-          </article>
+          </>
         )}
       </Container>
     </Layout>
