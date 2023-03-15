@@ -3,11 +3,12 @@
     @apply object-cover rounded-none sm:rounded-t-2xl;
   }
 
-  .title {
-    @apply text-6xl font-bold leading-tight tracking-tighter md:text-7xl md:leading-none text-left p-2 sm:p-0 mb-2 mt-1;
+  .info {
+    @apply p-2 sm:p-0;
+  }
 
-    // gradient text
-    // @apply text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-teal-400 via-pink-400 to-violet-900;
+  .title {
+    @apply text-6xl font-bold leading-tight tracking-tighter md:text-7xl md:leading-none text-left mb-2 mt-1;
   }
 
   .excerpt {
@@ -15,6 +16,6 @@
   }
 
   .date {
-    @apply mb-6 italic text-gray-400 p-2 sm:p-0;
+    @apply mb-6 italic text-gray-400;
   }
 }

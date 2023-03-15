@@ -1,5 +1,5 @@
 .post {
-  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 my-12;
+  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 my-12 max-w-4xl;
 
   .body {
     @apply p-2 sm:p-0;
@@ -16,8 +16,7 @@
 
   // codeblock window
   pre[class*='language-'] {
-    margin: 0 auto;
-    padding: 2rem 2.5rem;
+    @apply rounded-xl py-5 px-8 sm:py-9 sm:px-16;
   }
 
   // codeblock main font size

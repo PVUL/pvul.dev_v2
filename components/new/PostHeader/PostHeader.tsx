@@ -20,9 +20,11 @@ export const PostHeader = ({
         height={500}
       />
 
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.excerpt}>{excerpt}</div>
-      <div className={styles.date}>{publishedAt}</div>
+      <div className={styles.info}>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.excerpt}>{excerpt}</div>
+        <div className={styles.date}>{publishedAt}</div>
+      </div>
     </div>
   )
 }
