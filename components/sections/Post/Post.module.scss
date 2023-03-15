@@ -1,7 +1,32 @@
 .post {
-  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 mt-12;
+  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 my-12;
 
   .body {
     @apply p-2 sm:p-0;
+  }
+
+  /**
+   * custom style overrides for mdx components
+   */
+
+  // for inline code without effecting code blocks
+  p code {
+    @apply p-1 px-1.5 rounded-[.25rem] text-teal-800 font-bold text-sm bg-gradient-to-br from-teal-200 to-green-200;
+  }
+
+  // codeblock window
+  pre[class*='language-'] {
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+  }
+
+  // codeblock main font size
+  code[class*='language-'] {
+    @apply text-base;
+  }
+
+  // images
+  p img {
+    @apply m-auto rounded-md max-w-sm max-h-[500px];
   }
 }

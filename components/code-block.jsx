@@ -11,5 +11,7 @@ export default function CodeBlock(props) {
   useLayoutEffect(() => {
     Prism.highlightAllUnder(ref.current)
   }, [])
-  return <pre ref={ref} {...props} className="rounded-lg" />
+  return (
+    <pre ref={ref} {...props} className="max-w-2xl bg-gray-300 rounded-lg" />
+  )
 }
