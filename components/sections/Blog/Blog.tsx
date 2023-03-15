@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from './Blog.module.scss'
 import { useState } from 'react'
+import { getUploadCareUrl } from '../../../utils'
 
 interface Props {
   posts: NestedPostObject[]
@@ -39,13 +40,15 @@ export const Blog = ({ posts }: Props) => {
               { year: '2-digit', month: 'numeric', day: 'numeric' }
             )
             .split('/')
+
+          // format to: `m d 'yy` - vintage photograph style datestamp
           const postDate = `${splitDate[0]} ${splitDate[1]} '${splitDate[2]}`
 
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
 
           const isFirstPost = i === 0
           const imageDims = isFirstPost ? '1400x700' : '500x250'
-          const postImage = `${post.coverImage}-/scale_crop/${imageDims}/smart/`
+          const postImage = getUploadCareUrl(post.coverImage, imageDims)
 
           // this should probably move into it's own function
           const postName = post.title.replaceAll(' ', '-').toLowerCase()

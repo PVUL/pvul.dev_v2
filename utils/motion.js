@@ -1,3 +1,4 @@
+// used for framer-motion
 export const textVariant = (delay = 0.4) => ({
   hidden: {
     y: 50,

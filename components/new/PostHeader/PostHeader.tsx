@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import styles from './PostHeader.module.scss'
+import { getUploadCareUrl } from '../../../utils'
 
 interface Props {
   frontmatter: PostObjectBase
@@ -9,7 +10,7 @@ interface Props {
 export const PostHeader = ({
   frontmatter: { title, publishedAt, coverImage },
 }: Props) => {
-  const imageSrc = coverImage
+  const imageSrc = getUploadCareUrl(coverImage, '1000x500')
   return (
     <div className={styles.postHeader}>
       <Image
