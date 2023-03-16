@@ -69,7 +69,7 @@ export const Blog = ({ posts }: Props) => {
                     width={width}
                     height={height}
                     placeholder="blur"
-                    blurDataURL={post.placeholderImage.base64}
+                    blurDataURL={post.placeholderImage?.base64}
                   />
                 </div>
                 <div className={styles.body}>
