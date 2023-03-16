@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { IGetPlaiceholderReturn } from 'plaiceholder'
 
 import styles from './PostHeader.module.scss'
-import { getUploadCareUrl } from '../../../utils'
+import { getFormattedDate, getUploadCareUrl } from '../../../utils'
 
 interface Props {
   frontmatter: PostObjectBase
@@ -29,7 +29,7 @@ export const PostHeader = ({
       <div className={styles.info}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.excerpt}>{excerpt}</div>
-        <div className={styles.date}>{publishedAt}</div>
+        <div className={styles.date}>{getFormattedDate(publishedAt)}</div>
       </div>
     </div>
   )

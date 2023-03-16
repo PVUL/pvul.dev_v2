@@ -10,8 +10,11 @@ export default {
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'https://paulyun.co',
-  display_url: 'paulyun.co',
+  site_url:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://paulyun.co',
+  // display_url: '',
   media_library: {
     name: 'uploadcare',
     config: {
@@ -39,7 +42,7 @@ export default {
       ],
       create: true,
       delete: false,
-      preview_path: 'posts/{{slug}}',
+      preview_path: 'posts/',
       fields: [
         {
           name: 'title',
@@ -50,15 +53,13 @@ export default {
           name: 'publishedAt',
           label: 'Published At',
           widget: 'datetime',
-          format: 'LLLL',
-          date_format: 'dddd, MMMM D, YYYY',
-          time_format: 'h:mm a',
+          // format: '', // default to ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`
         },
         {
           name: 'coverImage',
           label: 'Cover Image',
           widget: 'image',
-          required: false,
+          required: true,
         },
         {
           name: 'author',
@@ -95,7 +96,7 @@ export default {
           name: 'excerpt',
           label: 'Excerpt',
           widget: 'text',
-          required: false,
+          required: true,
         },
         {
           name: 'body',

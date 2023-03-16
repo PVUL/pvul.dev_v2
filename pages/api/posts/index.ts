@@ -123,6 +123,8 @@ export const getPostSource = async (slug: string) => {
     frontmatter: {
       ...data,
       author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
+      // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
+      publishedAt: JSON.parse(JSON.stringify(data.publishedAt)),
     },
     placeholderImage: await getPlaiceholder(data.coverImage),
   }
@@ -183,6 +185,8 @@ export const getPost = (
     category,
     tags,
     content,
+    // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
+    publishedAt: JSON.parse(JSON.stringify(data.publishedAt)),
   }
 
   if (fields !== undefined && fields.length) {

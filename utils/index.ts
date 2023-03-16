@@ -9,3 +9,36 @@
  */
 export const getUploadCareUrl = (url: string, dimensions: string) =>
   `${url}-/scale_crop/${dimensions}/smart/`
+
+/**
+ * Get formatted date.
+ *
+ * @param datetime ISO8601 string, looks like `2023-03-16T21:24:02.020Z`
+ * @param style optional, if you pass 'photoStyle' will output a different format
+ */
+export const getFormattedDate = (datetime: string, style?: string) => {
+  const date = new Date(datetime)
+  let formattedDate = ''
+
+  if (style === 'photoStyle') {
+    const splitDate = date
+      .toLocaleDateString('en-US', {
+        year: '2-digit',
+        month: 'numeric',
+        day: 'numeric',
+      })
+      .split('/')
+    // `m d 'yy` - vintage photograph style
+    formattedDate = `${splitDate[0]} ${splitDate[1]} '${splitDate[2]}`
+  } else {
+    // `Thursday, March 16, 2023`
+    formattedDate = date.toLocaleDateString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  }
+
+  return formattedDate
+}
