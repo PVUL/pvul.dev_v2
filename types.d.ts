@@ -1,3 +1,7 @@
+interface PlaceholderImage {
+  base64: string
+}
+
 type MarkdownFileBase = {
   title: string
   slug?: string
@@ -10,6 +14,7 @@ interface PostObjectBase extends MarkdownFileBase {
   publishedAt: string
   excerpt: string
   coverImage: string
+  placeholderImage?: PlaceholderImage
 }
 
 interface AuthorObjectBase extends MarkdownFileBase {

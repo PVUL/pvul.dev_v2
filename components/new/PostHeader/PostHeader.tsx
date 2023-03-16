@@ -1,14 +1,17 @@
 import Image from 'next/image'
+import { IGetPlaiceholderReturn } from 'plaiceholder'
 
 import styles from './PostHeader.module.scss'
 import { getUploadCareUrl } from '../../../utils'
 
 interface Props {
   frontmatter: PostObjectBase
+  placeholderImage: IGetPlaiceholderReturn
 }
 
 export const PostHeader = ({
   frontmatter: { title, publishedAt, excerpt, coverImage },
+  placeholderImage,
 }: Props) => {
   const imageSrc = getUploadCareUrl(coverImage, '1000x500')
   return (
@@ -16,8 +19,11 @@ export const PostHeader = ({
       <Image
         className={styles.image}
         src={imageSrc}
+        placeholder="blur"
+        blurDataURL={placeholderImage.base64}
         width={1000}
         height={500}
+        alt={imageSrc} // we need alt text
       />
 
       <div className={styles.info}>

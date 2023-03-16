@@ -14,6 +14,7 @@ export default function PostPage(props) {
   const {
     source: { compiledSource },
     frontmatter,
+    placeholderImage,
   } = props
   const router = useRouter()
   const {
@@ -44,6 +45,7 @@ export default function PostPage(props) {
               frontmatter={frontmatter}
               compiledSource={compiledSource}
               components={components}
+              placeholderImage={placeholderImage}
             />
           </>
         )}

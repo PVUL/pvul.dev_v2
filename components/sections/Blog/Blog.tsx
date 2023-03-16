@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './Blog.module.scss'
 import { useState } from 'react'
 import { getUploadCareUrl } from '../../../utils'
@@ -47,7 +48,9 @@ export const Blog = ({ posts }: Props) => {
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
 
           const isFirstPost = i === 0
-          const imageDims = isFirstPost ? '1400x700' : '500x250'
+          const imageDims = isFirstPost ? '1000x500' : '500x250'
+          const width = isFirstPost ? 1000 : 500
+          const height = isFirstPost ? 500 : 250
           const postImage = getUploadCareUrl(post.coverImage, imageDims)
 
           // this should probably move into it's own function
@@ -59,10 +62,14 @@ export const Blog = ({ posts }: Props) => {
               <li className={styles.postPreview}>
                 <div className={styles.imageContainer}>
                   <div className={styles.date}>{postDate}</div>
-                  <img
+                  <Image
                     src={postImage}
                     alt={post.title}
                     className={styles.image}
+                    width={width}
+                    height={height}
+                    placeholder="blur"
+                    blurDataURL={post.placeholderImage.base64}
                   />
                 </div>
                 <div className={styles.body}>

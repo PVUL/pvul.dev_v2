@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
+import { getPlaiceholder } from 'plaiceholder'
 
 // import { getAuthorDetails } from '../../../lib/api'
 
@@ -123,6 +124,7 @@ export const getPostSource = async (slug: string) => {
       ...data,
       author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
     },
+    placeholderImage: await getPlaiceholder(data.coverImage),
   }
 }
 
@@ -204,11 +206,11 @@ export const getPost = (
  * @param fields if undefined, fields are not used for filtering
  * @returns post[]
  */
-export function getPosts(
+export const getPosts = (
   // startIndex: number = 0,
   // endIndex: number = 2,
   fields: string[] | undefined = undefined
-) {
+) => {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
