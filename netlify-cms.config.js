@@ -2,16 +2,16 @@ export default {
   cms_manual_init: true,
   backend: {
     name: 'github',
-    repo: 'pvul/blog',
+    repo: 'pvul/pvul.dev_v2',
     branch: 'main',
     squash_merges: true,
-    base_url: 'https://pvul.dev',
+    base_url: 'https://paulyun.co',
     auth_endpoint: 'api/auth',
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'https://pvul.dev',
-  display_url: 'pvul.dev',
+  site_url: 'https://paulyun.co',
+  display_url: 'paulyun.co',
   media_library: {
     name: 'uploadcare',
     config: {
