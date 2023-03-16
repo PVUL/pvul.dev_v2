@@ -28,4 +28,13 @@
   p img {
     @apply m-auto rounded-md max-w-sm max-h-[500px];
   }
+
+  // fig caption, which optionally follows a blockquote, see BlockQuote.jsx
+  figcaption {
+    @apply sm:max-w-[40rem] text-right m-auto px-8 sm:px-14 -mt-9 pb-14;
+
+    cite::before {
+      content: ' ';
+    }
+  }
 }
