@@ -206,11 +206,7 @@ export const getPost = (
  * @param fields if undefined, fields are not used for filtering
  * @returns post[]
  */
-export const getPosts = (
-  // startIndex: number = 0,
-  // endIndex: number = 2,
-  fields: string[] | undefined = undefined
-) => {
+export const getPosts = (fields: string[] | undefined = undefined) => {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
@@ -226,7 +222,6 @@ export const getPosts = (
   return fileNames
     .map((fileName) => getPost(fileName, fields, true))
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
-  // .slice(startIndex, endIndex)
 }
 
 /**

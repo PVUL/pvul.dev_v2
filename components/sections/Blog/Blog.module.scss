@@ -25,7 +25,7 @@
       @apply md:max-w-4xl;
 
       .date {
-        @apply 2xl:text-lg 2xl:pr-14 2xl:pb-6;
+        @apply lg:text-base lg:pr-10 lg:pb-5 2xl:text-lg 2xl:pr-14 2xl:pb-6;
       }
 
       .title {
@@ -55,7 +55,7 @@
   }
 
   .date {
-    @apply text-sm text-right bottom-0 text-orange-300 font-semibold absolute w-full pr-7 pb-3 opacity-90;
+    @apply text-sm text-right bottom-0 text-orange-300 font-semibold absolute w-full pr-7 pb-3 opacity-90 z-10;
   }
 
   .title {
