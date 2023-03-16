@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
+import { getPlaiceholder } from 'plaiceholder'
 
 // import { getAuthorDetails } from '../../../lib/api'
 
@@ -123,6 +124,7 @@ export const getPostSource = async (slug: string) => {
       ...data,
       author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
     },
+    placeholderImage: await getPlaiceholder(data.coverImage),
   }
 }
 
@@ -201,29 +203,25 @@ export const getPost = (
 /**
  * Get posts. Looks in `_content/posts/` sub-directories for .mdx files.
  *
- * @param fields
+ * @param fields if undefined, fields are not used for filtering
  * @returns post[]
  */
-export function getPosts(fields: string[] | undefined = undefined) {
+export const getPosts = (fields: string[] | undefined = undefined) => {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
 
   const fileNames: string[] = []
-  getPostsSubDirectories().forEach((sub: string) => {
+  getPostsSubDirectories().forEach((subDir: string) => {
     const subFiles = fs
-      .readdirSync(join(postsDirectory, sub))
-      .map((file) => join(sub, file))
+      .readdirSync(join(postsDirectory, subDir))
+      .map((file) => join(subDir, file))
     fileNames.push(...subFiles)
   })
 
-  // note issue- it's doing getting post by subdirectory, so when sorting
-  // it only sorts within category, then adds to return array
-  // that's why end result is not fully sorted
-
   return fileNames
     .map((fileName) => getPost(fileName, fields, true))
-    .sort((a, b) => (a.published_at > b.published_at ? -1 : 1))
+    .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
 }
 
 /**

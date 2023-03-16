@@ -18,7 +18,7 @@ export default {
       publicKey: process.env.NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY,
     },
     settings: {
-      autoFilename: true,
+      autoFilename: false,
     },
   },
   collections: [

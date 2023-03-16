@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 
 module.exports = {
+  plugins: [require('@tailwindcss/line-clamp')],
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',

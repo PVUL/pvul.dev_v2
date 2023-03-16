@@ -57,3 +57,6 @@ References:
 - [mdx previews in netlify cms](https://zslabs.com/articles/mdx-previews-in-netlify-cms)
 - [storybook netlify cms](https://storybook.js.org/blog/storybook-netlify-cms/)
 - [use netlify cms to manage mdx's for nextjs site on vercel](https://anaecha.com/blog/use-netlify-cms-mdx-nextjs-vercel)
+
+- netlifyCMS customizations https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/
+- image optimization with sharp, plaiceholder, next/image

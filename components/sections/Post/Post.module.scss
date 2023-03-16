@@ -1,0 +1,42 @@
+.post {
+  @apply flex flex-col xl:max-w-5xl mx-auto sm:p-12 my-12 max-w-4xl;
+
+  .body {
+    @apply p-2 sm:p-0;
+  }
+
+  /**
+   * custom style overrides for mdx components
+   */
+
+  // for inline code without effecting code blocks
+  p code {
+    @apply p-1 px-1.5 rounded-[.25rem] text-teal-800 font-bold text-sm bg-gradient-to-br from-teal-200 to-green-200;
+  }
+
+  // codeblock window
+  pre[class*='language-'] {
+    @apply rounded-xl py-5 px-8 sm:py-9 sm:px-16;
+  }
+
+  // codeblock main font size
+  code[class*='language-'] {
+    @apply text-base;
+  }
+
+  // images
+  // make sure res from uploadcare is `1000x500`
+  // {url}/-/scale_crop/1000x500/smart/
+  p img {
+    @apply sm:m-auto sm:rounded-lg md:max-w-2xl -ml-2 max-w-none w-screen sm:max-w-full;
+  }
+
+  // fig caption, which optionally follows a blockquote, see BlockQuote.jsx
+  figcaption {
+    @apply sm:max-w-[40rem] text-right m-auto px-8 sm:px-14 -mt-9 mb-14;
+
+    cite::before {
+      content: ' ';
+    }
+  }
+}
