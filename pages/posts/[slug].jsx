@@ -7,6 +7,8 @@ import { Post } from '../../components/sections/Post'
 import PostTitle from '../../components/post-title'
 import { components } from '../../lib/mdx-components'
 import { getPosts, getPostSource } from '../api/posts'
+import { getUploadCareUrl } from '../../utils'
+import { BASE_URL } from '../../utils/constants'
 
 export default function PostPage(props) {
   const {
@@ -14,6 +16,11 @@ export default function PostPage(props) {
     frontmatter,
   } = props
   const router = useRouter()
+  const {
+    query: { slug },
+  } = router
+
+  const imageUrl = getUploadCareUrl(frontmatter.coverImage, '1200x630')
 
   return (
     <Layout>
@@ -24,6 +31,14 @@ export default function PostPage(props) {
           <>
             <Head>
               <title>{frontmatter.title}</title>
+              <meta name="description" content={frontmatter.excerpt} />
+              <meta name="keywords" content="" />
+              <meta property="og:url" content={BASE_URL + slug} />
+              <meta property="og:title" content={frontmatter.title} />
+              <meta property="og:description" content={frontmatter.excerpt} />
+              <meta property="og:image" content={imageUrl} />
+              <meta property="og:image:url" content={imageUrl} />
+              <meta property="twitter:image" content={imageUrl} />
             </Head>
             <Post
               frontmatter={frontmatter}
