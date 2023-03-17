@@ -3,7 +3,7 @@ import { PostHeader } from '../../new/PostHeader'
 import styles from './Post.module.scss'
 
 interface Props {
-  frontmatter: PostObjectBase
+  frontmatter: NestedPostObject
   compiledSource: string
   components: Record<string, React.ReactNode>
 }

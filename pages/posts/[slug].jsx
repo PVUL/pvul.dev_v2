@@ -8,7 +8,7 @@ import PostTitle from '../../components/post-title'
 import { components } from '../../lib/mdx-components'
 import { getPosts, getPostSource } from '../api/posts'
 import { getUploadCareUrl } from '../../utils'
-import { BASE_URL } from '../../utils/constants'
+import { BASE_URL, OG_IMAGE_DIMS } from '../../utils/constants'
 
 export default function PostPage(props) {
   const {
@@ -20,7 +20,7 @@ export default function PostPage(props) {
     query: { slug },
   } = router
 
-  const imageUrl = getUploadCareUrl(frontmatter.image.url, '1200x630')
+  const imageUrl = getUploadCareUrl(frontmatter.image.url, OG_IMAGE_DIMS)
 
   return (
     <Layout>
