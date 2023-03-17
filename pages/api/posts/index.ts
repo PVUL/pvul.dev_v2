@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
 import { getPlaiceholder } from 'plaiceholder'
-import { UNPUBLISHED } from '../../../utils/constants'
+import { STATUS } from '../../../utils/constants'
 
 // import { getAuthorDetails } from '../../../lib/api'
 
@@ -16,20 +16,9 @@ const tagsDirectory = join(process.cwd(), '_content/tags')
 /**
  * Returns a list of posts sub-directories located at `_content/posts/`.
  *
- * Filters out 'unpublished' posts, unless in dev environment
- *
- * NOTE: specifying category of 'unpublished' will still show up on production
- * it is there as a label only for now. To hide, must move into the subdirectory.
- *
  * @returns string[] list of subdirectory folder names
  */
-const getPostsSubDirectories = () =>
-  fs
-    .readdirSync(postsDirectory)
-    .filter(
-      (subDir) =>
-        process.env.NODE_ENV === 'development' || subDir !== UNPUBLISHED
-    )
+const getPostsSubDirectories = () => fs.readdirSync(postsDirectory)
 
 /**
  * Returns frontmatter data from a filepath.
@@ -128,6 +117,7 @@ export const getPostSource = async (slug: string) => {
   const { data, content } = getFrontmatterFromPath(
     join(postsDirectory, filePath)
   )
+
   const mdxSource = await serialize(content)
 
   return {
@@ -240,6 +230,10 @@ export const getPosts = (fields: string[] | undefined = undefined) => {
 
   return fileNames
     .map((fileName) => getPost(fileName, fields, true))
+    .filter(
+      (post) =>
+        post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
+    )
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
 }
 

@@ -53,8 +53,8 @@ export default {
           name: 'status',
           label: 'status',
           widget: 'select',
-          options: ['scheduled publishing', 'published', 'draft', 'archive'],
-          default: 'scheduled publishing',
+          options: ['scheduled post', 'posted', 'draft', 'archived'],
+          default: 'scheduled post',
         },
         {
           name: 'publishedAt',
@@ -120,7 +120,7 @@ export default {
           multiple: true,
         },
         {
-          names: 'keywords',
+          name: 'keywords',
           label: 'SEO Keywords',
           widget: 'string',
           required: false,
