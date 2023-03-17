@@ -34,6 +34,7 @@ module.exports = {
   ignorePatterns: ['node_modules'],
   overrides: [],
   rules: {
+    'at-rule-no-unkown': null,
     /**
      * import
      */
