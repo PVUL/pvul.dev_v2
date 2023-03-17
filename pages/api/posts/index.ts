@@ -127,7 +127,7 @@ export const getPostSource = async (slug: string) => {
       postedAt: JSON.parse(JSON.stringify(data.postedAt)),
       image: {
         ...data.image,
-        placeholder: await getPlaiceholder(data.image.url),
+        placeholder: (await getPlaiceholder(data.image.url)).base64,
       },
     },
   }
