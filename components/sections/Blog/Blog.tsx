@@ -34,7 +34,7 @@ export const Blog = ({ posts }: Props) => {
         {displayPosts.map((post, i) => {
           const postCategory =
             post.category.title === '_' ? '' : post.category.title
-          const postDate = getFormattedDate(post.publishedAt, 'photoStyle')
+          const postDate = getFormattedDate(post.postedAt, 'photoStyle')
 
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
 

@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const PostHeader = ({
-  frontmatter: { title, publishedAt, excerpt, image, author },
+  frontmatter: { title, postedAt, excerpt, image, author },
 }: Props) => {
   const imageSrc = getUploadCareUrl(image.url, '1000x500')
   return (
@@ -26,7 +26,7 @@ export const PostHeader = ({
       <div className={styles.info}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.excerpt}>{excerpt}</div>
-        <div className={styles.date}>{getFormattedDate(publishedAt)}</div>
+        <div className={styles.date}>{getFormattedDate(postedAt)}</div>
         <div className={styles.author}>BY {author.name}</div>
       </div>
     </div>

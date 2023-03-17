@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Avatar from './avatar'
 
 export default function PostPreview({ post }) {
-  const { title, excerpt, author, slug, publishedAt, tags } = post
+  const { title, excerpt, author, slug, postedAt, tags } = post
 
   return (
     <div className="mt-24 mb-10">
@@ -12,7 +12,7 @@ export default function PostPreview({ post }) {
           {title}
         </Link>
       </h3>
-      <div className="mb-4 text-lg">{publishedAt}</div>
+      <div className="mb-4 text-lg">{postedAt}</div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
       <Avatar name={author.name} picture={author.image} />
 

@@ -13,7 +13,7 @@ interface ImageObject {
 
 interface PostObjectBase extends MarkdownFileBase {
   author: string
-  publishedAt: string
+  postedAt: string
   excerpt: string
   keywords?: string
   image: ImageObject

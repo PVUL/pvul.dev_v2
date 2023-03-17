@@ -6,8 +6,6 @@ import { join } from 'path'
 import { getPlaiceholder } from 'plaiceholder'
 import { STATUS } from '../../../utils/constants'
 
-// import { getAuthorDetails } from '../../../lib/api'
-
 export const postsDirectory = join(process.cwd(), '_content/posts')
 const authorsDirectory = join(process.cwd(), '_content/authors')
 const categoriesDirectory = join(process.cwd(), '_content/categories')
@@ -124,9 +122,9 @@ export const getPostSource = async (slug: string) => {
     source: mdxSource,
     frontmatter: {
       ...data,
-      author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
+      author: getAuthor(data.author),
       // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
-      publishedAt: JSON.parse(JSON.stringify(data.publishedAt)),
+      postedAt: JSON.parse(JSON.stringify(data.postedAt)),
       image: {
         ...data.image,
         placeholder: await getPlaiceholder(data.image.url),
@@ -191,7 +189,7 @@ export const getPost = (
     tags,
     content,
     // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
-    publishedAt: JSON.parse(JSON.stringify(data.publishedAt)),
+    postedAt: JSON.parse(JSON.stringify(data.postedAt)),
   }
 
   if (fields !== undefined && fields.length) {
@@ -234,7 +232,7 @@ export const getPosts = (fields: string[] | undefined = undefined) => {
       (post) =>
         post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
     )
-    .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
+    .sort((a, b) => (a.postedAt > b.postedAt ? -1 : 1))
 }
 
 /**
