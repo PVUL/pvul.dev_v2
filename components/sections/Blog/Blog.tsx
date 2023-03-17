@@ -42,7 +42,7 @@ export const Blog = ({ posts }: Props) => {
           const imageDims = isFirstPost ? '1000x500' : '500x250'
           const width = isFirstPost ? 1000 : 500
           const height = isFirstPost ? 500 : 250
-          const postImage = getUploadCareUrl(post.coverImage, imageDims)
+          const postImage = getUploadCareUrl(post.image.url, imageDims)
 
           // this should probably move into it's own function
           const postName = post.title.replaceAll(' ', '-').toLowerCase()
@@ -59,8 +59,8 @@ export const Blog = ({ posts }: Props) => {
                     className={styles.image}
                     width={width}
                     height={height}
-                    // placeholder="blur"
-                    // blurDataURL={post.placeholderImage?.base64}
+                    placeholder="blur"
+                    blurDataURL={post.image.placeholder}
                   />
                 </div>
                 <div className={styles.body}>

@@ -50,15 +50,32 @@ export default {
           widget: 'string',
         },
         {
+          name: 'status',
+          label: 'status',
+          widget: 'select',
+          options: ['scheduled publishing', 'published', 'draft', 'archive'],
+          default: 'scheduled publishing',
+        },
+        {
           name: 'publishedAt',
           label: 'Published At',
           widget: 'datetime',
           // format: '', // default to ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`
         },
         {
-          name: 'coverImage',
-          label: 'Cover Image',
-          widget: 'image',
+          name: 'category',
+          label: 'Category',
+          widget: 'relation',
+          collection: 'categories',
+          search_fields: ['title', 'slug'],
+          value_field: '{{slug}}',
+          display_fields: ['title', 'slug'],
+          default: '_',
+        },
+        {
+          name: 'excerpt',
+          label: 'Excerpt',
+          widget: 'text',
           required: true,
         },
         {
@@ -72,14 +89,24 @@ export default {
           default: 'paul-yun',
         },
         {
-          name: 'category',
-          label: 'Category',
-          widget: 'relation',
-          collection: 'categories',
-          search_fields: ['title', 'slug'],
-          value_field: '{{slug}}',
-          display_fields: ['title', 'slug'],
-          default: '_',
+          name: 'image',
+          label: 'Image',
+          widget: 'object',
+          summary: '{{fields.name}}',
+          fields: [
+            {
+              name: 'url',
+              label: 'Url',
+              widget: 'image',
+              required: true,
+            },
+            {
+              name: 'alt',
+              label: 'Alt',
+              widget: 'string',
+              required: true,
+            },
+          ],
         },
         {
           name: 'tags',
@@ -93,10 +120,10 @@ export default {
           multiple: true,
         },
         {
-          name: 'excerpt',
-          label: 'Excerpt',
-          widget: 'text',
-          required: true,
+          names: 'keywords',
+          label: 'SEO Keywords',
+          widget: 'string',
+          required: false,
         },
         {
           name: 'body',

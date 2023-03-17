@@ -16,6 +16,9 @@
   }
 
   .date {
-    @apply mb-6 italic text-gray-400;
+    @apply italic text-gray-400 mb-1;
+  }
+  .author {
+    @apply text-xs font-semibold mb-6 uppercase;
   }
 }

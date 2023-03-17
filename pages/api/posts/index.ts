@@ -4,6 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
 import { getPlaiceholder } from 'plaiceholder'
+import { UNPUBLISHED } from '../../../utils/constants'
 
 // import { getAuthorDetails } from '../../../lib/api'
 
@@ -15,9 +16,20 @@ const tagsDirectory = join(process.cwd(), '_content/tags')
 /**
  * Returns a list of posts sub-directories located at `_content/posts/`.
  *
- * @returns string[]
+ * Filters out 'unpublished' posts, unless in dev environment
+ *
+ * NOTE: specifying category of 'unpublished' will still show up on production
+ * it is there as a label only for now. To hide, must move into the subdirectory.
+ *
+ * @returns string[] list of subdirectory folder names
  */
-const getPostsSubDirectories = () => fs.readdirSync(postsDirectory)
+const getPostsSubDirectories = () =>
+  fs
+    .readdirSync(postsDirectory)
+    .filter(
+      (subDir) =>
+        process.env.NODE_ENV === 'development' || subDir !== UNPUBLISHED
+    )
 
 /**
  * Returns frontmatter data from a filepath.
@@ -125,8 +137,11 @@ export const getPostSource = async (slug: string) => {
       author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
       // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
       publishedAt: JSON.parse(JSON.stringify(data.publishedAt)),
+      image: {
+        ...data.image,
+        placeholder: await getPlaiceholder(data.image.url),
+      },
     },
-    placeholderImage: await getPlaiceholder(data.coverImage),
   }
 }
 

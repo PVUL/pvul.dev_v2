@@ -16,15 +16,14 @@ const BlogPage = ({ posts }: { posts: NestedPostObject[] }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts: any[] = getPosts()
-  // await Promise.all(
-  //   getPosts().map(async (post) => {
-  //     const placeholderImage = await getPlaiceholder(post.coverImage)
-  //     posts.push({ ...post, placeholderImage })
-  //   })
-  // )
+  const posts: any[] = []
 
-  // console.log(posts.map((p) => console.log(p.publishedAt)))
+  await Promise.all(
+    getPosts().map(async (post) => {
+      const placeholder = await getPlaiceholder(post.image.url)
+      posts.push({ ...post, image: { ...post.image, placeholder } })
+    })
+  )
 
   return {
     props: { posts },

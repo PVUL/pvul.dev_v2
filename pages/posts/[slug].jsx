@@ -14,14 +14,13 @@ export default function PostPage(props) {
   const {
     source: { compiledSource },
     frontmatter,
-    placeholderImage,
   } = props
   const router = useRouter()
   const {
     query: { slug },
   } = router
 
-  const imageUrl = getUploadCareUrl(frontmatter.coverImage, '1200x630')
+  const imageUrl = getUploadCareUrl(frontmatter.image.url, '1200x630')
 
   return (
     <Layout>
@@ -45,7 +44,6 @@ export default function PostPage(props) {
               frontmatter={frontmatter}
               compiledSource={compiledSource}
               components={components}
-              placeholderImage={placeholderImage}
             />
           </>
         )}
