@@ -10,8 +10,11 @@ export default {
   },
   local_backend: true,
   publish_mode: 'editorial_workflow',
-  site_url: 'https://paulyun.co',
-  display_url: 'paulyun.co',
+  site_url:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://paulyun.co',
+  // display_url: '',
   media_library: {
     name: 'uploadcare',
     config: {
@@ -30,7 +33,7 @@ export default {
       path: '{{category}}/{{year}}-{{month}}-{{day}}_{{slug}}',
       extension: 'mdx',
       format: 'frontmatter',
-      sortable_fields: ['title', 'publishedAt'],
+      sortable_fields: ['title', 'postedAt'],
       view_groups: [
         {
           label: 'Category /',
@@ -39,7 +42,7 @@ export default {
       ],
       create: true,
       delete: false,
-      preview_path: 'posts/{{slug}}',
+      preview_path: 'posts/',
       fields: [
         {
           name: 'title',
@@ -47,18 +50,33 @@ export default {
           widget: 'string',
         },
         {
-          name: 'publishedAt',
-          label: 'Published At',
-          widget: 'datetime',
-          format: 'LLLL',
-          date_format: 'dddd, MMMM D, YYYY',
-          time_format: 'h:mm a',
+          name: 'status',
+          label: 'status',
+          widget: 'select',
+          options: ['scheduled post', 'posted', 'draft', 'archived'],
+          default: 'scheduled post',
         },
         {
-          name: 'coverImage',
-          label: 'Cover Image',
-          widget: 'image',
-          required: false,
+          name: 'postedAt',
+          label: 'Posted At',
+          widget: 'datetime',
+          // format: '', // default to ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`
+        },
+        {
+          name: 'category',
+          label: 'Category',
+          widget: 'relation',
+          collection: 'categories',
+          search_fields: ['title', 'slug'],
+          value_field: '{{slug}}',
+          display_fields: ['title', 'slug'],
+          default: '_',
+        },
+        {
+          name: 'excerpt',
+          label: 'Excerpt',
+          widget: 'text',
+          required: true,
         },
         {
           name: 'author',
@@ -71,14 +89,24 @@ export default {
           default: 'paul-yun',
         },
         {
-          name: 'category',
-          label: 'Category',
-          widget: 'relation',
-          collection: 'categories',
-          search_fields: ['title', 'slug'],
-          value_field: '{{slug}}',
-          display_fields: ['title', 'slug'],
-          default: '_',
+          name: 'image',
+          label: 'Image',
+          widget: 'object',
+          summary: '{{fields.name}}',
+          fields: [
+            {
+              name: 'url',
+              label: 'Url',
+              widget: 'image',
+              required: true,
+            },
+            {
+              name: 'alt',
+              label: 'Alt',
+              widget: 'string',
+              required: true,
+            },
+          ],
         },
         {
           name: 'tags',
@@ -92,9 +120,9 @@ export default {
           multiple: true,
         },
         {
-          name: 'excerpt',
-          label: 'Excerpt',
-          widget: 'text',
+          name: 'keywords',
+          label: 'SEO Keywords',
+          widget: 'string',
           required: false,
         },
         {

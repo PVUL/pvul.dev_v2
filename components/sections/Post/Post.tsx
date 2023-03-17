@@ -1,29 +1,19 @@
 import { MDXRemote } from 'next-mdx-remote'
 import { PostHeader } from '../../new/PostHeader'
 import styles from './Post.module.scss'
-import { IGetPlaiceholderReturn } from 'plaiceholder'
 
 interface Props {
-  frontmatter: PostObjectBase
+  frontmatter: NestedPostObject
   compiledSource: string
   components: Record<string, React.ReactNode>
-  placeholderImage: IGetPlaiceholderReturn
 }
 
 // @see https://github.com/hashicorp/next-mdx-remote#apis
 
-export const Post = ({
-  frontmatter,
-  compiledSource,
-  components,
-  placeholderImage,
-}: Props) => {
+export const Post = ({ frontmatter, compiledSource, components }: Props) => {
   return (
     <section className={styles.post}>
-      <PostHeader
-        frontmatter={frontmatter}
-        placeholderImage={placeholderImage}
-      />
+      <PostHeader frontmatter={frontmatter} />
       <article className={styles.body}>
         <MDXRemote compiledSource={compiledSource} components={components} />
       </article>

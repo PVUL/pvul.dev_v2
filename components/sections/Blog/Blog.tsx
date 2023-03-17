@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Blog.module.scss'
 import { useState } from 'react'
-import { getUploadCareUrl } from '../../../utils'
+import { getFormattedDate, getUploadCareUrl } from '../../../utils'
 
 interface Props {
   posts: NestedPostObject[]
@@ -34,16 +34,7 @@ export const Blog = ({ posts }: Props) => {
         {displayPosts.map((post, i) => {
           const postCategory =
             post.category.title === '_' ? '' : post.category.title
-          const splitDate = new Date(post.publishedAt)
-            .toLocaleDateString(
-              'en-US',
-              // date format: `m/d/yy`
-              { year: '2-digit', month: 'numeric', day: 'numeric' }
-            )
-            .split('/')
-
-          // format to: `m d 'yy` - vintage photograph style datestamp
-          const postDate = `${splitDate[0]} ${splitDate[1]} '${splitDate[2]}`
+          const postDate = getFormattedDate(post.postedAt, 'photoStyle')
 
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
 
@@ -51,7 +42,7 @@ export const Blog = ({ posts }: Props) => {
           const imageDims = isFirstPost ? '1000x500' : '500x250'
           const width = isFirstPost ? 1000 : 500
           const height = isFirstPost ? 500 : 250
-          const postImage = getUploadCareUrl(post.coverImage, imageDims)
+          const postImage = getUploadCareUrl(post.image.url, imageDims)
 
           // this should probably move into it's own function
           const postName = post.title.replaceAll(' ', '-').toLowerCase()
@@ -69,7 +60,7 @@ export const Blog = ({ posts }: Props) => {
                     width={width}
                     height={height}
                     placeholder="blur"
-                    blurDataURL={post.placeholderImage?.base64}
+                    blurDataURL={post.image.placeholder}
                   />
                 </div>
                 <div className={styles.body}>

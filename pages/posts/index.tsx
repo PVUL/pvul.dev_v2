@@ -20,12 +20,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
   await Promise.all(
     getPosts().map(async (post) => {
-      const placeholderImage = await getPlaiceholder(post.coverImage)
-      posts.push({ ...post, placeholderImage })
+      const placeholder = await getPlaiceholder(post.image.url)
+      posts.push({ ...post, image: { ...post.image, placeholder } })
     })
   )
-
-  console.log(posts)
 
   return {
     props: { posts },

@@ -4,8 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { join } from 'path'
 import { getPlaiceholder } from 'plaiceholder'
-
-// import { getAuthorDetails } from '../../../lib/api'
+import { STATUS } from '../../../utils/constants'
 
 export const postsDirectory = join(process.cwd(), '_content/posts')
 const authorsDirectory = join(process.cwd(), '_content/authors')
@@ -15,7 +14,7 @@ const tagsDirectory = join(process.cwd(), '_content/tags')
 /**
  * Returns a list of posts sub-directories located at `_content/posts/`.
  *
- * @returns string[]
+ * @returns string[] list of subdirectory folder names
  */
 const getPostsSubDirectories = () => fs.readdirSync(postsDirectory)
 
@@ -116,15 +115,21 @@ export const getPostSource = async (slug: string) => {
   const { data, content } = getFrontmatterFromPath(
     join(postsDirectory, filePath)
   )
+
   const mdxSource = await serialize(content)
 
   return {
     source: mdxSource,
     frontmatter: {
       ...data,
-      author: getAuthor(data.author), // was getAuthorDetails, @todo confirm this is working
+      author: getAuthor(data.author),
+      // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
+      postedAt: JSON.parse(JSON.stringify(data.postedAt)),
+      image: {
+        ...data.image,
+        placeholder: await getPlaiceholder(data.image.url),
+      },
     },
-    placeholderImage: await getPlaiceholder(data.coverImage),
   }
 }
 
@@ -183,6 +188,8 @@ export const getPost = (
     category,
     tags,
     content,
+    // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
+    postedAt: JSON.parse(JSON.stringify(data.postedAt)),
   }
 
   if (fields !== undefined && fields.length) {
@@ -221,7 +228,11 @@ export const getPosts = (fields: string[] | undefined = undefined) => {
 
   return fileNames
     .map((fileName) => getPost(fileName, fields, true))
-    .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
+    .filter(
+      (post) =>
+        post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
+    )
+    .sort((a, b) => (a.postedAt > b.postedAt ? -1 : 1))
 }
 
 /**

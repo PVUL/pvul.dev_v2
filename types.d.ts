@@ -1,7 +1,3 @@
-interface PlaceholderImage {
-  base64: string
-}
-
 type MarkdownFileBase = {
   title: string
   slug?: string
@@ -9,18 +5,26 @@ type MarkdownFileBase = {
   [x: string]: any // can I remove this?
 }
 
-interface PostObjectBase extends MarkdownFileBase {
-  author: string
-  publishedAt: string
-  excerpt: string
-  coverImage: string
-  placeholderImage?: PlaceholderImage
+interface ImageObject {
+  url: string
+  alt: string
+  placeholder: string
 }
 
-interface AuthorObjectBase extends MarkdownFileBase {
+interface PostObjectBase extends MarkdownFileBase {
+  author: string
+  postedAt: string
+  excerpt: string
+  keywords?: string
+  image: ImageObject
+}
+
+interface AuthorObjectBase {
+  name: string
   image: string
   twitter: string
   shortBio: string
+  content: string
 }
 
 interface NestedPostObject extends PostObjectBase {
