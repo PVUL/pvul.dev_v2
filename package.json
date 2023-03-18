@@ -10,6 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@code-hike/mini-browser": "0.3.0--canary.67.b6f3cda.0",
     "@code-hike/mini-editor": "0.3.0--canary.67.b6f3cda.0",
     "@code-hike/scrollycoding": "0.3.0--canary.67.2246098.0",
