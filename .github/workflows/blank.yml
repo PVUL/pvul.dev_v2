@@ -23,12 +23,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            content:
-              - '_content/**'
-
+      # - uses: dorny/paths-filter@v2
+      #   id: filter
+      #   with:
+      #     filters: |
+      #       content:
+      #         - '_content/**'
       - uses: pvul/check-files-action@main
-        if: ${{ steps.filter.content == 'true' }}
+        # if: ${{ steps.filter.content == 'true' }}
