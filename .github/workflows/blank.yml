@@ -56,4 +56,4 @@ jobs:
             steps.filter.outputs.mdx == 'true'
           )
         env:
-          filePath: steps.filter.outputs.addedContent_files
+          filePath: ${{ steps.filter.outputs.addedContent_files }}
