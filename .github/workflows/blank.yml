@@ -43,11 +43,15 @@ jobs:
       - name: Dump steps context
         run: echo '${{ toJSON(steps)}}'
 
+        # THE CONDITIONS BEFORE RUNNING CHECKS
+        # steps.filter.outputs.allChanges_count == '1' &&
+        # steps.filter.outputs.addedContent == 'true' &&
+        # steps.filter.outputs.mdx == 'true'
+
       - name: Check Files forreal
         uses: pvul/check-files-action@main
         if: |
           (
-            steps.filter.outputs.allChanges_count == '1' &&
             steps.filter.outputs.addedContent == 'true' &&
             steps.filter.outputs.mdx == 'true'
           )
