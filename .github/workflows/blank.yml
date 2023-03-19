@@ -31,11 +31,13 @@ jobs:
               - '**/*.mdx'
             yml:
               - '**/*.yml'
+            content:
+              - '_content/**'
 
       - name: Check Files
         # uses: pvul/check-files-action@main
-        if: ${{ steps.filter.outputs.content == 'true' }}
-        run: echo '${{ steps.filter.outputs }}'
+        # if: ${{ steps.filter.outputs.content == 'true' }}
+        run: echo '${{ steps.filter.outputs.content }}'
 
       - name: Dump steps context
         run: echo '${{ toJSON(steps)}}'
