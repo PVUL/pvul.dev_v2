@@ -1,4 +1,6 @@
-# pvul.dev (v2)
+pvul.dev (v2)
+
+# NOTE THIS SHOULD FAIL THE GITHUB ACTION
 
 This my personal page for pvul.dev. It has a built-in blog and a git-based CMS accessible at `/admin` endpoint (netlify-cms).
 
