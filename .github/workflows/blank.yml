@@ -29,21 +29,25 @@ jobs:
           filters: |
             mdx:
               - '**/*.mdx'
-            yml:
-              - '**/*.yml'
-            content:
-              - '_content/**'
             allChanges:
               - added|deleted|modified: '**'
+            addedContent:
+              - added: '_content/**'
+            list-files: csv
 
       - name: Check Files
         # uses: pvul/check-files-action@main
         # if: ${{ steps.filter.outputs.content == 'true' }}
-        run: echo '${{ steps.filter.outputs.allChanges_count }}'
+        run: echo '${{ steps.filter.outputs.addedContent_files }}'
 
       - name: Dump steps context
         run: echo '${{ toJSON(steps)}}'
 
       - name: Check Files forreal
         uses: pvul/check-files-action@main
-        if: steps.filter.outputs.mdx == 'true'
+        if: |
+          (
+            steps.filter.outputs.allChanges_count == '1' &&
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
