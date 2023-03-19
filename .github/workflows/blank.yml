@@ -5,8 +5,6 @@ name: Simple Workflow
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  # push:
-  # branches: [ "main" ]
   pull_request:
     branches: ['main']
 
@@ -25,28 +23,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            content:
-              - '_content/**'
-
-      # - shell: pwsh
-      #   # Give an id to the step, so we can reference it later
-      #   id: check_file_changed
-      #   run: |
-      #     # Diff HEAD with the previous commit
-      #     $diff = git diff --name-only HEAD^ HEAD
-
-      #     # Check if a file under docs/ or with the .md extension has changed (added, modified, deleted)
-      #     $SourceDiff = $diff | Where-Object { $_ -match '^docs/' -or $_ -match '.md$' }
-      #     $HasDiff = $SourceDiff.Length -gt 0
-
-      #     # Set the output named "docs_changed"
-      #     Write-Host "::set-output name=docs_changed::$HasDiff"
+      # - uses: dorny/paths-filter@v2
+      #   id: filter
+      #   with:
+      #     filters: |
+      #       content:
+      #         - '_content/**'
 
       # Call my powerful action!
       - name: Check Files
-        if: steps.filter.content == 'true'
         uses: pvul/check-files-action@main
