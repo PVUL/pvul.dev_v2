@@ -43,7 +43,7 @@ jobs:
           filters: |
             content:
               - '_content/**'
-          # token: ${{ github.token }}
+          token: ${{ github.token }}
 
       # Call my powerful action!
       - name: Check Files
