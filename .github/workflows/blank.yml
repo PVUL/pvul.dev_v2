@@ -37,7 +37,7 @@ jobs:
 
       # conditional execution of workflow steps/jobs - https://github.com/dorny/paths-filter
       - name: Paths Filter
-      - uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
