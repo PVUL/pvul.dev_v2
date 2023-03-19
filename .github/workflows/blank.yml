@@ -33,7 +33,7 @@ jobs:
               - added|deleted|modified: '**'
             addedContent:
               - added: '_content/**'
-            list-files: 'csv'
+          list-files: 'csv'
 
       - name: Check Files
         # uses: pvul/check-files-action@main
