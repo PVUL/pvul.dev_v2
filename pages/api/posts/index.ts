@@ -124,7 +124,7 @@ export const getPostSource = async (slug: string) => {
       ...data,
       author: getAuthor(data.author),
       // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
-      postedAt: JSON.parse(JSON.stringify(data.postedAt)),
+      postDate: JSON.parse(JSON.stringify(data.postDate)),
       image: {
         ...data.image,
         placeholder: (await getPlaiceholder(data.image.url)).base64,
@@ -189,7 +189,7 @@ export const getPost = (
     tags,
     content,
     // NOTE: need to json parse and stringify, otherwise sets the value to an object not string
-    postedAt: JSON.parse(JSON.stringify(data.postedAt)),
+    postDate: JSON.parse(JSON.stringify(data.postDate)),
   }
 
   if (fields !== undefined && fields.length) {
@@ -232,7 +232,7 @@ export const getPosts = (fields: string[] | undefined = undefined) => {
       (post) =>
         post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
     )
-    .sort((a, b) => (a.postedAt > b.postedAt ? -1 : 1))
+    .sort((a, b) => (a.postDate > b.postDate ? -1 : 1))
 }
 
 /**
