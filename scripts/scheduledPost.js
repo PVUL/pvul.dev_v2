@@ -23,10 +23,10 @@ import { readFile, writeFile, rename } from 'fs/promises'
 import matter from 'gray-matter'
 import { stringify } from 'yaml'
 
-import { STATUS } from '../utils'
-
 // this is the arg that should be provided to us
 const filePath = `_content/posts/_/2023-03-12_test-two.mdx`
+const POSTED = 'posted'
+const SCHEDULED_POST = 'scheduled post'
 
 const updateFrontMatter = async (filepath) => {
   // make sure it's an mdx file
@@ -34,11 +34,12 @@ const updateFrontMatter = async (filepath) => {
 
   console.log(frontMatter)
 
-  if (frontMatter.status === STATUS.SCHEDULED_POST) {
+  if (frontMatter.status === SCHEDULED_POST) {
+    console.log('starting to make changes...')
     let updatedFrontMatter = frontMatter
     const now = new Date().toISOString()
 
-    updatedFrontMatter.status = STATUS.POSTED
+    updatedFrontMatter.status = POSTED
     updatedFrontMatter.postDate = now
     const newContent = `---\n${stringify(updatedFrontMatter)}---\n${content}`
 
