@@ -33,7 +33,7 @@ export default {
       path: '{{category}}/{{year}}-{{month}}-{{day}}_{{slug}}',
       extension: 'mdx',
       format: 'frontmatter',
-      sortable_fields: ['title', 'postedAt'],
+      sortable_fields: ['title', 'postDate'],
       view_groups: [
         {
           label: 'Category /',
@@ -57,8 +57,8 @@ export default {
           default: 'scheduled post',
         },
         {
-          name: 'postedAt',
-          label: 'Posted At',
+          name: 'postDate',
+          label: 'Post Date',
           widget: 'datetime',
           // format: '', // default to ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`
         },
