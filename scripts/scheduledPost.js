@@ -24,7 +24,7 @@ import matter from 'gray-matter'
 import { stringify } from 'yaml'
 
 // this is the arg that should be provided to us
-const filePath = `_content/posts/_/2023-03-12_test-two.mdx`
+const filepath = `_content/posts/_/2023-03-12_test-two.mdx`
 const POSTED = 'posted'
 const SCHEDULED_POST = 'scheduled post'
 
@@ -46,14 +46,13 @@ const updateFrontMatter = async (filepath) => {
     // change the filePath to include an updated date in the file name
     const nowFormatted = JSON.parse(JSON.stringify(now)).slice(0, 10) // 2023-03-20
 
-    const oldFileName = filePath.substring(filePath.lastIndexOf('/') + 1)
-    const newFileName = `${nowFormatted}_${oldFileName.split('_')[1]}`
+    let filepathParts = filepath.split('/')
+    const oldFilename = filepathParts.pop()
+    const newFilename = `${nowFormatted}_${oldFilename.split('_')[1]}`
+    const newFilepath = `${filepathParts.join('/')}/${newFilename}`
 
-    const newPath = filePath.split('/').pop().join('/') + '/' + newFileName
-
-    await writeFile(filepath, newContent).then(
-      async (f) => await f.rename(filePath, newPath)
-    )
+    await writeFile(filepath, newContent)
+    await rename(filepath, newFilepath)
   }
 
   if (frontMatter.status === POSTED) {
@@ -61,4 +60,18 @@ const updateFrontMatter = async (filepath) => {
   }
 }
 
-updateFrontMatter(filePath)
+function main = () => {
+
+  const customIndex = process.argv.indexOf('filepath')
+  let filepath;
+
+  if (customIndex > -1) {
+    filepath = process.argv[customIndex + 1]
+  }
+
+  if (filepath) {
+    updateFrontMatter(filepath)
+  } else {
+    console.log('No filepath provided.')
+  }
+}
