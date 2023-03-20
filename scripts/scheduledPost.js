@@ -60,10 +60,9 @@ const updateFrontMatter = async (filepath) => {
   }
 }
 
-function main = () => {
-
+function main() {
   const customIndex = process.argv.indexOf('filepath')
-  let filepath;
+  let filepath
 
   if (customIndex > -1) {
     filepath = process.argv[customIndex + 1]
