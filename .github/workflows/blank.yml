@@ -67,6 +67,11 @@ jobs:
 
       - name: Install Yarn dependencies
         uses: borales/actions-yarn@v4
+        if: |
+          (
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           cmd: add gray-matter
 
