@@ -22,7 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -35,20 +38,20 @@ jobs:
               - added: '_content/**'
           list-files: 'csv'
 
+      # - name: Check Files
+      # uses: pvul/check-files-action@main
+      # if: ${{ steps.filter.outputs.content == 'true' }}
+      # run: echo '${{ steps.filter.outputs.addedContent_files }}'
+
+      # - name: Dump steps context
+      #   run: echo '${{ toJSON(steps)}}'
+
+      # THE CONDITIONS BEFORE RUNNING CHECKS
+      # steps.filter.outputs.allChanges_count == '1' &&
+      # steps.filter.outputs.addedContent == 'true' &&
+      # steps.filter.outputs.mdx == 'true'
+
       - name: Check Files
-        # uses: pvul/check-files-action@main
-        # if: ${{ steps.filter.outputs.content == 'true' }}
-        run: echo '${{ steps.filter.outputs.addedContent_files }}'
-
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps)}}'
-
-        # THE CONDITIONS BEFORE RUNNING CHECKS
-        # steps.filter.outputs.allChanges_count == '1' &&
-        # steps.filter.outputs.addedContent == 'true' &&
-        # steps.filter.outputs.mdx == 'true'
-
-      - name: Check Files forreal
         uses: pvul/check-files-action@main
         if: |
           (
@@ -57,3 +60,12 @@ jobs:
           )
         env:
           filePath: ${{ steps.filter.outputs.addedContent_files }}
+      - name: Make changes to scheduled post
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
+      - name: Auto-commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: '📅 Automated changes to scheduled post'
+          file_pattern: '_content/*.mdx'
