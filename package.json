@@ -7,7 +7,8 @@
     "dev": "npm-run-all --parallel local-backend local-dev",
     "lint": "next lint",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "scheduled-post": "node scripts/scheduledPost.js --filepath"
   },
   "dependencies": {
     "@code-hike/mini-browser": "0.3.0--canary.67.b6f3cda.0",
@@ -38,6 +39,7 @@
     "sharp": "^0.31.3",
     "simple-oauth2": "^5.0.0",
     "swiper": "^8.4.6",
+    "yaml": "^2.2.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
