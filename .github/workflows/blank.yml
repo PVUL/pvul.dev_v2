@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: ['main']
 
+  # schedule:
+  # 4AM PT / 7AM PT, https://crontab.guru/every-hour
+  # - cron: 0 4 * * *
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -86,3 +90,13 @@ jobs:
         with:
           commit_message: '📅 Automated changes to scheduled post'
           file_pattern: '_content/*.mdx'
+      - name: Automated PR Merge
+        uses: reitermarkus/automerge@v2
+        if: |
+          (
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          merge-method: squash
