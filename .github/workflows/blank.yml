@@ -65,47 +65,65 @@ jobs:
         env:
           filePath: ${{ steps.filter.outputs.addedContent_files }}
 
-      - name: Install Yarn dependencies
-        uses: borales/actions-yarn@v4
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
-        with:
-          cmd: add gray-matter
+      # - name: Install Yarn dependencies
+      #   uses: borales/actions-yarn@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     cmd: add gray-matter
 
-      - name: Use Yarn script to make changes to scheduled post
-        uses: borales/actions-yarn@v4
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
-        with:
-          cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
+      # - name: Use Yarn script to make changes to scheduled post
+      #   uses: borales/actions-yarn@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
 
-      - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
-        with:
-          commit_message: '📅 Automated changes to scheduled post'
-          file_pattern: '_content/*.mdx'
+      # - name: Auto-commit changes
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     commit_message: '📅 Automated changes to scheduled post'
+      #     file_pattern: '_content/*.mdx'
+
       - name: test output
         env:
           GITHUB_CONTENT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Automated PR Merge
-        uses: reitermarkus/automerge@v2
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
+
+      # - name: Automated PR Merge
+      #   uses: gr2m/merge-schedule-action@v2
+      #   # if: |
+      #   #   (
+      #   #     steps.filter.outputs.addedContent == 'true' &&
+      #   #     steps.filter.outputs.mdx == 'true'
+      #   #   )
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     merge_method: squash
+      #     time_zone: 'America/Los_Angeles'
+      #     require_statuses_success: 'true'
+      #     automerge_fail_label: 'merge-schedule-failed'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - id: automerge
+      #   name: automerge
+      #   uses: pascalgn/automerge-action@v0.15.6
+      #   env:
+      #     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - uses: peter-evans/enable-pull-request-automerge@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
