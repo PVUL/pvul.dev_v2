@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: ['main']
 
+  # schedule:
+  # 4AM PT / 7AM PT, https://crontab.guru/every-hour
+  # - cron: 0 4 * * *
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -61,28 +65,87 @@ jobs:
         env:
           filePath: ${{ steps.filter.outputs.addedContent_files }}
 
-      - name: Install Yarn dependencies
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: add gray-matter
+      # - name: Install Yarn dependencies
+      #   uses: borales/actions-yarn@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     cmd: add gray-matter
 
-      - name: Use Yarn script to make changes to scheduled post
-        uses: borales/actions-yarn@v4
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
-        with:
-          cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
+      # - name: Use Yarn script to make changes to scheduled post
+      #   uses: borales/actions-yarn@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
 
-      - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        if: |
-          (
-            steps.filter.outputs.addedContent == 'true' &&
-            steps.filter.outputs.mdx == 'true'
-          )
+      # - name: Auto-commit changes
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   if: |
+      #     (
+      #       steps.filter.outputs.addedContent == 'true' &&
+      #       steps.filter.outputs.mdx == 'true'
+      #     )
+      #   with:
+      #     commit_message: '📅 Automated changes to scheduled post'
+      #     file_pattern: '_content/*.mdx'
+
+      - name: test output
+        env:
+          GITHUB_CONTENT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      # - uses: wow-actions/use-app-token@v2
+      #   id: generate_token
+      #   with:
+      #     app_id: ${{ secrets.APP_ID }}
+      #     private_key: ${{ secrets.PRIVATE_KEY }}
+      #     app_token_name: 'GENERATED_TOKEN'
+
+      # - name: Generate token
+      #   id: generate_token
+      #   uses: tibdex/github-app-token@v1
+      #   with:
+      #     app_id: ${{ secrets.APP_ID }}
+      #     private_key: ${{ secrets.PRIVATE_KEY }}
+
+      # - name: Automated PR Merge
+      #   uses: gr2m/merge-schedule-action@v2
+      #   # if: |
+      #   #   (
+      #   #     steps.filter.outputs.addedContent == 'true' &&
+      #   #     steps.filter.outputs.mdx == 'true'
+      #   #   )
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     merge_method: squash
+      #     time_zone: 'America/Los_Angeles'
+      #     require_statuses_success: 'true'
+      #     automerge_fail_label: 'merge-schedule-failed'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - id: automerge
+      #   name: automerge
+      #   uses: pascalgn/automerge-action@v0.15.6
+      #   env:
+      #     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Auto approve
+        # if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v2
         with:
-          commit_message: '📅 Automated changes to scheduled post'
-          file_pattern: '_content/*.mdx'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+
+      - uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash
