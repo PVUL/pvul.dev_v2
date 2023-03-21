@@ -108,12 +108,12 @@ jobs:
       #     private_key: ${{ secrets.PRIVATE_KEY }}
       #     app_token_name: 'GENERATED_TOKEN'
 
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
+      # - name: Generate token
+      #   id: generate_token
+      #   uses: tibdex/github-app-token@v1
+      #   with:
+      #     app_id: ${{ secrets.APP_ID }}
+      #     private_key: ${{ secrets.PRIVATE_KEY }}
 
       # - name: Automated PR Merge
       #   uses: gr2m/merge-schedule-action@v2
@@ -146,6 +146,6 @@ jobs:
 
       - uses: peter-evans/enable-pull-request-automerge@v2
         with:
-          token: ${{ steps.generate_token.outputs.token }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
