@@ -26,51 +26,20 @@ import { stringify } from 'yaml'
 const POSTED = 'posted'
 const SCHEDULED_POST = 'scheduled post'
 
-const now = new Date().toISOString()
+const updateScheduledPost = async (filepath) => {
+  const { data: frontMatter, content } = matter(await readFile(filepath))
 
-let filepath = ''
-let frontMatter = null
-let content = null
-
-const getMatterFile = async () => {
-  if (!frontMatter && !content) {
-    const matterFile = matter(await readFile(filepath))
-    // const { data: frontMatter, content } = matter(await readFile(filepath))
-    frontMatter = matterFile.data.frontMatter
-    content = matterFile.content
-  }
-
-  return {
-    frontMatter,
-    content,
-  }
-}
-
-const isScheduledPost = async () => {
-  const { frontMatter } = await getMatterFile()
-
-  return frontMatter.status === SCHEDULED_POST
-}
-
-const updateFrontMatter = async () => {
-  // const { data: frontMatter, content } = matter(await readFile(filepath))
-  const { frontMatter, content } = await getMatterFile()
-
-  if (await isScheduledPost()) {
+  if (frontMatter.status === SCHEDULED_POST) {
+    // update frontmatter fields
     let updatedFrontMatter = frontMatter
+    const now = new Date().toISOString()
     updatedFrontMatter.status = POSTED
     updatedFrontMatter.postDate = now
-
     const newContent = `---\n${stringify(updatedFrontMatter)}---\n${content}`
     await writeFile(filepath, newContent)
-  }
-}
 
-const updateFilename = async () => {
-  if (await isScheduledPost()) {
-    // change the filepath to include an updated date in the filename
+    // change the filename to include an updated date
     const nowFormatted = JSON.parse(JSON.stringify(now)).slice(0, 10) // ie. 2023-03-20
-
     let filepathParts = filepath.split('/')
     const oldFilename = filepathParts.pop()
     const newFilename = `${nowFormatted}_${oldFilename.split('_')[1]}`
@@ -81,11 +50,11 @@ const updateFilename = async () => {
 
 const main = () => {
   const filepathIndex = process.argv.indexOf('--filepath')
-  filepath = process.argv[filepathIndex + 1]
+  const filepath = process.argv[filepathIndex + 1]
 
   if (filepath) {
-    updateFrontMatter()
-    updateFilename()
+    updateScheduledPost(filepath)
+    console.log('✨  Updated scheduled post.')
   } else {
     console.log('No filepath provided.')
   }
