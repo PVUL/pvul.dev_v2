@@ -101,12 +101,18 @@ jobs:
           GITHUB_CONTENT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - uses: wow-actions/use-app-token@v2
+      # - uses: wow-actions/use-app-token@v2
+      #   id: generate_token
+      #   with:
+      #     app_id: ${{ secrets.APP_ID }}
+      #     private_key: ${{ secrets.PRIVATE_KEY }}
+      #     app_token_name: 'GENERATED_TOKEN'
+
+      - name: Generate token
         id: generate_token
+        uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          app_token_name: 'GENERATED_TOKEN'
 
       # - name: Automated PR Merge
       #   uses: gr2m/merge-schedule-action@v2
@@ -134,11 +140,11 @@ jobs:
         # if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: juliangruber/approve-pull-request-action@v2
         with:
-          github-token: ${{ env.GENERATED_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.pull_request.number }}
 
       - uses: peter-evans/enable-pull-request-automerge@v2
         with:
-          token: ${{ env.GENERATED_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
