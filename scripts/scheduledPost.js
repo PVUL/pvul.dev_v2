@@ -19,9 +19,9 @@
  * This allows for scheduled posts using NetlifyCMS/DecapCMS, while preserving
  * content directory file structure and mdx frontmatter attributes to stay up-to-date.
  */
-import { readFile, writeFile, rename } from 'fs/promises'
-import matter from 'gray-matter'
-import { stringify } from 'yaml'
+const { readFile, writeFile, rename } = require('fs/promises')
+const matter = require('gray-matter')
+const { stringify } = require('yaml')
 
 const POSTED = 'posted'
 const SCHEDULED_POST = 'scheduled post'
