@@ -95,6 +95,10 @@ jobs:
         with:
           commit_message: '📅 Automated changes to scheduled post'
           file_pattern: '_content/*.mdx'
+      - name: test output
+        env:
+          GITHUB_CONTENT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Automated PR Merge
         uses: reitermarkus/automerge@v2
         if: |
