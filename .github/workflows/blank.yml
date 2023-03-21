@@ -60,12 +60,29 @@ jobs:
           )
         env:
           filePath: ${{ steps.filter.outputs.addedContent_files }}
-      - name: Make changes to scheduled post
+
+      - name: Install Yarn dependencies
         uses: borales/actions-yarn@v4
         with:
+          cmd: add gray-matter
+
+      - name: Use Yarn script to make changes to scheduled post
+        uses: borales/actions-yarn@v4
+        if: |
+          (
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
+        with:
           cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
+
       - name: Auto-commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
+        if: |
+          (
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           commit_message: '📅 Automated changes to scheduled post'
           file_pattern: '_content/*.mdx'
