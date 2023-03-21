@@ -8,7 +8,7 @@
     "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "scheduled-post": "node scripts/scheduledPost.js"
+    "scheduled-post": "node scripts/scheduledPost.js --filepath"
   },
   "dependencies": {
     "@code-hike/mini-browser": "0.3.0--canary.67.b6f3cda.0",

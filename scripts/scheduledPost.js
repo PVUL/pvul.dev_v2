@@ -23,54 +23,72 @@ import { readFile, writeFile, rename } from 'fs/promises'
 import matter from 'gray-matter'
 import { stringify } from 'yaml'
 
-// this is the arg that should be provided to us
-const filepath = `_content/posts/_/2023-03-12_test-two.mdx`
 const POSTED = 'posted'
 const SCHEDULED_POST = 'scheduled post'
 
-const updateFrontMatter = async (filepath) => {
-  // make sure it's an mdx file
-  const { data: frontMatter, content } = matter(await readFile(filepath))
+const now = new Date().toISOString()
 
-  console.log(frontMatter)
+let filepath = ''
+let frontMatter = null
+let content = null
 
-  if (frontMatter.status === SCHEDULED_POST) {
-    console.log('starting to make changes...')
+const getMatterFile = async () => {
+  if (!frontMatter && !content) {
+    const matterFile = matter(await readFile(filepath))
+    // const { data: frontMatter, content } = matter(await readFile(filepath))
+    frontMatter = matterFile.data.frontMatter
+    content = matterFile.content
+  }
+
+  return {
+    frontMatter,
+    content,
+  }
+}
+
+const isScheduledPost = async () => {
+  const { frontMatter } = await getMatterFile()
+
+  return frontMatter.status === SCHEDULED_POST
+}
+
+const updateFrontMatter = async () => {
+  // const { data: frontMatter, content } = matter(await readFile(filepath))
+  const { frontMatter, content } = await getMatterFile()
+
+  if (await isScheduledPost()) {
     let updatedFrontMatter = frontMatter
-    const now = new Date().toISOString()
-
     updatedFrontMatter.status = POSTED
     updatedFrontMatter.postDate = now
-    const newContent = `---\n${stringify(updatedFrontMatter)}---\n${content}`
 
-    // change the filePath to include an updated date in the file name
-    const nowFormatted = JSON.parse(JSON.stringify(now)).slice(0, 10) // 2023-03-20
+    const newContent = `---\n${stringify(updatedFrontMatter)}---\n${content}`
+    await writeFile(filepath, newContent)
+  }
+}
+
+const updateFilename = async () => {
+  if (await isScheduledPost()) {
+    // change the filepath to include an updated date in the filename
+    const nowFormatted = JSON.parse(JSON.stringify(now)).slice(0, 10) // ie. 2023-03-20
 
     let filepathParts = filepath.split('/')
     const oldFilename = filepathParts.pop()
     const newFilename = `${nowFormatted}_${oldFilename.split('_')[1]}`
     const newFilepath = `${filepathParts.join('/')}/${newFilename}`
-
-    await writeFile(filepath, newContent)
     await rename(filepath, newFilepath)
-  }
-
-  if (frontMatter.status === POSTED) {
-    console.log('Already posted.')
   }
 }
 
-function main() {
-  const customIndex = process.argv.indexOf('filepath')
-  let filepath
-
-  if (customIndex > -1) {
-    filepath = process.argv[customIndex + 1]
-  }
+const main = () => {
+  const filepathIndex = process.argv.indexOf('--filepath')
+  filepath = process.argv[filepathIndex + 1]
 
   if (filepath) {
-    updateFrontMatter(filepath)
+    updateFrontMatter()
+    updateFilename()
   } else {
     console.log('No filepath provided.')
   }
 }
+
+main()
