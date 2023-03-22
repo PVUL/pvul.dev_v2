@@ -45,7 +45,7 @@ interface ObjectWithPosts extends MarkdownFileBase {
 }
 
 interface SearchResult extends NestedPostObject {
-  type: 'author' | 'category' | 'post' | 'tag'
+  type: 'category' | 'post' | 'tag'
 }
 
 type CarouselImage = {

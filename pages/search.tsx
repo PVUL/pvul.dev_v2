@@ -1,5 +1,6 @@
 import type { GetStaticProps } from 'next'
 import { useEffect, useRef, useState } from 'react'
+import { getSearch } from './api/search'
 
 export default function Search({ search }: { search: SearchResult[] }) {
   const [searchValue, setSearchValue] = useState('')
@@ -26,6 +27,7 @@ export default function Search({ search }: { search: SearchResult[] }) {
 
   return (
     <>
+      <span>Search: </span>
       <input
         id="search"
         value={searchValue}
@@ -36,7 +38,10 @@ export default function Search({ search }: { search: SearchResult[] }) {
       />
       <section>
         {searchItems.map((search, i) => (
-          <div key={i}>{search.title}</div>
+          <div key={i} className="p-6 mb-4 bg-pink-100">
+            <h2>{search.type}</h2>
+            <h3>{search.title}</h3>
+          </div>
         ))}
       </section>
     </>
