@@ -48,7 +48,7 @@ jobs:
         uses: pvul/check-files-action@main
         if: |
           (
-            steps.filter.outputs.allChanges_count == '1'
+            steps.filter.outputs.allChanges_count == '1' &&
             steps.filter.outputs.addedContent == 'true' &&
             steps.filter.outputs.mdx == 'true'
           )
@@ -59,7 +59,7 @@ jobs:
         uses: borales/actions-yarn@v4
         if: |
           (
-            steps.filter.outputs.allChanges_count == '1'
+            steps.filter.outputs.allChanges_count == '1' &&
             steps.filter.outputs.addedContent == 'true' &&
             steps.filter.outputs.mdx == 'true'
           )
