@@ -3,15 +3,18 @@ import matter from 'gray-matter'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { join } from 'path'
 
-import { getPosts, categoriesDirectory } from '../posts'
+import { categoriesDirectory, getPosts } from '../posts'
 
-export function getPostsByCategory(
+export const getPostsByCategory = (
   category: string,
   fields: string[] | undefined = undefined
-) {
+) => {
   const updatedFields =
     fields && fields.length > 0 ? [...fields, 'category'] : []
 
+  // note: ideally we want to use getPostsWithPlaceholderImages
+  // however it breaks the getStaticPaths on /[category]
+  // so leaving this here for now.
   const posts = getPosts(updatedFields)
 
   // this looks like a bandaid fix to filter non-category posts
@@ -28,11 +31,11 @@ export function getPostsByCategory(
   return posts
 }
 
-export function getCategoryBySlug(
+export const getCategoryBySlug = (
   slug: string,
   fields: string[] | undefined = undefined,
   nested = false
-) {
+) => {
   const categorySlug = slug.replace(/\.md$/, '')
   const fullPath = join(categoriesDirectory, `${categorySlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -40,12 +43,7 @@ export function getCategoryBySlug(
 
   const posts =
     nested && (!fields || fields.length === 0 || fields.includes('posts'))
-      ? getPostsByCategory(categorySlug, [
-          'title',
-          'category',
-          'excerpt',
-          'thumbnail',
-        ])
+      ? getPostsByCategory(categorySlug)
       : undefined
 
   const category: { [x: string]: unknown } = {
@@ -69,7 +67,7 @@ export function getCategoryBySlug(
   return category
 }
 
-export function getCategories(fields: string[] | undefined = undefined) {
+export const getCategories = (fields: string[] | undefined = undefined) => {
   if (!fs.existsSync(categoriesDirectory)) {
     return []
   }

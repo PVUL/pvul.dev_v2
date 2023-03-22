@@ -53,15 +53,17 @@ export const Blog = ({ posts }: Props) => {
               <li className={styles.postPreview}>
                 <div className={styles.imageContainer}>
                   <div className={styles.date}>{postDate}</div>
-                  <Image
-                    src={postImage}
-                    alt={post.title}
-                    className={styles.image}
-                    width={width}
-                    height={height}
-                    placeholder="blur"
-                    blurDataURL={post.image?.placeholder}
-                  />
+                  {post.image && (
+                    <Image
+                      src={postImage}
+                      alt={post.title}
+                      className={styles.image}
+                      width={width}
+                      height={height}
+                      placeholder={post.image?.placeholder ? 'blur' : undefined}
+                      blurDataURL={post.image?.placeholder}
+                    />
+                  )}
                 </div>
                 <div className={styles.body}>
                   <div className={styles.category}>{postCategory}</div>

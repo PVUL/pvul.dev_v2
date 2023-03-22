@@ -173,7 +173,7 @@ export const getPost = (
       ? getAuthor(data.author)
       : data.author
 
-  const tags: MarkdownFileBase[] = []
+  const tags: MarkdownFileObject[] = []
 
   if (nested && data.tags && data.tags.length > 0) {
     data.tags.forEach((tag: string) => tags.push(getTag(tag)))
@@ -239,6 +239,26 @@ export const getPosts = (fields: string[] | undefined = undefined) =>
         post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
     )
     .sort((a, b) => (a.postDate > b.postDate ? -1 : 1))
+
+/**
+ * Get posts with placeholder images. This is work around due to getPlaiceholder using promises.
+ *
+ * @param fields
+ * @returns [] posts
+ */
+export const getPostsWithPlaceholderImages = async (
+  fields: string[] | undefined = undefined
+) => {
+  const posts: any[] = []
+  await Promise.all(
+    getPosts(fields).map(async (post) => {
+      const placeholder = (await getPlaiceholder(post.image.url)).base64
+      posts.push({ ...post, image: { ...post.image, placeholder } })
+    })
+  )
+
+  return posts
+}
 
 /**
  * Next handler.
