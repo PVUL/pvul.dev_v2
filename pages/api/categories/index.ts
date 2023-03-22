@@ -56,7 +56,7 @@ export function getCategoryBySlug(
   }
 
   if (fields !== undefined && fields.length) {
-    const filteredCategory: { [x: string]: unknown } = { slug: realSlug }
+    const filteredCategory: { [x: string]: unknown } = { slug: categorySlug }
 
     fields.forEach((field) => {
       if (field !== slug && category[field]) {
