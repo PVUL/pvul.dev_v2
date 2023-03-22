@@ -68,23 +68,47 @@ jobs:
 
       - name: Yarn run scheduled-post
         uses: borales/actions-yarn@v4
+        if: |
+          (
+            steps.filter.outputs.allChanges_count == '1' &&
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           cmd: run scheduled-post ${{ steps.filter.outputs.addedContent_files }} # runs `yarn run scheduled-post`
 
       - name: Auto-commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
+        if: |
+          (
+            steps.filter.outputs.allChanges_count == '1' &&
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           commit_message: '📅 Automated changes to scheduled post'
           file_pattern: '_content/*.mdx'
 
       - name: Auto-approve PR
         uses: juliangruber/approve-pull-request-action@v2
+        if: |
+          (
+            steps.filter.outputs.allChanges_count == '1' &&
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.pull_request.number }}
 
       - name: Auto-merge PR
         uses: peter-evans/enable-pull-request-automerge@v2
+        if: |
+          (
+            steps.filter.outputs.allChanges_count == '1' &&
+            steps.filter.outputs.addedContent == 'true' &&
+            steps.filter.outputs.mdx == 'true'
+          )
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           pull-request-number: ${{ github.event.pull_request.number }}
