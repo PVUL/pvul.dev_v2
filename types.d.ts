@@ -44,6 +44,10 @@ interface ObjectWithPosts extends MarkdownFileBase {
   posts: NestedPostObject[]
 }
 
+interface SearchResult extends NestedPostObject {
+  type: 'author' | 'category' | 'post' | 'tag'
+}
+
 type CarouselImage = {
   alt: string
   source: string
