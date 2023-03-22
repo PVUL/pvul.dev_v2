@@ -1,8 +1,14 @@
-type MarkdownFileBase = {
-  title: string
+type MarkdownFileObject = {
+  title?: string
   slug?: string
   content?: string
-  [x: string]: any // can I remove this?
+  [x: string]: any
+}
+
+type MarkdownFileBase = {
+  title: string
+  slug: string
+  content: string
 }
 
 interface ImageObject {
@@ -32,6 +38,10 @@ interface NestedPostObject extends PostObjectBase {
   author: AuthorObjectBase
   category: MarkdownFileBase
   tags?: MarkdownFileBase[]
+}
+
+interface ObjectWithPosts extends MarkdownFileBase {
+  posts: NestedPostObject[]
 }
 
 type CarouselImage = {

@@ -33,7 +33,7 @@ export const Blog = ({ posts }: Props) => {
       <ul className={styles.posts}>
         {displayPosts.map((post, i) => {
           const postCategory =
-            post.category.title === '_' ? '' : post.category.title
+            post.category?.title === '_' ? '' : post.category?.title
           const postDate = getFormattedDate(post.postDate, 'photoStyle')
 
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
@@ -42,7 +42,7 @@ export const Blog = ({ posts }: Props) => {
           const imageDims = isFirstPost ? '1000x500' : '500x250'
           const width = isFirstPost ? 1000 : 500
           const height = isFirstPost ? 500 : 250
-          const postImage = getUploadCareUrl(post.image.url, imageDims)
+          const postImage = getUploadCareUrl(post.image?.url, imageDims)
 
           // this should probably move into it's own function
           const postName = post.title.replaceAll(' ', '-').toLowerCase()
@@ -60,7 +60,7 @@ export const Blog = ({ posts }: Props) => {
                     width={width}
                     height={height}
                     placeholder="blur"
-                    blurDataURL={post.image.placeholder}
+                    blurDataURL={post.image?.placeholder}
                   />
                 </div>
                 <div className={styles.body}>

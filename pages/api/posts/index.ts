@@ -7,8 +7,8 @@ import { getPlaiceholder } from 'plaiceholder'
 import { STATUS } from '../../../utils/constants'
 
 export const postsDirectory = join(process.cwd(), '_content/posts')
+export const categoriesDirectory = join(process.cwd(), '_content/categories')
 const authorsDirectory = join(process.cwd(), '_content/authors')
-const categoriesDirectory = join(process.cwd(), '_content/categories')
 const tagsDirectory = join(process.cwd(), '_content/tags')
 
 /**
@@ -208,32 +208,37 @@ export const getPost = (
 }
 
 /**
+ * Returns a list of posts file names from the posts sub-directories
+ *
+ * @returns [] list of file names
+ */
+const getPostsFileNames = () => {
+  const fileNames: string[] = []
+  if (fs.existsSync(postsDirectory)) {
+    getPostsSubDirectories().forEach((subDir: string) => {
+      const subFiles = fs
+        .readdirSync(join(postsDirectory, subDir))
+        .map((file) => join(subDir, file))
+      fileNames.push(...subFiles)
+    })
+  }
+  return fileNames
+}
+
+/**
  * Get posts. Looks in `_content/posts/` sub-directories for .mdx files.
  *
  * @param fields if undefined, fields are not used for filtering
  * @returns post[]
  */
-export const getPosts = (fields: string[] | undefined = undefined) => {
-  if (!fs.existsSync(postsDirectory)) {
-    return []
-  }
-
-  const fileNames: string[] = []
-  getPostsSubDirectories().forEach((subDir: string) => {
-    const subFiles = fs
-      .readdirSync(join(postsDirectory, subDir))
-      .map((file) => join(subDir, file))
-    fileNames.push(...subFiles)
-  })
-
-  return fileNames
+export const getPosts = (fields: string[] | undefined = undefined) =>
+  getPostsFileNames()
     .map((fileName) => getPost(fileName, fields, true))
     .filter(
       (post) =>
         post.status === STATUS.POSTED || process.env.NODE_ENV === 'development'
     )
     .sort((a, b) => (a.postDate > b.postDate ? -1 : 1))
-}
 
 /**
  * Next handler.
