@@ -8,8 +8,8 @@ import { STATUS } from '../../../utils/constants'
 
 export const postsDirectory = join(process.cwd(), '_content/posts')
 export const categoriesDirectory = join(process.cwd(), '_content/categories')
+export const tagsDirectory = join(process.cwd(), '_content/tags')
 const authorsDirectory = join(process.cwd(), '_content/authors')
-const tagsDirectory = join(process.cwd(), '_content/tags')
 
 /**
  * Returns a list of posts sub-directories located at `_content/posts/`.
@@ -205,6 +205,47 @@ export const getPost = (
   }
 
   return post
+}
+
+export const getPostsByTag = (
+  tag: string,
+  fields: string[] | undefined = undefined
+) => {
+  const updatedFields = fields && fields.length > 0 ? [...fields, 'tags'] : []
+  const posts = getPosts(updatedFields)
+
+  for (let i = posts.length - 1; i >= 0; i--) {
+    const post = posts[i]
+
+    if (!post.tags) continue
+
+    if (typeof (post.tags as string[])[0] === 'string') {
+      if (!(post.tags as string[]).includes(tag)) {
+        posts.splice(i, 1)
+      } else {
+        // delete post.tags
+      }
+    } else {
+      let hasTag = false
+
+      for (let i = 0; i < post.tags.length; i++) {
+        const element = post.tags[i]
+
+        if (element.slug === tag) {
+          hasTag = true
+          break
+        }
+      }
+
+      if (!hasTag) {
+        posts.splice(i, 1)
+      } else {
+        // delete post.tags
+      }
+    }
+  }
+
+  return posts
 }
 
 /**
