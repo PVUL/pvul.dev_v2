@@ -3,7 +3,14 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { getCategories, getCategoryBySlug } from '../api/categories'
 import { Blog } from '../../components/sections/Blog'
 
-export default function Category({ category }: { category: ObjectWithPosts }) {
+/**
+ * `/[name-of-category]`
+ */
+export default function CategoryPage({
+  category,
+}: {
+  category: ObjectWithPosts
+}) {
   return (
     <section>
       <Blog posts={category?.posts} />

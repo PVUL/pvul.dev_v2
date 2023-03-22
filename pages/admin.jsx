@@ -2,7 +2,10 @@ import { useEffect } from 'react'
 
 import config from '../netlify-cms.config'
 
-const Admin = () => {
+/**
+ * `/admin`
+ */
+const AdminPage = () => {
   useEffect(() => {
     ;(async () => {
       const CMS = (await import('netlify-cms-app')).default
@@ -16,4 +19,4 @@ const Admin = () => {
   return <></>
 }
 
-export default Admin
+export default AdminPage

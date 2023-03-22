@@ -5,7 +5,10 @@ import { Contact } from '../../components/sections/Contact'
 import { getPostsWithPlaceholderImages } from '../api/posts'
 import { Blog } from '../../components/sections/Blog'
 
-const BlogPage = ({ posts }: { posts: NestedPostObject[] }) => {
+/**
+ * `/posts`
+ */
+const PostsPage = ({ posts }: { posts: NestedPostObject[] }) => {
   return (
     <Layout>
       <Blog posts={posts} />
@@ -22,4 +25,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default BlogPage
+export default PostsPage

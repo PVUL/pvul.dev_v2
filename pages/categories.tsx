@@ -7,14 +7,15 @@ interface ObjectWithPosts extends MarkdownFileBase {
   posts: NestedPostObject[]
 }
 
-// we'll want merge the categories into the /posts page
-export default function Categories({
+/**
+ * `/categories`
+ */
+export default function CategoriesPage({
   categories,
 }: {
   categories: ObjectWithPosts[]
 }) {
   return (
-    // <PageLayout title="Categories">
     <section>
       {categories.map(
         (category) =>
@@ -27,7 +28,6 @@ export default function Categories({
           )
       )}
     </section>
-    // </PageLayout>
   )
 }
 

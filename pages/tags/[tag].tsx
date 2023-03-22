@@ -2,6 +2,9 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { getTagBySlug, getTags } from '../api/tags'
 import { Blog } from '../../components/sections/Blog'
 
+/**
+ * `/tags/[name-of-tag]`
+ */
 export default function Tag({ tag }: { tag: ObjectWithPosts }) {
   return (
     <section>
