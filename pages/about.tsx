@@ -3,7 +3,10 @@ import Layout from '../components/layout'
 import { Contact } from '../components/sections/Contact'
 import { Values } from '../components/sections/Values'
 
-const About = () => {
+/**
+ * `/about`
+ */
+const AboutPage = () => {
   return (
     <Layout>
       <AboutMe />
@@ -13,4 +16,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutPage

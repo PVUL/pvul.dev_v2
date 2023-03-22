@@ -1,7 +1,10 @@
 import { GetStaticProps } from 'next'
 import { getTags } from '../api/tags'
 
-export default function Tags({ tags }: { tags: ObjectWithPosts[] }) {
+/**
+ * `/tags`
+ */
+export default function TagsPage({ tags }: { tags: ObjectWithPosts[] }) {
   return (
     <section>
       {tags.map((tag) => tag?.posts?.length > 0 && <div>{tag.title}</div>)}

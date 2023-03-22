@@ -2,7 +2,10 @@ import type { GetStaticProps } from 'next'
 import { useEffect, useRef, useState } from 'react'
 import { getSearch } from './api/search'
 
-export default function Search({ search }: { search: SearchResult[] }) {
+/**
+ * `/search`
+ */
+export default function SearchPage({ search }: { search: SearchResult[] }) {
   const [searchValue, setSearchValue] = useState('')
   const [searchItems, setSearchItems] = useState(search)
 

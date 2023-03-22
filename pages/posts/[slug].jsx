@@ -10,6 +10,9 @@ import { getPosts, getPostSource } from '../api/posts'
 import { getUploadCareUrl } from '../../utils'
 import { BASE_URL, OG_IMAGE_DIMS } from '../../utils/constants'
 
+/**
+ * `/posts/[name-of-post]`
+ */
 export default function PostPage(props) {
   const {
     source: { compiledSource },

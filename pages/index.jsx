@@ -7,7 +7,10 @@ import { Hero } from '../components/new/Hero'
 import { MyWork } from '../components/sections/MyWork'
 import { MyServices } from '../components/sections/MyServices'
 
-export default function Index() {
+/**
+ * `/`
+ */
+export default function IndexPage() {
   return (
     <>
       <Layout>
