@@ -5,7 +5,7 @@ import styles from './Post.module.scss'
 interface Props {
   frontmatter: NestedPostObject
   compiledSource: string
-  components: Record<string, React.ReactNode>
+  components?: Record<string, React.ReactNode>
 }
 
 // @see https://github.com/hashicorp/next-mdx-remote#apis

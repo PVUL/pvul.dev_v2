@@ -7,8 +7,16 @@
  * @param dimensions string in the format `widthxheight`, ie. `500x250`
  * @return string url of scaled cropped image
  */
-export const getUploadCareUrl = (url: string, dimensions: string) =>
-  `${url}-/scale_crop/${dimensions}/smart/`
+export const getUploadCareUrl = (url: string, dimensions: string) => {
+  // url should be provided in the format.
+  // ie. https://ucarecdn.com/863b8d1b-cf3b-4e6b-87c7-ba57a3cd6c23/pexelssteinegilliland14699589.jpg
+  // we need to remove the filename to apply image transformations via url string
+  const urlParts = url.split('/')
+  urlParts[urlParts.length - 1] = ''
+  const normalizedUrl = urlParts.join('/')
+
+  return `${normalizedUrl}-/scale_crop/${dimensions}/smart/`
+}
 
 /**
  * Get formatted date.
