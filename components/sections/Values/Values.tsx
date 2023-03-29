@@ -39,9 +39,8 @@ export const Values = () => {
       </div>
       <p className={styles.description}>
         I do my best work when I work with clients who understand where I'm
-        coming from and align with my core values. <br />
-        <br />
-        If this resonates with you, I would love to hear from you!
+        coming from and align with my core values. If this resonates with you, I
+        would love to hear from you!
       </p>
     </motion.div>
   )
