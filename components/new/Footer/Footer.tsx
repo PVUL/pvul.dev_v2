@@ -9,10 +9,6 @@ import styles from './Footer.module.scss'
 
 export const Footer = () => (
   <div className={styles.footer}>
-    <div className={styles.logo}>
-      <span className={styles.logoPrimary}>PAUL YUN</span>
-      <span className={styles.logoSecondary}>Portfolio</span>
-    </div>
     <ul className={styles.links}>
       <li>
         <Link href="/#work">WORK</Link>

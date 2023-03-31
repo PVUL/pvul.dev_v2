@@ -19,7 +19,6 @@ export const NavBar = () => {
         <Link href="/">
           <div className={styles.logo}>
             <span className={styles.logoPrimary}>PAUL YUN</span>
-            <span className={styles.logoSecondary}>Portfolio</span>
           </div>
         </Link>
 
