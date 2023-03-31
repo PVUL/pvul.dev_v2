@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .footer {
-  @apply flex items-center flex-col p-16 bg-gradient-to-t from-gray-900 to-black text-gray-200;
+  @apply flex items-center flex-col p-16 pb-10 bg-gradient-to-t from-gray-900 to-black text-gray-200;
 
   .quote {
     @apply mb-8 max-w-2xl text-center italic opacity-90;
@@ -13,17 +13,5 @@
     & li {
       @apply hover:opacity-75 transition-opacity ease-in-out duration-300;
     }
-  }
-
-  .socials {
-    @apply flex mb-8 w-24 justify-between;
-  }
-
-  .icon {
-    font-size: 1.3em;
-  }
-
-  .text {
-    @apply text-xs text-center mb-1;
   }
 }
