@@ -1,3 +1,3 @@
 .hamburgerButton {
-  @apply flex flex-col items-center justify-center w-8 h-8;
+  @apply flex flex-col items-center justify-center w-8 h-8 focus-visible:outline-none;
 }

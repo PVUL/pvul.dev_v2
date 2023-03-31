@@ -1,5 +1,5 @@
 .drawer {
-  @apply bg-black text-blue-100 w-screen min-h-screen z-20 fixed inset-y-0 space-y-6 py-2 px-7 left-0 transform -translate-y-full transition duration-700 ease-in-out opacity-0;
+  @apply bg-black text-blue-100 w-screen min-h-screen z-20 fixed inset-y-0 space-y-10 px-7 left-0 transform -translate-y-full transition duration-700 ease-in-out opacity-0;
 
   &.isOpen {
     @apply translate-y-0 opacity-100;
@@ -9,8 +9,12 @@
     @apply flex justify-end;
   }
 
+  .body {
+    @apply flex flex-col items-center;
+  }
+
   .menuLinks {
-    @apply flex flex-col items-center text-[4rem] p-8 justify-center h-[calc(100vh-7rem)];
+    @apply flex flex-col items-center text-[4rem] justify-center h-[calc(100vh-10rem)];
   }
 
   .menuLink {

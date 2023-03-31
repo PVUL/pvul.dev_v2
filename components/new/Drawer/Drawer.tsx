@@ -1,14 +1,16 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-
-import styles from './Drawer.module.scss'
-import { HamburgerButton } from '../HamburgerButton'
 import {
   clearAllBodyScrollLocks,
   disableBodyScroll,
   enableBodyScroll,
 } from 'body-scroll-lock'
+
+import styles from './Drawer.module.scss'
+import { HamburgerButton } from '../HamburgerButton'
+import { SocialLinks } from '../SocialLinks'
+import { MadeWithLove } from '../MadeWithLove'
 
 interface Props {
   isOpen: boolean
@@ -28,21 +30,11 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
     }
   }, [isOpen])
 
-  // close when clicked outside of drawer (needs work)
-  // useEffect(() => {
-  //   const checkIfClickedOutside = (e) => {}
-
-  //   document.addEventListener('click', checkIfClickedOutside)
-
-  //   return () => {
-  //     document.removeEventListener('click', checkIfClickedOutside)
-  //   }
-  // }, [isOpen, setIsOpen])
-
   // close drawer on escape key press
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
-      if (event.key === 'escape') {
+      console.log(event.key)
+      if (event.key === 'Escape') {
         setIsOpen(false)
       }
     }
@@ -58,28 +50,34 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
       <div className={styles.hamburger}>
         <HamburgerButton isOpen={true} setIsOpen={setIsOpen} />
       </div>
-      <ul className={styles.menuLinks}>
-        <li className={styles.menuLink}>
-          <Link href="/#work">
-            <span onClick={() => setIsOpen(false)}>WORK</span>
-          </Link>
-        </li>
-        <li className={styles.menuLink}>
-          <Link href="/about">
-            <span onClick={() => setIsOpen(false)}>ABOUT</span>
-          </Link>
-        </li>
-        {/* <li className={styles.menuLink}>
+      <div className={styles.body}>
+        <ul className={styles.menuLinks}>
+          <li className={styles.menuLink}>
+            <Link href="/#work">
+              <span onClick={() => setIsOpen(false)}>WORK</span>
+            </Link>
+          </li>
+          <li className={styles.menuLink}>
+            <Link href="/about">
+              <span onClick={() => setIsOpen(false)}>ABOUT</span>
+            </Link>
+          </li>
+          {/* <li className={styles.menuLink}>
           <Link href="/blog">
             <span onClick={() => setIsOpen(false)}>BLOG</span>
           </Link>
         </li> */}
-        <li className={styles.menuLink}>
-          <Link href="#contact">
-            <span onClick={() => setIsOpen(false)}>CONTACT</span>
-          </Link>
-        </li>
-      </ul>
+          <li className={styles.menuLink}>
+            <Link href="#contact">
+              <span onClick={() => setIsOpen(false)}>CONTACT</span>
+            </Link>
+          </li>
+        </ul>
+        <div>
+          <SocialLinks />
+          <MadeWithLove />
+        </div>
+      </div>
     </aside>
   )
 }
