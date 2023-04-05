@@ -133,6 +133,7 @@ export default {
               value_field: '{{slug}}',
               display_fields: ['title', 'slug'],
               multiple: false,
+              required: false,
             },
             {
               name: 'part',
@@ -140,6 +141,7 @@ export default {
               widget: 'number',
               valueType: 'int',
               min: 1,
+              required: false,
             },
           ],
         },

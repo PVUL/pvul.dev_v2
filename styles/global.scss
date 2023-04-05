@@ -13,3 +13,9 @@ html {
 .max-w-screen-870 {
   max-width: 870px;
 }
+
+// https://github.com/decaporg/decap-cms/issues/5092#issuecomment-1256321540
+[data-slate-editor] {
+  -webkit-user-modify: read-write !important;
+  -moz-user-modify: read-write !important;
+}
