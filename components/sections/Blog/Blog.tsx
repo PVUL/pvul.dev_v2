@@ -76,6 +76,7 @@ export const Blog = ({ posts }: Props) => {
         })}
       </ul>
 
+      {/* {totalNumberOfPosts > displayPosts.length && ( */}
       <button
         className={styles.loadMore}
         onClick={loadMore}
@@ -85,6 +86,7 @@ export const Blog = ({ posts }: Props) => {
           ? 'load more'
           : '｡･:*:･ﾟFin ｡･:*:･ﾟ'}
       </button>
+      {/* )} */}
     </div>
   )
 }
