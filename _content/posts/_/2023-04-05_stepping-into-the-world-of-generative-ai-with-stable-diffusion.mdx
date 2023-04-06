@@ -16,10 +16,37 @@ keywords: generative ai, stable diffusion, mac m1
 
 There's so much hype around Generative AI these days, fresh off the heels of the metaverse cool down, largely due in part to the release of ChatGPT-4 by OpenAI ([a Microsoft partner](https://openai.com/blog/openai-and-microsoft-extend-partnership)) in March 2023. Unless you've been living under a rock, I'm sure you've heard about all its greatness and faults.
 <br />
-It's certainly opened my eyes to the world of Generative AI, and I thought it might bring value to humans of the internet, if I shared my impressions and learning experiences, while I navigate the world of Generative AI through Stable Diffusion. So here we go, but first...
+It's certainly opened my eyes to the world of Generative AI, and I thought it might bring value to humans of the internet if I shared my impressions and learning experiences as I navigate the world of Generative AI through Stable Diffusion. So here we go, but first...
 
 ## What is Generative AI?
 
-Good question.
+Good question. Let's ask ChatGPT.
+
+![screenshot of me asking chatgpt to explain what generative ai is in 2 sentences](https://ucarecdn.com/023a0674-bbd0-4988-bdc4-9ae91dbcf55c/)
+
+> a type of artificial intelligence capable of creating new and original content, such as images, videos, and text using complex algorithms...
+
+That's quite good, actually— in layman's terms, it's a program that learns on its own (that's the _deep learning_ part) and applies what it's learned to perform a task, like answering my question above. I see it as the pinnacle of [biomimetics](https://en.wikipedia.org/wiki/Biomimetics), as we're training computers to learn the way humans do, or rather the way babies do, except, much quicker and with unlimited access to knowledge available on the internet. It's a both terrifying and exciting at the same time, and will most definitely change the way we live for the next 20 years.
 
 ## What is Stable Diffusion?
+
+Stable Diffusion is a deep learning text-to-image generator created by [Stability AI](https://stability.ai/), which means you can prompt the AI with words and it will spit out an image. It's not the only text-to-image generator, there's also- [Midjourney](https://www.midjourney.com/) (created by the co-founder of Leap Motion) and [DALL-E](https://openai.com/product/dall-e-2) (OpenAI), however of the options, it's the only open source option. That's why I decided to go with Stable Diffusion, as I'm an advocate for open source.
+<br />
+Next, I'll get into the my setup.
+
+
+## Setting up Stable Diffusion
+
+_Note: I'm setting up Stable Diffusion on my Mac Mini M1._
+<br />
+
+There's an amazing github repo [`AUTOMATIC1111/stable-diffusion-webui`](https://github.com/AUTOMATIC1111/stable-diffusion-webui) which I will be utilizing. In the Wiki section, it goes over the [installation instructions for Mac Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon#automatic-installation), and I'll reiterate the steps below:
+
+1. Make sure you have `brew` set up. If not, [get it](https://brew.sh).
+2. Install `cmake`, `protobuf`, `rust`, `python@3.10`, `git`, `wget`:
+```sh
+brew install cmake protobuf rust python@3.10 git wget
+```
+_Note: I used [pyenv](https://github.com/pyenv/pyenv) to install the specified version of Python, in case you too need to manage multi versions of Python._
+
+3. asdf
