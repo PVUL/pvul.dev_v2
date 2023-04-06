@@ -14,6 +14,7 @@ import getSlidesFromChildren from './code-slides'
 import Lesson from './Lesson'
 import { BlockQuote } from '../components/mdx/BlockQuote'
 import { OrderedList } from '../components/mdx/OrderedList'
+import { BorderImg } from '../components/mdx/BorderImg'
 
 const codeScrollClasses = {
   'ch-hike-step-content-unfocused': 'opacity-25 transition-opacity',
@@ -72,6 +73,7 @@ export const components = {
   PreviewSlot,
   blockquote: BlockQuote,
   ol: OrderedList,
+  BorderImg,
 }
 
 export function LessonMDX({ source }) {

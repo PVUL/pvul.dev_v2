@@ -20,9 +20,7 @@ export const BlockQuote = ({ children }) => (
       className="absolute top-0 mt-5 ml-3 leading-none sm:ml-10 text-7xl text-neutral-200"
       aria-hidden="true"
     />
-    <div className="relative px-8 mb-10 text-3xl pt-14 sm:px-14">
-      {children}
-    </div>
+    <div className="relative px-8 mb-4 text-3xl pt-14 sm:px-14">{children}</div>
   </blockquote>
 )
 
