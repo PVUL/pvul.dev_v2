@@ -17,6 +17,14 @@
     @apply text-2xl mb-4;
   }
 
+  .bottomInfo {
+    @apply flex justify-between;
+  }
+
+  .views {
+    @apply text-gray-400;
+  }
+
   .date {
     @apply italic text-gray-400 mb-1;
   }

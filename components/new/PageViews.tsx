@@ -12,5 +12,11 @@ const fetcher = async (input: RequestInfo) => {
 export const PageViews: React.FC<PageViewsProps> = ({ slug }) => {
   const { data } = useSWR(`/api/views/${slug}`, fetcher)
 
-  return <>{data?.total ? `${data.total} views` : ``}</>
+  let pageViews = ''
+  if (data?.total) {
+    pageViews = `${data.total} view`
+    if (data.total !== 1) pageViews += 's'
+  }
+
+  return <>{pageViews}</>
 }
