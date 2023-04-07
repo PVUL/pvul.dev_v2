@@ -1,14 +1,14 @@
 @import 'styles/mixins';
 
 .footer {
-  @apply flex items-center flex-col p-16 pb-10 bg-gradient-to-t from-gray-900 to-black text-gray-200;
+  @apply flex items-center flex-col py-16 px-6 sm:p-16 pb-10 bg-gradient-to-t from-gray-900 to-black text-gray-200;
 
   .quote {
     @apply mb-8 max-w-2xl text-center italic opacity-90;
   }
 
   .links {
-    @apply flex max-w-2xl w-full mb-8 justify-evenly;
+    @apply flex max-w-3xl w-full mb-8 justify-evenly;
 
     & li {
       @apply hover:opacity-75 transition-opacity ease-in-out duration-300;

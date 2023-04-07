@@ -1,6 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote'
-import { PostHeader } from '../../new/PostHeader'
+
 import styles from './Post.module.scss'
+import { PostHeader } from '../../new/PostHeader'
 
 interface Props {
   frontmatter: NestedPostObject

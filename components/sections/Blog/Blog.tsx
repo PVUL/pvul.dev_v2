@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+
 import styles from './Blog.module.scss'
-import { useState } from 'react'
 import { getFormattedDate, getUploadCareUrl } from '../../../utils'
 
 interface Props {
@@ -11,8 +12,8 @@ interface Props {
 // to do- need to handle catagory types of '_'
 // which is the same as 'general'
 export const Blog = ({ posts }: Props) => {
-  const intialNumberOfPostsToShow = 5
-  const numberOfPostsToShowPerLoad = 5
+  const intialNumberOfPostsToShow = 10
+  const numberOfPostsToShowPerLoad = 10
   const [displayPosts, setDisplayPosts] = useState(
     posts.slice(0, intialNumberOfPostsToShow)
   )
@@ -76,15 +77,17 @@ export const Blog = ({ posts }: Props) => {
         })}
       </ul>
 
-      <button
-        className={styles.loadMore}
-        onClick={loadMore}
-        disabled={displayPosts.length === totalNumberOfPosts}
-      >
-        {displayPosts.length < totalNumberOfPosts
-          ? 'load more'
-          : '｡･:*:･ﾟFin ｡･:*:･ﾟ'}
-      </button>
+      {totalNumberOfPosts > displayPosts.length && (
+        <button
+          className={styles.loadMore}
+          onClick={loadMore}
+          disabled={displayPosts.length === totalNumberOfPosts}
+        >
+          {displayPosts.length < totalNumberOfPosts
+            ? 'load more'
+            : '｡･:*:･ﾟFin ｡･:*:･ﾟ'}
+        </button>
+      )}
     </div>
   )
 }

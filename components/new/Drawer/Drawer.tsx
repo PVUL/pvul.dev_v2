@@ -33,7 +33,6 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
   // close drawer on escape key press
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
-      console.log(event.key)
       if (event.key === 'Escape') {
         setIsOpen(false)
       }
@@ -62,11 +61,11 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
               <span onClick={() => setIsOpen(false)}>ABOUT</span>
             </Link>
           </li>
-          {/* <li className={styles.menuLink}>
-          <Link href="/blog">
-            <span onClick={() => setIsOpen(false)}>BLOG</span>
-          </Link>
-        </li> */}
+          <li className={styles.menuLink}>
+            <Link href="/posts">
+              <span onClick={() => setIsOpen(false)}>BLOG</span>
+            </Link>
+          </li>
           <li className={styles.menuLink}>
             <Link href="#contact">
               <span onClick={() => setIsOpen(false)}>CONTACT</span>

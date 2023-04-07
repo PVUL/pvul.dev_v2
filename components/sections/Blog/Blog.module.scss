@@ -68,6 +68,6 @@
   }
 
   .loadMore {
-    @apply py-3 px-7 bg-black text-white rounded-md disabled:bg-gray-200  disabled:text-gray-400 hover:opacity-60 duration-300 transition-opacity ease-in-out disabled:hover:opacity-100;
+    @apply py-3 px-7 bg-black text-white rounded-md disabled:bg-white disabled:text-gray-800 hover:opacity-60 duration-300 transition-opacity ease-in-out disabled:hover:opacity-100;
   }
 }
