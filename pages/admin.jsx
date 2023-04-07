@@ -13,6 +13,8 @@ const AdminPage = () => {
         .default
       CMS.registerMediaLibrary(UploadCare)
       CMS.init({ config })
+      // css file: /public/admin.css
+      CMS.registerPreviewStyle('admin.css', { raw: false })
     })()
   }, [])
 
