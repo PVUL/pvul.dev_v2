@@ -55,7 +55,7 @@ export default {
           label: 'status',
           widget: 'select',
           options: [
-            { label: 'Scheduled Post', value: 'scheduled post' },
+            { label: 'Schedule Post', value: 'scheduled post' },
             { label: 'Post Immediately', value: 'posted' },
             { label: 'Draft', value: 'draft' },
             { label: 'Archived', value: 'archived' },
