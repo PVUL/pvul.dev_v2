@@ -40,6 +40,11 @@ Frontend stack:
 - framer-motion (for animations)
 - react-scroll-parallax (for parallax)
 
+Other services:
+
+- [Supabase](https://supabase.com/) for DB (ie. view counts)
+- [Checkly](checklyhq.com) for monitoring
+
 ---
 
 ## Style Guide + TailwindCSS Basics
