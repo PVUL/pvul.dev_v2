@@ -1,4 +1,0 @@
----
-title: lessons
----
-learn stuff

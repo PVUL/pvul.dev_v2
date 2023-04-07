@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { MiniEditor } from '@code-hike/mini-editor'
 
 import styles from './Lesson.module.scss'
-import Preview from './Preview'
+import Preview from '../Preview/Preview'
 
 function useKey(keyCode, callback) {
   useEffect(() => {

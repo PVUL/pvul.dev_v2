@@ -21,7 +21,8 @@ export default {
       publicKey: process.env.NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY,
     },
     settings: {
-      autoFilename: false,
+      autoFilename: true,
+      // defaultOperations: '/resize/800x600/',
     },
   },
   collections: [
@@ -39,6 +40,10 @@ export default {
           label: 'Category /',
           field: 'category',
         },
+        {
+          label: 'Status /',
+          field: 'status',
+        },
       ],
       create: true,
       delete: false,
@@ -53,7 +58,12 @@ export default {
           name: 'status',
           label: 'status',
           widget: 'select',
-          options: ['scheduled post', 'posted', 'draft', 'archived'],
+          options: [
+            { label: 'Schedule Post', value: 'scheduled post' },
+            { label: 'Post Immediately', value: 'posted' },
+            { label: 'Draft', value: 'draft' },
+            { label: 'Archived', value: 'archived' },
+          ],
           default: 'scheduled post',
         },
         {
@@ -70,7 +80,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
-          default: '_',
+          default: 'blog',
         },
         {
           name: 'excerpt',
@@ -188,7 +198,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
-          default: '_',
+          default: 'blog',
         },
         {
           name: 'excerpt',
