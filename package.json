@@ -16,8 +16,9 @@
     "@code-hike/scrollycoding": "0.3.0--canary.67.2246098.0",
     "@codesandbox/sandpack-react": "^0.0.6",
     "@hookform/resolvers": "^2.9.10",
+    "@supabase/supabase-js": "^2.14.0",
     "@tailwindcss/line-clamp": "^0.4.2",
-    "body-scroll-lock": "^4.0.0-beta.0",
+    "body-scroll-lock": "3.1.5",
     "clsx": "^1.2.1",
     "framer-motion": "^8.5.2",
     "gray-matter": "4.0.2",
@@ -38,6 +39,7 @@
     "sharp": "^0.31.3",
     "simple-oauth2": "^5.0.0",
     "swiper": "^8.4.6",
+    "swr": "^2.1.2",
     "yaml": "^2.2.1",
     "yup": "^0.32.11"
   },

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 import { sectionVariant, textVariant } from '../../../utils/motion'
 import { Heading } from '../../new/Heading'
@@ -16,7 +17,7 @@ export const MyServices = () => {
       className={styles.myServices}
     >
       <Heading text="What I Do" />
-      <motion.p
+      {/* <motion.p
         variants={textVariant(0.2)}
         className="py-8 w-[70vw] max-w-3xl text-lg"
       >
@@ -24,12 +25,19 @@ export const MyServices = () => {
         approach for either- I listen to your needs, conceptualize, propose
         ideas, put in the work, and deliver. I'm dedicated to delivering high
         quality work only.
-      </motion.p>
+      </motion.p> */}
       <motion.div variants={sectionVariant(0.15)} className={styles.main}>
         {services.map((service) => (
           <ServiceCard key={service.alt} service={service} />
         ))}
       </motion.div>
+      <p className={styles.text}>
+        Learn <Link href="/about">more about me</Link>. <br />
+        Interested in working together?
+      </p>
+      <div className={styles.button}>
+        <Link href="#contact">Send a message to Paul</Link>
+      </div>
     </motion.div>
   )
 }

@@ -14,4 +14,7 @@
       @apply hover:opacity-75 transition-opacity ease-in-out duration-300;
     }
   }
+  .text {
+    @apply text-xs text-center mb-1;
+  }
 }

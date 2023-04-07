@@ -11,13 +11,11 @@ interface Props {
 
 // @see https://github.com/hashicorp/next-mdx-remote#apis
 
-export const Post = ({ frontmatter, compiledSource, components }: Props) => {
-  return (
-    <section className={styles.post}>
-      <PostHeader frontmatter={frontmatter} />
-      <article className={styles.body}>
-        <MDXRemote compiledSource={compiledSource} components={components} />
-      </article>
-    </section>
-  )
-}
+export const Post = ({ frontmatter, compiledSource, components }: Props) => (
+  <section className={styles.post}>
+    <PostHeader frontmatter={frontmatter} />
+    <article className={styles.body}>
+      <MDXRemote compiledSource={compiledSource} components={components} />
+    </article>
+  </section>
+)

@@ -3,7 +3,6 @@ import { sectionVariant } from '../../../utils/motion'
 import { TextBlock } from '../../new/TextBlock'
 
 import styles from './Values.module.scss'
-import Link from 'next/link'
 
 export const Values = () => {
   return (

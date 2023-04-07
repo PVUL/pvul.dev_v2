@@ -4,4 +4,16 @@
   .main {
     @apply w-full flex flex-col flex-wrap justify-center md:flex-row;
   }
+
+  .text {
+    @apply text-lg mt-8 text-center;
+
+    a {
+      @apply text-pink-400 underline hover:opacity-75 ease-in-out transition-all;
+    }
+  }
+
+  .button {
+    @apply text-lg font-semibold mt-4 bg-black text-white px-10 py-4 rounded-md;
+  }
 }
