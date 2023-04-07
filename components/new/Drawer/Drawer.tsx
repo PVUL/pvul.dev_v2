@@ -57,13 +57,13 @@ export const Drawer = ({ isOpen, setIsOpen }: Props) => {
             </Link>
           </li>
           <li className={styles.menuLink}>
-            <Link href="/about">
-              <span onClick={() => setIsOpen(false)}>ABOUT</span>
+            <Link href="/posts">
+              <span onClick={() => setIsOpen(false)}>BLOG</span>
             </Link>
           </li>
           <li className={styles.menuLink}>
-            <Link href="/posts">
-              <span onClick={() => setIsOpen(false)}>BLOG</span>
+            <Link href="/about">
+              <span onClick={() => setIsOpen(false)}>ABOUT</span>
             </Link>
           </li>
           <li className={styles.menuLink}>

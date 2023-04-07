@@ -11,10 +11,10 @@ export const Footer = () => (
         <Link href="/#work">WORK</Link>
       </li>
       <li>
-        <Link href="/about">ABOUT</Link>
+        <Link href="/posts">BLOG</Link>
       </li>
       <li>
-        <Link href="/posts">BLOG</Link>
+        <Link href="/about">ABOUT</Link>
       </li>
       <li>
         <Link href="#contact">CONTACT</Link>
@@ -29,5 +29,6 @@ export const Footer = () => (
 
     <SocialLinks />
     <MadeWithLove />
+    <p className={styles.text}>©2023</p>
   </div>
 )
