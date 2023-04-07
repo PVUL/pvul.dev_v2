@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { SupabaseAdmin } from '../../../lib/supabase-admin'
 
-// look at implementing a redis layer to dedup ip addresses
-// that have previuosly incremented the page
-// https://upstash.com/blog/nextjs13-approuter-view-counter
-// https://github.com/chronark/chronark.com/blob/main/pages/api/incr.ts
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     // Call our stored procedure with the page_slug set by the request params slug
