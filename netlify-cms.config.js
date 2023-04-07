@@ -40,6 +40,10 @@ export default {
           label: 'Category /',
           field: 'category',
         },
+        {
+          label: 'Status /',
+          field: 'status',
+        },
       ],
       create: true,
       delete: false,
@@ -76,7 +80,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
-          default: '_',
+          default: 'blog',
         },
         {
           name: 'excerpt',
@@ -194,7 +198,7 @@ export default {
           search_fields: ['title', 'slug'],
           value_field: '{{slug}}',
           display_fields: ['title', 'slug'],
-          default: '_',
+          default: 'blog',
         },
         {
           name: 'excerpt',

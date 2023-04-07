@@ -9,7 +9,7 @@ interface Props {
   posts: NestedPostObject[]
 }
 
-// to do- need to handle catagory types of '_'
+// to do- need to handle catagory types of 'blog'
 // which is the same as 'general'
 export const Blog = ({ posts }: Props) => {
   const intialNumberOfPostsToShow = 10
@@ -34,7 +34,7 @@ export const Blog = ({ posts }: Props) => {
       <ul className={styles.posts}>
         {displayPosts.map((post, i) => {
           const postCategory =
-            post.category?.title === '_' ? '' : post.category?.title
+            post.category?.title === 'blog' ? '' : post.category?.title
           const postDate = getFormattedDate(post.postDate, 'photoStyle')
 
           // @see https://uploadcare.com/docs/transformations/image/resize-crop/#operation-smart-crop
